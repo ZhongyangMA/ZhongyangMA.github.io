@@ -1,5 +1,5 @@
 # Site settings
-title: Zhongyang MA's Blog
+title: Blog Home Page
 url: "https://zhongyangma.github.io"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
 timezone: Asia/Shanghai
@@ -12,7 +12,7 @@ author: Zhongyang Ma
 avatar: "https://github.com/ZhongyangMA/ZhongyangMA.github.io/raw/master/img/mzy.png"
 profile: Java Developer, a lifelong learner.
 #twitter_username: twitter_username
-github_username:  ZhongyangMA
+#github_username:  ZhongyangMA
 profile_links:
   Email: "mailto:mzy@mail.ustc.edu.cn"
   GitHub: "https://github.com/ZhongyangMA"
