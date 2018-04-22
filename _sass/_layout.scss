@@ -87,7 +87,7 @@ $hide-sidebar-screen-width: 1120px;
 
 	.wrapper {
 		position: relative;
-		background: #FFFFFF;
+		background: #eee;
 		box-shadow: 0 1px 4px #999;
 		outline: 1px solid #CCC;
 		&:after {
@@ -135,7 +135,7 @@ $hide-sidebar-screen-width: 1120px;
 	float: right;
 	width: $col-secnod-width;
 	padding: 20px;
-	background: #FFFFFF;
+	background: #eee;
 	z-index: 10;
 }
 .col-box{
