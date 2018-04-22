@@ -16,7 +16,7 @@ profile: Java Developer, a lifelong learner.
 profile_links:
   Email: "mailto:mzy@mail.ustc.edu.cn"
   GitHub: "https://github.com/ZhongyangMA"
-  LinkedIn: "https://www.linkedin.com/in/zhongyang-ma/?locale=en_US"
+  # LinkedIn: "https://www.linkedin.com/in/zhongyang-ma/?locale=en_US"
   # You can add more profile links above, or edit _includes/sidebar.html 
 
 # Comment Service (Disqus or 多说)
