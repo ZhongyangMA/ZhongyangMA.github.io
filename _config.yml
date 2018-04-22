@@ -10,14 +10,13 @@ description: >
 email: mzy@mail.ustc.edu.cn
 author: Zhongyang MA
 avatar: "https://github.com/ZhongyangMA/ZhongyangMA.github.io/raw/master/img/solarwind.jpg"
-profile: Java Developer, a lifelong learner.
+profile: Senior Java Developer, lifelong learner.
 #twitter_username: twitter_username
-#github_username:  ZhongyangMA
+
 profile_links:
   Email: "mailto:mzy@mail.ustc.edu.cn"
   GitHub: "https://github.com/ZhongyangMA"
   # LinkedIn: "https://www.linkedin.com/in/zhongyang-ma/?locale=en_US"
-  # You can add more profile links above, or edit _includes/sidebar.html 
 
 # Comment Service (Disqus or 多说)
 #  choose one and un-comment the line to active it
