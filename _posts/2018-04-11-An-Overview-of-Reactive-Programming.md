@@ -6,7 +6,7 @@ categories: Java Reactive
 permalink: /archivers/An-Overview-of-Reactive-Programming
 ---
 
-<h4 align = "center"><b>by Zhongyang Ma</b></h4>
+<p align = "center"><b>by Zhongyang Ma</b></p>
 <br>
 <h1>New version tools </h1>
 <p>If you are following the Java community, you may notice that the reactive programming is not something new, it's been around for a while. But in these years, it seems to be getting more and more popular. Recently, Java community released many new tools around this theme, which can be confusing sometimes. In this article, we pick some of the new updates and sort out their relationship.</p>
@@ -52,7 +52,7 @@ The Reactive Stream API is a set of interfaces, which is only a specification an
 </ol>
 <p>The picture below is a comparison of the two stacks:</p>
 <div align="center">
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/two-stacks.png" height="90%" width="90%" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/two-stacks.png" height="90%" width="90%" />
 </div>
 <p>Please note that the JDBC still don't support the Reactive asynchronous invocation. If we invoke functions which get data from MySQL, the thread will be blocked until the data returns.</p>
 
@@ -68,35 +68,35 @@ The Reactive Stream API is a set of interfaces, which is only a specification an
 The first 4 are synchronous, only the last one is asynchronous IO.</p>
 
 <h3>Blocking IO</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/io1.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/io1.jpg" />
 <p>As shown in the figure, the IO process takes two steps: (1) kernel data preparation (2) copying the data from kernel space to user space. Once the user thread invokes the IO method, the user thread will be blocked and has to wait until the data is returned. This is the blocking IO model.</p>
 
 <h3>Non-blocking IO</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/io2.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/io2.jpg" />
 <p>
 In the non-blocking IO model, after the IO function is invoked and before the kernel data is ready, the IO function could return immediately. The user thread calls the IO function many times (polling), once it finds the data is ready, it will take the second step: copying data from kernel space to user space, and in this step the user thread is blocked.
 </p>
 
 <h3>IO multiplexing</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/io3.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/io3.jpg" />
 <p>
 The user thread invokes methods like select, poll or epoll, to monitor multiple IO requests, it will be blocked until at least one IO request is ready (ready to read or write). The IO multiplexing model could process multiple IO requests by just one thread.
 </p>
 
 <h3>Signal driven I/O</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/io4.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/io4.jpg" />
 <p>
 Once the user thread invokes the IO function, it will return immediately even though the data is not ready. When the kernel data is ready, a signal function will be sent, to notify the user thread to carry on the second step, copying data from the kernel space to the user space.
 </p>
 
 <h3>Asynchronous I/O</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/io5.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/io5.jpg" />
 <p>
 In the asynchronous I/O model, the user thread will not be blocked in both of the two steps in IO operation. When the copying of data is finished in the second step, a signal function will be sent, to notify the user thread that the IO operation is complete.
 </p>
 
 <h2>Comparison between the five IO models</h2>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/io6.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/io6.jpg" />
 <p>The comparison between the five IO models is shown in this figure.[5]</p>
 
 <h2>Four IO models in Java</h2>
@@ -125,14 +125,14 @@ Channel is similar to Stream in traditional IO model. But Streams are unidirecti
 
 <h3>Buffer</h3>
 <p>Buffer can be considered as a data container, which could be implemented by an array. Either reading from a channel or writing to a channel, data must be put into the buffer first.</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/buffer.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/buffer.jpg" />
 <p>This figure shows how the data is passed from the client-side to the server-side in Java NIO.</p>
 
 <h3>Selector</h3>
 <p>Selector is the core class in Java NIO, it monitors and processes interested IO events that happened in multiple registered Channels. Through this mechanism, we could maintain multiple connections by just one thread. Only when the IO events actually happen among these connections, the IO process logic are truly invoked. There's no need to start a new thread each time when a new connection comes in, therefore it would significantly reduce the system load.
 </p><p>In company with Selector, the SelectionKey is another important class, which represents an arrived event. These two classes constitute the key logic of the NIO server[10].</p>
 <p>The figure below shows the monitoring of multiple channels (or connections) by a Selector running on a single thread.</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/selector.jpg" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/selector.jpg" />
 <p>The code below shows how to create a Selector and the events that can be set[11]:</p>
 
 ```java
@@ -199,18 +199,18 @@ while (true) {
 <p>The code example shows the simplest Reactor pattern. Now let's have a look at the summary of Reactor pattern by Doug Lea. According to his classification there're three types of Reactor pattern, they are: Single thread version, Multi-threaded version and Multi-reactors version[14][15].</p>
 
 <h3>Basic version (Single threaded)</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/reactor1.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/reactor1.png" />
 <p>As shown in the figure, in Single thread version, all the IO operations are processed by one NIO thread.<br>
 This NIO thread is the Reactor and also the Acceptor, responsible for listening multiple socket connections and dispatching and processing all the requests. This version is quite simple and straightforward, however in some high concurrency or high load scenario, it may not be appropriate. </p>
 
 <h3>Multi-threaded version</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/reactor2.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/reactor2.png" />
 <p>The figure shows the multi-threaded version of Reactor pattern.<br>
 In this version, there is a specific thread which is responsible for listening and dispatching the connections. The IO operations are done by a NIO thread pool, which contains a queue of tasks and N available threads.<br>
 In most cases, the multi-threaded version is enough for the performance requirements. But in higher load scenario, it might be hard to meet the needs. Thus, there is an advanced version below: the multi-reactors version.</p>
 
 <h3>Multi-reactors version</h3>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/reactor3.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/reactor3.png" />
 <p>The figure shows the Multi-reactors version of Reactor pattern.<br>
 In this version, the Reactor has multiple parts. The main-Reactor is responsible for listening connections, creating new channels and dispatching them to the sub-Reactors. The sub-Reactor is responsible for polling the channels and invoking the worker thread pool to execute the IO operations.</p>
 
@@ -224,7 +224,7 @@ Reactive Streams, on the other hand, is a specification. For Java programmers, R
 
 <h3>Key Attributes of Reactive Programming</h3>
 <p>The Reactive Manifesto[16] describes four key attributes of reactive systems: Responsive, Resilient, Elastic and Message Driven.</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/manifesto.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/manifesto.png" />
 <ul>
 <li><b>Responsive</b>：The system responds in a timely manner if at all possible. Responsive systems focus on providing rapid and consistent response times, establishing reliable upper bounds so they deliver a consistent quality of service.
 </li>
@@ -241,14 +241,14 @@ Reactive Streams, on the other hand, is a specification. For Java programmers, R
 <p><b>Failures at messages</b>：Often in Reactive programming, you will be processing a stream of messages. What is undesirable is to throw an exception and end the processing of the stream of messages. The preferred approach is to gracefully handle the failure. In Reactive Steams, exceptions are first-class citizens. Exceptions are not rudely thrown. Error handling is built right into the Reactive Streams API specification.</p>
 
 <p><b>Back-pressure</b>：Have you ever heard of the phrase “Drinking from the firehose”? John Thompson gives a very vivid metaphor in his article What Are Reactive Streams in Java? [17]</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/back-pressure.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/back-pressure.png" />
 <p>Back pressure is a very important concept in Reactive programming. It gives downstream clients a way to say: "I’d some more, please." Throttling is done programmatically rather than blocking threads.</p>
 
 <p><b>Non-blocking</b>：Non-blocking is another important aspect of reactive system. John Thompson takes the Node.js Server as the example and compares it to the traditional Java multi-threaded server.</p>
 <p>In Node.js, there is a non-blocking event loop. Requests are processed in a non-blocking manner. Threads do not get stuck waiting for other processes.</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/nodejs-server.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/nodejs-server.png" />
 <p>Contrast the Node.js model to the typical multi-threaded server used in Java. Concurrency is achieved through the use of multiple threads.</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/multithreads-server.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/multithreads-server.png" />
 <p>John Thompson envisions the difference between the two approaches as the difference between a super highway and lots of city streets with lights: "With a single thread event loop, your process is cruising quickly along on a super highway. In a Multi-threaded server, your process is stuck on city streets in stop and go traffic."</p>
 
 <h3>Introduction of Reactive Stream API</h3>
@@ -276,9 +276,9 @@ public interface Processor<T, R> extends Subscriber<T>, Publisher<R> {
 }
 ```
 
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/processor.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/processor.png" />
 <p>The picture below shows the typical interaction sequence between publisher and subscriber.</p>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/publisher-subscriber.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/publisher-subscriber.png" />
 
 <h1>Build WebFlux Application with Spring Boot 2.0</h1>
 <h2>Project Reactor</h2>
@@ -367,7 +367,7 @@ Spring WebFlux provides a choice of two programming models on the reactive found
 <li>Annotated Controllers: consistent with Spring MVC, and based on the same annotations from the spring-web module. </li>
 <li>Functional Endpoints: lambda-based, lightweight, functional programming model. Think of this as a small library or a set of utilities that an application can use to route and handle requests.</li>
 </ul>
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/two-route-forms.png" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/two-route-forms.png" />
 
 <h3>Example codes</h3>
 
