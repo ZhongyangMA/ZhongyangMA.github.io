@@ -5,9 +5,7 @@ date:   2018-04-11 19:10:10
 categories: Java Reactive
 permalink: /archivers/An-Overview-of-Reactive-Programming
 ---
-
 <p align = "center"><b>by Zhongyang Ma</b></p>
-<br>
 <h1>New version tools </h1>
 <p>If you are following the Java community, you may notice that the reactive programming is not something new, it's been around for a while. But in these years, it seems to be getting more and more popular. Recently, Java community released many new tools around this theme, which can be confusing sometimes. In this article, we pick some of the new updates and sort out their relationship.</p>
 <h2>Spring Boot 2.0</h2>
