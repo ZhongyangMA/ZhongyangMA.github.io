@@ -9,7 +9,8 @@ description: >
 # Your information
 email: mzy@mail.ustc.edu.cn
 author: Zhongyang MA
-avatar: "https://github.com/ZhongyangMA/ZhongyangMA.github.io/raw/master/img/solarwind.jpg"
+#avatar: "https://github.com/ZhongyangMA/ZhongyangMA.github.io/raw/master/img/solarwind.jpg"
+avatar: "/img/solarwind.jpg"
 profile: Senior Java Developer, Lifelong Learner
 #twitter_username: twitter_username
 
