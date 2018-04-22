@@ -253,23 +253,23 @@ Reactive Streams, on the other hand, is a specification. For Java programmers, R
 <p>Let's take a look at Reactive Stream API briefly. It provides only four interfaces.</p>
 
 ```java
-Publisher：is a provider of a potentially unbounded number of sequenced elements, publishing them according to the demand received from its Subscribers.
+// Publisher：is a provider of a potentially unbounded number of sequenced elements, publishing them according to the demand received from its Subscribers.
 public interface Publisher<T> {
     public void subscribe(Subscriber<? super T> s);
 }
-Subscriber：will receive calls to Subscriber.onSubscribe(Subscription) once after passing an instance of Subscriber to Publisher.subscribe(Subscriber).
+// Subscriber：will receive calls to Subscriber.onSubscribe(Subscription) once after passing an instance of Subscriber to Publisher.subscribe(Subscriber).
 public interface Subscriber<T> {
     public void onSubscribe(Subscription s);
     public void onNext(T t);
     public void onError(Throwable t);
     public void onComplete();
 }
-Subscription：represents a one-to-one lifecycle of a Subscriber subscribing to a Publisher.
+// Subscription：represents a one-to-one lifecycle of a Subscriber subscribing to a Publisher.
 public interface Subscription {
     public void request(long n);
     public void cancel();
 }
-Processor：represents a processing stage — which is both a Subscriber and a Publisher and obeys the contracts of both, usually used for transforming message types between publisher and subscriber.
+// Processor：represents a processing stage — which is both a Subscriber and a Publisher and obeys the contracts of both, usually used for transforming message types between publisher and subscriber.
 public interface Processor<T, R> extends Subscriber<T>, Publisher<R> {
 }
 ```
