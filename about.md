@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 Welcome to this website!  
-I'm Zhongyang Ma and this blog is concerned about Web development, my reading notes and other interesting topics. 
+I'm Zhongyang Ma and this blog is concerned about Web-related technologies, including my reading notes and other interesting topics. 
 Please feel free to leave a comment or contact me by email if you have any question.  
   
  - Email: [mzy@mail.ustc.edu.cn](mailto:mzy@mail.ustc.edu.cn)
@@ -14,5 +14,3 @@ Please feel free to leave a comment or contact me by email if you have any quest
 <!--
  - LinkedIn: [https://www.linkedin.com/in/zhongyang-ma/?locale=en_US](https://www.linkedin.com/in/zhongyang-ma/?locale=en_US)
 -->
-
-
