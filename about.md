@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-### Welcome to this website!  
+## Welcome to this website!  
 I'm Zhongyang Ma and this blog is concerned about Web-related technologies, including my reading notes and other interesting topics. 
 Please feel free to leave a comment or contact me by email if you have any question.  
   
