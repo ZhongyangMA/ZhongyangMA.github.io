@@ -1,7 +1,10 @@
 <footer class="footer">
 <div class="wrapper">
-&copy; <script> new Date().getFullYear() + '';</script> {{ site.author }}
+&copy; <span id="footerYear"></span> {{ site.author }}
 </div>
+    <script type="text/javascript">
+        document.getElementById('footerYear').innerHTML = new Date().getFullYear() + '';
+    </script>
 </footer>
 
 <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});</script>
