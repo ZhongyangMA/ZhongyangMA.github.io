@@ -29,6 +29,8 @@ header:
   links:             # Links on the header. Link to in-site page with a slash as prefix
     Category: /category/
     About: /about/
+    Email: "mailto:mzy@mail.ustc.edu.cn"
+    GitHub: "https://github.com/ZhongyangMA"
 
 permalink: /archivers/:title
 plugins:

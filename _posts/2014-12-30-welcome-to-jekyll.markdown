@@ -5,7 +5,7 @@ date:   2014-12-30 09:00:13
 categories: jekyll update
 permalink: /archivers/hello
 ---
-<img src="https://github.com/ZhongyangMA/images/blob/master/webflux-streaming-demo/two-stacks.png" height="90%" width="90%" />
+<img src="https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/two-stacks.png" height="90%" width="90%" />
 
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
