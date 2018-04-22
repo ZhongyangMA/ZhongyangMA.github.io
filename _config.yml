@@ -16,6 +16,7 @@ profile: Java Developer, a lifelong learner.
 profile_links:
   Email: "mailto:mzy@mail.ustc.edu.cn"
   GitHub: "https://github.com/ZhongyangMA"
+  LinkedIn: "https://www.linkedin.com/in/zhongyang-ma/?locale=en_US"
   # You can add more profile links above, or edit _includes/sidebar.html 
 
 # Comment Service (Disqus or 多说)
@@ -29,8 +30,6 @@ header:
   links:             # Links on the header. Link to in-site page with a slash as prefix
     Category: /category/
     About: /about/
-    Email: "mailto:mzy@mail.ustc.edu.cn"
-    GitHub: "https://github.com/ZhongyangMA"
 
 permalink: /archivers/:title
 plugins:
