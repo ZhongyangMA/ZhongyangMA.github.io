@@ -1,5 +1,5 @@
 # Site settings
-title: Blog Home Page
+title: Zhongyang's Posts
 url: "https://zhongyangma.github.io"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
 timezone: Asia/Shanghai
