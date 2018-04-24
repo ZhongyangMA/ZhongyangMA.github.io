@@ -39,7 +39,8 @@
         }
         
         pre {
-            border-radius: 5px;
+            border-radius: 3px;
+            border: 1px solid #c0c0e3;
             @include media-query($on-palm) {
 		        margin: 0 -10px;
             }
