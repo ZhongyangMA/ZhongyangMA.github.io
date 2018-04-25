@@ -37,6 +37,10 @@ body {
 			transition: color 0.3s ease;
 			color: #fff;
 		}
+		.subtitle {
+			font-size: $base-font-size * 0.2;
+			font-weight: lighter;
+		}
 	}
 	.site-nav {
 		text-align:right;
