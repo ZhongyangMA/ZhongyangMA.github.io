@@ -32,6 +32,9 @@ body {
 		text-decoration: none;
 		font-size: $base-font-size;
 		line-height: $base-font-size * 2;
+		&:hover, &:focus {
+			background: $header-bg-hover;
+		}
 	}
 	.site-nav {
 		text-align:right;
