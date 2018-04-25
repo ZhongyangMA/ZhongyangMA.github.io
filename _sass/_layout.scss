@@ -30,7 +30,7 @@ body {
 		float: left;
 		color: $header-fg;
 		text-decoration: none;
-		font-size: $base-font-size * 1.1;
+		font-size: $base-font-size * 1.2;
 		font-weight: bold;
 		line-height: $base-font-size * 1;
 		margin: 0px;
@@ -39,7 +39,7 @@ body {
 			color: #fff;
 		}
 		.subtitle {
-			line-height: $base-font-size * 1;
+			line-height: $base-font-size * 0.5;
 			font-size: $base-font-size * 0.5;
 			font-weight: lighter;
 			padding: 0px;
