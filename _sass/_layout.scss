@@ -48,6 +48,7 @@ body {
 			white-space: nowrap;
 		
 			&:hover, &:focus {
+				transition: background 0.3s ease;
 				background: $header-bg-hover;
 			}
 		}
