@@ -1,6 +1,6 @@
 # Site settings
-title: XXXXXXXXXX
-subtitle: Zhongyang's Home Page
+title: Solarwind Lab
+subtitle: Zhongyang MA's Personal Home Page
 url: "https://zhongyangma.github.io"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
 timezone: Asia/Shanghai
