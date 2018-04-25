@@ -41,7 +41,9 @@ body {
 			font-size: $base-font-size * 0.5;
 			font-weight: lighter;
 			padding: 0px;
-			height: 50%;
+			display:inline-block;
+			*display:inline;
+			*zoom:1;
 		}
 	}
 	.site-nav {
