@@ -23,7 +23,7 @@ $color-link-hover: #096;
 $header-bg: #704090;
 $header-bg-hover: #096;
 $header-link: #CFD8DC;
-$header-fg: #FFF;
+$header-fg: #ddd;
 
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
