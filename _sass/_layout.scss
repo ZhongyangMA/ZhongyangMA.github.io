@@ -41,6 +41,7 @@ body {
 		font-weight: bold;
 		line-height: $base-font-size * 1;
 		margin: 0px;
+		padding: 3px 0px 0px 3px;
 		&:hover {
 			transition: color 0.3s ease;
 			color: #fff;
