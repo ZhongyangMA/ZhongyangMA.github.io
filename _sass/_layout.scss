@@ -26,6 +26,9 @@ body {
 	
     #sidebar-toggle { display: none; }
 
+	.header-img {
+		float: left;
+	}
 	.site-title {
 		float: left;
 		color: $header-fg;
