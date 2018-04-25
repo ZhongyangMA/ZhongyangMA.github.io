@@ -42,6 +42,9 @@ body {
 		line-height: $base-font-size * 1;
 		margin: 0px;
 		padding: 5px 0px 0px 3px;
+		display:inline-block;
+		*display:inline;
+		*zoom:1;
 		&:hover {
 			transition: color 0.3s ease;
 			color: #fff;
@@ -50,9 +53,6 @@ body {
 			line-height: $base-font-size * 0.5;
 			font-size: $base-font-size * 0.5;
 			font-weight: lighter;
-			display:inline-block;
-			*display:inline;
-			*zoom:1;
 			border-top: 1px solid #aa88cc;
 			color: #aa88cc;
 			padding: 3px;
