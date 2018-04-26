@@ -15,7 +15,7 @@ body {
 .header {
 	line-height: $base-font-size * 2;
 	background-color: $header-bg;
-	padding: 10px 10px 6px 10px;
+	padding: 10px 10px 5px 10px;
 	margin: 0;
 	
 	&:after {
@@ -53,7 +53,7 @@ body {
 			font-weight: lighter;
 			border-top: 1px solid #aa88cc;
 			color: #aa88cc;
-			padding: 4px;
+			padding: 3px;
 		}
 	}
 	.site-nav {
