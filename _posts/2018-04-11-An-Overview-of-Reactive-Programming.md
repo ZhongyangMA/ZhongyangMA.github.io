@@ -5,11 +5,13 @@ date:   2018-04-11 19:10:10
 categories: Java Reactive
 permalink: /archivers/An-Overview-of-Reactive-Programming
 ---
-# New version tools
+If you are following the Java community, you may notice that the reactive programming is not something new, it's been around for a while. But in these years, it seems to be getting more and more popular. Recently, Java community released many new version tools on this theme, which can be confusing sometimes.  
 
-If you are following the Java community, you may notice that the reactive programming is not something new, it's been around for a while. But in these years, it seems to be getting more and more popular. Recently, Java community released many new tools on this theme, which can be confusing sometimes. In this article, we pick some of the new updates and sort out their relationship.
+In this article, we firstly pick some of the new updates and sort out their relationship, then we walk through some of the basic concepts about reactive programming, and finally we provide some example codes which could help you get a better understanding about this topic. 
 
 <!--more-->
+
+# New version tools
 
 ## Spring Boot 2.0
 
