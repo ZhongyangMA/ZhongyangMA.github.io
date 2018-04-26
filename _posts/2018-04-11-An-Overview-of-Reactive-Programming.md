@@ -475,6 +475,66 @@ public class ReactiveController {
 
 Reactive Controller operates the asynchronous ServerHttpRequest and ServerHttpResponse, rather than HttpServletRequest and HttpServletResponse in Spring MVC. Mono and Flux are asynchronous, the function returns the reference of Flux or Mono object immediately even though the data is not ready. By polling channels, web server will find and process it when the data in Flux or Mono is ready. [23]\[24]
 
+### Connect to reactive MongoDB
+
+Spring Data Reactive Repositories currently supports Mongo, Cassandra, Redis, Couchbase. In this section we take mongoDB as an example to show the usage of reactive DB.
+
+```xml
+// 1.firstly, introducing the reactive MongoDB
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+</dependency>
+
+// 2.Config MongoDB in application.yml
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/dbname
+```
+
+```java
+// 3.Write a User entity, including fields like: id, name, gender etc.
+// codes omitted
+
+// 4.In dao layer, inherit ReactiveMongoRepository interface
+public interface UserRepository extends ReactiveMongoRepository<User, String> {
+    Flux<User> findByGender(String gender);  // function name will automatically match the corresponding field in User 
+}
+
+// 5.In the form of annotated Controller
+// Handler layer
+public Flux<User> findByGender(String gender) {
+    return userRepository.findByGender(gender);
+}
+// Controller layer
+@GetMapping(value = "/user/{gender}")
+public Flux<User> findByGender(@PathVariable("gender") String gender) {
+    return exampleHandler.findByGender(gender);
+}
+
+// 6.In the form of functional Router
+// Handler layer
+public Mono<ServerResponse> findByGender(ServerRequest request) {
+    return ServerResponse.ok()
+        .contentType(MediaType.APPLICATION_JSON)
+        .body(userRepository.findByGender(request.pathVariable("gender")), User.class);
+}
+// Router layer
+@Bean
+public RouterFunction<ServerResponse> findByGender(ExampleHandler exampleHandler) {
+    return RouterFunctions.route(RequestPredicates
+        .GET("/functional/user/{gender}")
+        .and(RequestPredicates.accept(MediaType.APPLICATION_JSON)), exampleHandler::findByGender);
+}
+```
+
+As shown in the example code, in dao layer our repo interface takes the reactive types (Flux, Mono) as the return type.
+
+The reactive data exchange capability of MongoDB entirely relies on the reactive MongoDB driver, which implemented the Reactive Streams API, providing non-blocking asynchronous Stream processing functionality with back-pressure.
+
+---
+
 For more detailed code examples, please check:
 
 [https://github.com/ZhongyangMA/webflux-streaming-demo](https://github.com/ZhongyangMA/webflux-streaming-demo)
