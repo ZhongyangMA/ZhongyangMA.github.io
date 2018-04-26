@@ -66,9 +66,9 @@ Please note that the JDBC still don't support the Reactive asynchronous invocati
 
 In order to figure out what the Reactive Programming is, we need to have a look at the history of IO and understand what happened in the past. We will start from the concept of classical IO model.
 
-## Five IO model in Linux
+## Five IO models in Linux
 
-Five classical IO model in Linux:
+Five classical IO models in Linux:
 
 1. Blocking IO
 2. Non-blocking IO
@@ -334,7 +334,7 @@ The picture below shows the typical interaction sequence between publisher and s
 ## Project Reactor
 
 Reactive Streams API is only a set of interfaces and has no implementations. Project Reactor is one of the implementations. And the reactive functionality found in Spring Framework 5 is built upon Reactor 3.x. The reactive framework WebFlux relies on Reactor. [18]\[19]
-Reactor has two important models, Flux<T> and Mono<T>, providing non-blocking asynchronous processing functionality with back-pressure. When the messages are produced slowly, the stream works in the push mode; When the messages are produced quickly, the stream will turns in pull mode. The Flux carries 0 to N events, it used for processing messages in a stream asynchronously. The Mono could trigger at most one event, it usually used as a notifier at the moment when the asynchronous task is finished. The Flux and the Mono can be converted to each other. Performing a counting operation on a Flux stream, the result is a Mono<Long> object. Combining two Monos together, the result will be a Flux object. [20]\[21]
+Reactor has two important models, Flux<T> and Mono<T>, providing non-blocking asynchronous processing functionality with back-pressure. When the messages are produced slowly, the stream works in the push mode; When the messages are produced quickly, the stream will turns in pull mode. The Flux carries 0 to N events, it used for processing messages in a stream asynchronously. The Mono could trigger at most one event, it usually used as a notifier at the moment when the asynchronous task is finished. The Flux and the Mono can be converted to each other. Performing a counting operation on a Flux stream, the result is a Mono<Long> object. Combining two Monos together, the result will be a Flux object. [20]\[21]  
 
 ### Examples of creating Flux
 
