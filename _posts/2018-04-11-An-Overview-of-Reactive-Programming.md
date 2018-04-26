@@ -54,8 +54,8 @@ The Reactive Stream API is a set of interfaces, which is only a specification an
 
 Therefore currently Spring Framework 5.x provides two development stacks:
 
-1. Spring WebFlux：based on Reactive Stream API，runs on servlet 3.1+ container（Tomcat 8）or Netty, these web servers support the NIO or Reactor model
-2. Spring MVC：based on traditional Servlet API，runs on traditional Servlet, one-request-per-thread, blocking IO
+1. **Spring WebFlux:** based on Reactive Stream API，runs on servlet 3.1+ container（Tomcat 8）or Netty, these web servers support the NIO or Reactor model
+2. **Spring MVC:** based on traditional Servlet API，runs on traditional Servlet, one-request-per-thread, blocking IO
 
 The picture below is a comparison of the two stacks:
 
@@ -68,11 +68,14 @@ In order to figure out what the Reactive Programming is, we need to have a look 
 
 ## Five IO model in Linux
 
-(1) Blocking IO
-(2) Non-blocking IO
-(3) IO multiplexing
-(4) Signal driven I/O
-(5) Asynchronous I/O
+Five classical IO model in Linux:
+
+1. Blocking IO
+2. Non-blocking IO
+3. IO multiplexing
+4. Signal driven I/O
+5. Asynchronous I/O
+
 The first 4 are synchronous, only the last one is asynchronous IO.
 
 ### Blocking IO
@@ -114,10 +117,11 @@ The comparison between the five IO models is shown in this figure. [5]
 ## Four IO models in Java
 
 Except the signal driven IO model, other four IO models are all supported in Java. [6]\[7]
-(1). the earliest traditional IO in Java is the blocking IO
-(2). the Java NIO is the non-blocking IO
-(3). the Reactor pattern in Java NIO is an implementation of IO multiplexing
-(4). the Proactor pattern in Java AIO is an implementation of asynchronous IO
+
+1. the earliest traditional IO in Java is the blocking IO
+2. the Java NIO is the non-blocking IO
+3. the Reactor pattern in Java NIO is an implementation of IO multiplexing
+4. the Proactor pattern in Java AIO is an implementation of asynchronous IO
 
 The traditional IO in Java is blocking IO, for example, if you want to read data from a socket and invoke read() method, the thread will get stuck at read() method until the data is returned. Therefore in the traditional web service design, the multi-thread (or thread pool) pattern are widely adopted. A thread is blocked when it serves one request, if another request comes at this moment, we have to start a new thread to serve it. The blockage in one thread shouldn't affect the works in other threads. This kind of server design seems straightforward, but it starts thread for every request, which will be resource-consuming, even though the thread pool pattern makes the thread reusable.
 
@@ -142,7 +146,8 @@ Some commonly used Channels are listed below:
 
 Buffer can be considered as a data container, which could be implemented by an array. Either reading from a channel or writing to a channel, data must be put into the buffer first.
 
-![](https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/buffer.jpg)
+![](https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/buffer.jpg) 
+
 This figure shows how the data is passed from the client-side to the server-side in Java NIO.
 
 ### Selector
@@ -154,6 +159,7 @@ In company with Selector, the SelectionKey is another important class, which rep
 The figure below shows the monitoring of multiple channels (or connections) by a Selector running on a single thread.
 
 ![](https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/selector.jpg)
+
 The code below shows how to create a Selector and the events that can be set: [11]
 
 ```java
@@ -226,6 +232,7 @@ The code example shows the simplest Reactor pattern. Now let's have a look at th
 ### Basic version (Single threaded)
 
 ![](https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/reactor1.png)
+
 As shown in the figure, in Single thread version, all the IO operations are processed by one NIO thread.
 
 This NIO thread is the Reactor and also the Acceptor, responsible for listening multiple socket connections and dispatching and processing all the requests. This version is quite simple and straightforward, however in some high concurrency or high load scenario, it may not be appropriate.
@@ -233,6 +240,7 @@ This NIO thread is the Reactor and also the Acceptor, responsible for listening 
 ### Multi-threaded version
 
 ![](https://github.com/ZhongyangMA/images/raw/master/webflux-streaming-demo/reactor2.png)
+
 The figure shows the multi-threaded version of Reactor pattern.
 
 In this version, there is a specific thread which is responsible for listening and dispatching the connections. The IO operations are done by a NIO thread pool, which contains a queue of tasks and N available threads.
@@ -416,7 +424,7 @@ Spring WebFlux provides a choice of two programming models on the reactive found
 
 ### Example codes
 
-```java
+```xml
 // 1. firstly, introduce the parent:
 <parent>
     <groupId>org.springframework.boot</groupId>
@@ -430,7 +438,9 @@ Spring WebFlux provides a choice of two programming models on the reactive found
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-webflux</artifactId>
 </dependency>
+```
 
+```java
 // 3. the entrance is the same with ordinary Spring Boot application:
 @SpringBootApplication
 public class Application {
