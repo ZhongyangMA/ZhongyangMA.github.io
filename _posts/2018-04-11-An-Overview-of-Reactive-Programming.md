@@ -11,7 +11,7 @@ In this article, we firstly pick some of the new updates and sort out their rela
 
 <!--more-->
 
-# New version tools
+# New Version Tools
 
 ## Spring Boot 2.0
 
