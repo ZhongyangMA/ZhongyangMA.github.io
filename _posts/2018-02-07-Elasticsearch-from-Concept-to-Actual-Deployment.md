@@ -468,7 +468,7 @@ Then by `sudo chmod a+x elasticsearch.conf`, to make it executable.
 
 ## Install Chinese word segmenter _IK_
 
-For Chinese users, en extra work is needed. Because the ES doesn't perform well in Chinese words segmentation, we have to install a plugin to solve this problem.
+For Chinese users, an extra work is needed. Because the ES doesn't perform well in Chinese words segmentation, we have to install a plugin to solve this problem.
 1. firstly, download it: https://github.com/medcl/elasticsearch-analysis-ik/releases [4]
 2. then unpack it and rename it as `ik`, and copy it to `elasticsearch/plugins/`
 3. In `plugin-descriptor.properties`, edit the `elasticsearch.version`.
