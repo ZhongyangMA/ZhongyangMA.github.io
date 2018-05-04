@@ -117,7 +117,7 @@ It returns:
 }
 ```
 
-_The **\_version** ensures that the new data will never be overwriten by old data when the data synchronization happens between the nodes in a cluster._
+_The **\_version** ensures that the new data will never be overwritten by old data when the data synchronization happens between the nodes in a cluster._
 
 ### Delete Examples
 
@@ -141,7 +141,7 @@ It returns:
 }
 ```
 
-_Delete operation will increase the **\_version** number, and if we write the **\_id** again the **\_version** number will also be increased._
+_Delete operation will increase the **\_version** number, and if we write this record again the **\_version** number will also be increased._
 
 ### Search Examples
 
