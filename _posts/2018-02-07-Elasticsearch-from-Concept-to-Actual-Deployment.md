@@ -229,7 +229,7 @@ After the second node joins the cluster, the three replica shards - R0, R1, R2, 
 
 ### 3.Horizontal Scaling
 
-We can decrease the workload on each node by adding more nodes. Now let's start the third node, the cluster thus becomes the three-nodes cluster. In order to rebalance the cluster, the nodes will be moved between nodes automatically.
+We can decrease the workload on each node by adding more nodes. Now let's start the third node, the cluster thus becomes the three-nodes cluster. In order to rebalance the cluster, the shards will be moved between nodes automatically.
 
 ![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es3.png)
 
@@ -242,7 +242,7 @@ Now we set two sets of replicas.
 
 ![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es4.png)
 
-Now this index contains 9 shards in total: 3 primary shards and 6 (two sets of) replica shards. Therefore we gain three-times performance improvement.
+Now this index contains 9 shards in total: 3 primary shards and 6 (two sets of) replica shards. Therefore we gain triple performance improvement.
 
 ### 5.Recover from Disaster
 
@@ -252,7 +252,7 @@ What if one of the three nodes breaks down?
 
 Node 1 was the master node, and it was dead. At this moment, ES will executes the procedures below:
 1. Elect master node, for example the Node 2 was elected as the master node. Now the health would be red, there exists unavailable primary shards.
-2. Promote the replicas on Node 2 (R2) and Node 3 (R1) as the primary shards. This step will be done in a blink of eye, the `health` becomes yellow again.
+2. Promote the replicas on Node 2 (R2) and Node 3 (R1) as the primary shards. This step will be done in a blink of eye, thus the `health` will turn yellow again.
 3. If Node 2 was killed after step 2, the R2 on Node 3 will be promoted as primary shard P2.
 4. If we restart Node 1 after step 2, the cluster will re-allocates the losing shards (the `health` will turn green), and copies the newly written data during the failure.
 
