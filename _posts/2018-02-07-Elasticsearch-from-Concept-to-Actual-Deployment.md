@@ -412,7 +412,7 @@ The commonly used commands for monitoring a cluster are listed below:
 1. health of cluster: http://host:9200/_cluster/health?pretty
 2. list all the nodes: http://host:9200/_cat/nodes?v&h=ip,name,node.role,m,cpu,heap.percent,heap.max,ram.percent,ram.max,disk.used,disk.avail
 3. list all the index: http://host:9200/_cat/indices?v
-4. check the shards distribution of a index: http://host:9200/_cat/shards/my_index?v
+4. check the shards distribution of an index: http://host:9200/_cat/shards/my_index?v
 
 ## Slow Log Settings
 
@@ -435,7 +435,7 @@ PUT ip:port/your_index/_settings -d
 }'
 ```
 
-The config items are: slow log query, slow log fetch, show log index. To check your settings: 
+The config items are: slow log query, slow log fetch, slow log index. To check your settings: 
 > GET  ip:port/your_index/_settings?pretty
 
 2.Each index should be set separately, that is:
