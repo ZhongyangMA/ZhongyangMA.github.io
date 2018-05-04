@@ -51,8 +51,8 @@ Elasticsearch is a highly scalable open-source full-text search and analytics en
 ### Java API
 
 The Java client communicates with Elasticsearch in port 9300 through TCP protocol. The nodes in a ES cluster communicate with each other also through port 9300. There are two kinds of clients:
-1. **Node Client:** It  joins the cluster as a non-data node. It doesn't contain data, but it knows the data that are requested distributes at which nodes, and directs the requests to the right nodes.
-2. **Transport Client:**  It does not join the cluster, but simply gets one or more initial transport addresses and communicates with them in round robin fashion on each action.
+1. **Node Client:** It joins the cluster as a non-data node. It doesn't store data, but it knows the place of the requested data and forwards the requests to the right nodes.
+2. **Transport Client:** It does not join the cluster, but simply gets one or more initial transport addresses and communicates with them in round robin fashion on each action.
 
 ### HTTP RESTful API
 
