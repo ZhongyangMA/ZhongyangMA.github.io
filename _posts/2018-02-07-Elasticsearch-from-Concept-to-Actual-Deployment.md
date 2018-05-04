@@ -198,7 +198,7 @@ Before talking about the mechanisms of ES Cluster, let's walk through some basic
 
 **cluster:** composed of one or more nodes. A node in a cluster will be elected as the master node, the main role of which is to decide which shards to allocate to which nodes, and when to move shards between nodes in order to rebalance the cluster.
 
-**node:**  nodes are the actual instances running in a cluster, they work together, share data and workload. Every node knows the place where a requested data is stored, and could redirect our request to the node that host the data.
+**node:**  nodes are the actual instances running in a cluster, they work together, share data and workload. Every node knows the place of a requested data, and could forward the request to the node that hosts the data.
 
 **shards:** ES could divide an index into many shards, and distributes them to many nodes (shard = HASH(doc_ID) % num_of_pri_shards), this is called shard allocation. Shard allocation is the process of allocating shards to nodes. This can happen during initial recovery, replica allocation, rebalancing, or when nodes are added or removed.
 
@@ -206,7 +206,7 @@ Before talking about the mechanisms of ES Cluster, let's walk through some basic
 
 ## The Distributed Index
 
-To better understand how does a distributed index like ES works, l'm going to explain this by the example below.
+To better understand how does a distributed index like ES work, l'm going to explain this by the example below.
 
 ### 1.Create Index
 
