@@ -67,7 +67,7 @@ The data structure in Elasticsearch is different from that in a relational datab
 
 Elasticsearch has an interesting attribute - **schemaless, dynamic mapping:** If no mapping is specified, Elasticsearch infers field type primitives based upon the first value it sees for that field. 
 
-It is so convenient that we no longer need to specify the types for every field. But sometimes if we are not careful, it may cause trouble. For example, when we import the data into our ES cluster, if the first value is `2017-12-25`, this field would be infered as `date` type, then if `0000-00-00` is writen to this field, the ES will report **invalid date format** error. Actually, we don't want this field to be a `date` field, just string will be OK. Thus we need to turn off the date auto-detection:
+It is so convenient that we no longer need to specify the types for every field. But sometimes if we are not careful, it may cause trouble. For example, when we import the data into our ES cluster, if the first value is `2017-12-25`, this field would be infered as `date` type, then if `0000-00-00` is written to this field, the ES will report **invalid date format** error. Actually, we don't want this field to be a `date` field, just string is OK. Thus we need to turn off the date auto-detection:
 > curl -XPOST 'host:port/my_index/_mapping/my_type' -d '{"date_detection":false}'
 
 ### Create or Update Examples
