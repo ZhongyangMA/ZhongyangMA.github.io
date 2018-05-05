@@ -300,7 +300,7 @@ Having redundant copies of data in each document that requires access to it remo
 
 **application-side joins:**  
 
-This method needs to run multiple queries. For example, get all documents' ids based on certain contidions in the first query; Then use these ids to query other type(or index) in the second query.
+This method needs to run multiple queries. For example, get all documents' ids based on certain conditions in the first query; Then use these ids to query other type(or index) in the second query.
 
 The main advantage of application-side joins is that the data is normalized. The disadvantage is that you have to run extra queries in order to join documents at search time. This approach is suitable when the first entity has a small number of documents and, preferably, they seldom change. This would allow the application to cache the results and avoid running the first query often.
 
