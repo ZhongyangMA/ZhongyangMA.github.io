@@ -17,3 +17,10 @@ In this article, I will firstly introduce the background and the general structu
 # The Background 
 
 xxxx
+
+xxxx
+
+# References
+
+[1] Alibaba's Canal official document: [https://github.com/alibaba/canal](https://github.com/alibaba/canal)  
+
