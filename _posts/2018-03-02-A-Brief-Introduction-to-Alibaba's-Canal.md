@@ -42,6 +42,12 @@ The binlog in MySQL:
 
 Currently, _Canal_ supports all binlog formats when performing incremental subscription. But when it comes to data synchronization, only row-based format is appropriate, because the statement-based format doesn't contain any data at all.
 
+## How Canal Works
+
+![master-slave2](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/master-slave2.jpg)
+
+xxxx
+
 # The Architecture
 
 xxxx
