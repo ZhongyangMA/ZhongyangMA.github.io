@@ -40,11 +40,7 @@ The binlog in MySQL:
 - The binlog of MySQL is stored in multiple files. Thus we need _binlog filename_ and _binlog position_ to locate one _Log Event_.
 - Based on the way it was generated, the formats of MySQL's binlog are classified as three types, they are: statement-based, row-based and mixed.
 
-Currently, _Canal_ supports all binlog formats in incremental subscription, 
-
-但配合同步时，因为statement只有sql，没有数据，所以一般建议采用ROW模式。
-
-
+Currently, _Canal_ supports all binlog formats when performing incremental subscription. But when it comes to data synchronization, only row-based format is appropriate, because the statement-based format doesn't contain any data at all.
 
 # The Architecture
 
