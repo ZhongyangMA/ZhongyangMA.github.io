@@ -16,13 +16,35 @@ In this article, I will firstly introduce the background, then the general struc
 
 # The Background 
 
-xxxx
+In the early days, Alibaba group has the demands of synchronizing data over geographical and temporal distances, due to their databases were deployed in Hangzhou and United States. Since 2010, Alibaba attempted to parse the binary logs of databases to synchronize data incrementally. This led to the birth of project _Canal_, and opened a new era.
+
+- Language: Developed entirely in Java.
+- Positioning: Currently supports MySQL, providing incremental data subscription and consumption.
 
 # How Canal Works
 
 ![master-slave](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/master-slave1.jpg)
 
-xxxx
+## The Data Synchronizing Process of MySQL
+
+The process takes three steps:
+
+1. The master records the changes of database to its _Binary Log_, these changes are called "binary log events".
+2. The slave database copies the binary log events to its _Relay Log_.
+3. The slave re-plays the events in its _Relay Log_, and adds these changes to its own data.
+
+## The Binlog
+
+The binlog in MySQL:
+
+- The binlog of MySQL is stored in multiple files. Thus we need _binlog filename_ and _binlog position_ to locate one _Log Event_.
+- Based on the way it was generated, the formats of MySQL's binlog are classified as three types, they are: statement-based, row-based and mixed.
+
+Currently, _Canal_ supports all binlog formats in incremental subscription, 
+
+但配合同步时，因为statement只有sql，没有数据，所以一般建议采用ROW模式。
+
+
 
 # The Architecture
 
