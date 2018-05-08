@@ -46,13 +46,50 @@ Currently, _Canal_ supports all binlog formats when performing incremental subsc
 
 ![master-slave2](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/master-slave2.jpg)
 
-xxxx
+The data synchronization of _Canal_ takes three steps:
+
+1. _Canal_ disguises itself as the slave database and communicates with a real master database via dump protocol.
+2. Once the master receives the dump requests, it pushes _binlogs_ to the slave, which is actually a _Canal_ server of course.
+3. The _Canal_ server parses the _binlogs_, replays the events happened in the master database, and pushes the events in the form of messages to its downstream.
 
 # The Architecture
 
-xxxx
+![architecture.png](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/architecture.png)
+
+As shown in this figure:
+
+- A _Server_ is a running instance of _Canal_, which corresponds to one JVM.
+- An _Instance_ in this figure corresponds to a data processing (synchronization) queue, and one _Canal_ server could contain 1 to n _Instances_. 
+- In every _Instance_, there are three important components, they are: eventParser, eventSink and eventStore.
+- The eventParser: disguises itself as the slave, parses _binlog_ and digests data from a real master database.
+- The eventSink: links the _Parser_ and _Store_, performs the data processing, filtering, dispatching, etc.
+- The eventStore: stores the data.
+
+## The _eventStore_ Component
+The design of a ring buffer:
+
+![ringbuffer](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/ringbuff1.png)
+
+The _eventStore_ is a circular message queue in the memory. It defines three cursor:
+
+- Put: The last position where the message from _Sink_ module was written.
+- Get: The last position where the message was subscribed.
+- Ack: The last position where the message was successfully consumed.
+
+_Canal_ allows to perform Get/Ack operations asynchronously. For example, you can invoke Get several times continuously, then invokes Ack or Rollback in sequence. This is called streaming API in _Canal_.
+
+![stream-api](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/buffer2.jpg)
 
 # The HA Mechanism
+
+The High Availability (HA) mechanism of _Canal_ relies on Zookeeper. It contains two parts:
+
+1. The HA of _Canal_ server: The instances are distinguished by their _destination_ names, if an instance in canal-server01 has the same _destination_ name with the instance in canal-server02, only one of them is allowed to run, in the meanwhile, the other one is in standby state.
+2. The HA of _Canal_ client: xx
+
+![HA.png](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/HA.png)
+
+xxxx
 
 xxxx
 
