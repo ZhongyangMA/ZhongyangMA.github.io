@@ -85,13 +85,18 @@ _Canal_ allows to perform Get/Ack operations asynchronously. For example, you ca
 The High Availability (HA) mechanism of _Canal_ relies on Zookeeper. It contains two parts:
 
 1. The HA of _Canal_ server: The instances are distinguished by their _destination_ names, if an instance in canal-server01 has the same _destination_ name with the instance in canal-server02, only one of them is allowed to run, in the meanwhile, the other one is in standby state.
-2. The HA of _Canal_ client: xx
+2. The HA of _Canal_ client: One _Instance_ in the _Canal_ Server only allows to be consumed by one _Canal_ client simultaneously.
 
 ![HA.png](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/HA.png)
 
-xxxx
+The procedure of starting up: 
 
-xxxx
+1. xxxx
+2. xxxx
+3. xxxx
+4. xxxx
+
+xxxxxxxxxxxxxx
 
 # References
 
