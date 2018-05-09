@@ -89,14 +89,14 @@ The High Availability (HA) mechanism of _Canal_ relies on Zookeeper. It contains
 
 ![HA.png](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/HA.png)
 
-The procedure of starting up: 
+As shown in this figure, the procedure of starting up is: 
 
-1. xxxx
-2. xxxx
-3. xxxx
-4. xxxx
+1. Canal-server01 and Canal-server02 will preemptively create the _Ephemeral Node_ in Zookeeper when they are attempting to start their own _Instances_ with the same _destination_ name. 
+2. The one who successfully created the _Ephemeral Node_, will start running its instance; The one who didn't, will be in the standby status.
+3. Once ZooKeeper finds the Canal-server who created the _Ephemeral Node_ breaks down, it will notify other Canal servers to repeat step 1, thus there will be another Canal-server starts to run.
+4. The same as canal-server, only one canal-client will be allowed to run simultaneously. When the canal-client starts, it will ask the ZooKeeper which canal-server is running, then it will connects to the running canal-server.
 
-xxxxxxxxxxxxxx
+Note: The life cycle of _Ephemeral Node_ in ZooKeeper only binds to its client's session. If ZooKeeper loses the session of a client, the corresponding _Ephemeral Node_ will be deleted automatically.
 
 # References
 
