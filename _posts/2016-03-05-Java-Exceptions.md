@@ -16,8 +16,6 @@ An Exception is an abnormal condition which occurs during run time and disrupts 
 
 ![](https://github.com/ZhongyangMA/images/raw/master/java-exceptions/hierarchy.png)
 
-##  
-
 ## java.lang.Throwable
 
 java.lang.Throwable is the super class of all errors and exceptions in java. Throwable class extends java.lang.Object class. The only argument of catch block must be it’s type or it’s sub class type. It has two sub classes:
