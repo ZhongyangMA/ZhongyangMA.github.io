@@ -24,7 +24,7 @@ xxx
 
 
 
-#References
+# References
 
 [1] Types Of References In Java: [http://javaconceptoftheday.com/types-of-references-in-java-strong-soft-weak-and-phantom](http://javaconceptoftheday.com/types-of-references-in-java-strong-soft-weak-and-phantom)
 
