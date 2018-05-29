@@ -20,7 +20,7 @@ The Java platform provides three classes: **String**, **StringBuffer** and **Str
 
 **StringBuffer** and **StringBuilder** objects are mutable, and only **StringBuffer** objects are thread safe, where as **StringBuilder** objects are not. So whenever you want immutable and thread safe string objects, use **String** class and whenever you want mutable as well as thread safe string objects then use **StringBuffer** class.
 
-In all three classes, **toString()** method is overridden. So. whenever you use reference variables of these three types, they will return contents of the objects rather than physical address of the objects. **equals()** and **hashCode()** methods are overridden only in **String** class, but not in **StringBuffer** and **StringBuilder** classes.
+In all three classes, **toString()** method is overridden. So whenever you use reference variables of these three types, they will return contents of the objects rather than physical address of the objects. **equals()** and **hashCode()** methods are not overridden in **StringBuffer** and **StringBuilder** classes, they are only overridden in **String** class.
 
 In case of **String** class, you can create the objects without **new** operator. But in case of **StringBuffer** and **StringBuilder** class, you have to use **new** operator to create the objects.
 
