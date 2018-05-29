@@ -37,7 +37,7 @@ Here is a table showing the differences between these three classes:
 
 # Memory Usage Of String
 
-We all know that JVM divides the allocated memory to a Java program into two parts. one is **Stack** and another one is **heap**. Stack is used for execution purpose and heap is used for storage purpose. In the heap memory, JVM allocates some memory specially meant for string literals. This part of the heap memory is called **String Constant Pool (SCP)**. Whenever you create a string object using string literal, that object is stored in the **SCP**: 
+We all know that JVM divides the allocated memory to a Java program into two parts. one is **stack** and another one is **heap**. Stack is used for execution purpose and heap is used for storage purpose. In the heap memory, JVM allocates some memory specially meant for string literals. This part of the heap memory is called **String Constant Pool (SCP)**. Whenever you create a string object using string literal, that object is stored in the **SCP**: 
 
 ```java
 String s1 = "abc";
@@ -98,9 +98,7 @@ Immutability is the fundamental property of string objects. In whatever way yo
 
 **“==” operator** compares the two objects on their physical address. That means if two references are pointing to same object in the memory, then comparing those two references using “==” operator will return true.
 
-**equals() method**, if not overridden, will perform same comparison as “==” operator does i.e comparing the objects on their physical address. So, it is always recommended that you should override **equals()** method in your class so that it provides field by field comparison of two objects. This type of comparison is called **“Deep Comparison”**.
-
-In java.lang.String class, equals() method is overridden to provide the comparison of two string objects based on their contents.
+**equals() method**, if not overridden, will perform same comparison as “==” operator does i.e comparing the objects on their physical address. So, it is always recommended that you should override **equals()** method in your class so that it provides field by field comparison of two objects. In **java.lang.String** class, **equals()** method is overridden to provide the comparison of two string objects based on their contents.
 
 **hashCode() method** returns hash code value of an object in the Integer form. It is recommended that whenever you override equals() method, you should also override hashCode() method so that **two equal objects according to equals() method must return same hash code values**. This is the general contract between equals() and hashCode() methods that must be maintained all the time.
 
