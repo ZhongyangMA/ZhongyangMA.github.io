@@ -20,7 +20,7 @@ The Java platform provides three classes: **String**, **StringBuffer** and **Str
 
 **StringBuffer** and **StringBuilder** objects are mutable, and only **StringBuffer** objects are thread safe, where as **StringBuilder** objects are not. So whenever you want immutable and thread safe string objects, use **String** class and whenever you want mutable as well as thread safe string objects then use **StringBuffer** class.
 
-In all three classes, **toString()** method is overrided. So. whenever you use reference variables of these three types, they will return contents of the objects not physical address of the objects. **equals()** and **hashCode()** methods are overrided only in **String** class but not in **StringBuffer** and **StringBuilder** classes.
+In all three classes, **toString()** method is overrided. So. whenever you use reference variables of these three types, they will return contents of the objects not physical address of the objects. **equals()** and **hashCode()** methods are overrided only in **String** class, but not in **StringBuffer** and **StringBuilder** classes.
 
 In case of **String** class, you can create the objects without **new** operator. But in case of **StringBuffer** and **StringBuilder** class, you have to use **new** operator to create the objects.
 
@@ -37,9 +37,7 @@ Here is a table showing the differences between these three classes:
 
 # Memory Usage Of String
 
-We all know that JVM divides the allocated memory to a Java program into two parts. one is **Stack** and another one is **heap**. Stack is used for execution purpose and heap is used for storage purpose. In the heap memory, JVM allocates some memory specially meant for string literals. This part of the heap memory is called **String Constant Pool (SCP)**.
-
-Whenever you create a string object using string literal, that object is stored in the **SCP**: 
+We all know that JVM divides the allocated memory to a Java program into two parts. one is **Stack** and another one is **heap**. Stack is used for execution purpose and heap is used for storage purpose. In the heap memory, JVM allocates some memory specially meant for string literals. This part of the heap memory is called **String Constant Pool (SCP)**. Whenever you create a string object using string literal, that object is stored in the **SCP**: 
 
 ```java
 String s1 = "abc";
