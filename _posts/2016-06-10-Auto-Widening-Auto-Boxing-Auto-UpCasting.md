@@ -32,6 +32,10 @@ xxxxxx
 
 xxxxx
 
+![https://github.com/ZhongyangMA/images/raw/master/auto-widening/auto.png](https://github.com/ZhongyangMA/images/raw/master/auto-widening/auto.png)
+
+xxxxx
+
 
 
 # References
