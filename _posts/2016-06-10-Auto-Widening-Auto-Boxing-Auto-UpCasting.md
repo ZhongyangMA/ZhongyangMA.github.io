@@ -20,9 +20,9 @@ The table below shows the sizes of each primitive types in Java:
 | :-------------: | :--: | :---: | :--: | :--: | :---: | :----: |
 |   size (byte)   |  1   |   2   |  4   |  8   |   4   |   8    |
 
-Please note that although the size (in byte) of **float** is less than that of **long**, the number range of **float** is still larger than **long** due to their different data structures. Thus from long to float, the auto-widening is possible.
+Please note that although the size of **float** (4 bytes) is less than that of **long** (8 bytes), the number range of **float** is still larger than **long** due to their different data structures. Thus from long to float, the auto-widening is possible.
 
-# Some Code Examples
+# Code Examples
 
 xxxxxx
 
