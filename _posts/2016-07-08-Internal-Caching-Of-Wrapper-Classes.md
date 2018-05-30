@@ -8,7 +8,7 @@ permalink: /archivers/Internal-Caching-Of-Wrapper-Classes
 
 _(000 words, 0 minutes)_
 
-_({{ page.content | number_of_words }} words, 0 minutes)_
+_({{ page.content | number_of_words }} words, {{ page.content | number_of_words | divided_by:266 }} minutes)_
 
 <!--more-->
 
