@@ -7,7 +7,7 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <p class="post-meta">{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
     <p>
-      <i>({{ post.content | number_of_words }} words, {{ post.content | number_of_words | divided_by:270 }} minutes)</i>
+      <i>({{ page.content | number_of_words }} words, {{ page.content | number_of_words | divided_by:270 }} minutes)</i>
     </p>
   </header>
 
