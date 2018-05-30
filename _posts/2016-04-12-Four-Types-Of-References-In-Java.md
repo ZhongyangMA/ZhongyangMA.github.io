@@ -6,8 +6,6 @@ categories: Java
 permalink: /archivers/Four-Types-Of-References-In-Java
 ---
 
-_(851 words, 3 minutes)_
-
 There are actually 4 kinds of reference types in Java: strong references, soft references, weak references and phantom references. These references are different because of the existence of a garbage collection mechanism in the JVM. The decision of reclaiming memory from the object heap depends not only on the fact that there are active references to an object, but also on the type of reference to the object. Let's try to see how each of them differ from one another.
 
 <!--more-->

@@ -6,8 +6,6 @@ categories: Java
 permalink: /archivers/Java-Exceptions
 ---
 
-_(1943 words, 8 minutes)_
-
 An Exception is an abnormal condition which occurs during run time and disrupts the normal flow of the program. Exceptions must be handled to maintain the normal flow of the program. In this reading note, I record some key points about the concepts, the handling methods and the frequently asked interview questions of Java Exception. 
 
 <!--more-->
