@@ -10,6 +10,8 @@ _(000 words, 0 minutes)_
 
 Xxxxxx
 
+{{ page.content | number_of_words }}
+
 <!--more-->
 
 # Title1
