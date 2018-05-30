@@ -6,8 +6,6 @@ categories: Java
 permalink: /archivers/Auto-Widening-Auto-Boxing-Auto-UpCasting
 ---
 
-_(760 words, 3 minutes)_
-
 This is an quite interesting topic in Java. Before I wrote this reading note I can not exactly distinguish them one from another. So let's see what auto-widening, auto-boxing and auto-upcasting mean, and under what circumstances they will happen.
 
 <!--more-->
