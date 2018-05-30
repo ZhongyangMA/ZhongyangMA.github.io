@@ -67,7 +67,7 @@ In simple words, there can not be two string objects with same content in the st
 
 # The Immutability of String
 
-The examples below shows the  immutability of String:
+The example below shows the  immutability of String:
 
 ```java
 String s1 = "abc";
