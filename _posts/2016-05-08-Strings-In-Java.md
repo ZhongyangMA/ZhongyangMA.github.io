@@ -121,11 +121,9 @@ String objects created using **String** class are immutable. Once they are cr
 
 You can change the contents of StringBuffer and StringBuider objects at any time of execution. When you change the content, new objects are not created. Instead of that the changes are applied to existing object. Thus solving memory issues may caused by **String** class.
 
-You have to use **new** operator to create objects to StringBuffer and StringBuilder classes. You can’t use string literals to create objects to these classes. For example, you can’t write **StringBuffer sb = “JAVA”** or **StringBuilder sb = “JAVA”**. It gives compile time error. But, you can use both string literals and new operator to create objects to String class.
-
 As objects of StringBuffer and StringBuilder are created using only new operator, they are stored in **heap memory**. Where as objects of String class are created using both string literals and new operator, they are stored in string constant pool as well as heap memory.
 
-Any immutable object in java is thread safety. Because they are unchangeable once they are created. This applies to objects of **String** class also. Of the **StringBuffer** and **StringBuilder** objects, only **StringBuffer** objects are thread safety. All necessary methods in **StringBuffer** class are **synchronized** so that only one thread can enter into it’s object at any point of time. Where as **StringBuilder** objects are not thread safety.
+Any immutable object in java is thread safety. Because they are unchangeable once they are created. This applies to objects of **String** class also. Of the **StringBuffer** and **StringBuilder** objects, only **StringBuffer** objects are thread safety. All necessary methods in **StringBuffer** class are **synchronized** so that only one thread can enter into it’s object at any point of time. Where as **StringBuilder** objects are not thread safe.
 
 In StringBuffer and StringBuilder classes, **equals()** and **hashCode()** methods are not overridden. Where as in String class they are overridden. **toString()** method is overridden in all three classes. You can also convert StringBuffer and StringBuilder objects to String type by calling **toString()** method on them.
 
