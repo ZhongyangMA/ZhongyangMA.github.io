@@ -6,8 +6,6 @@ categories: Middleware
 permalink: /archivers/A-Brief-Introduction-to-Alibaba's-Canal
 ---
 
-_(1012 words, 4 minutes)_
-
 In the previous article, I introduced the deployment of our Elasticsearch cluster, which is used for a product retrieval system. In order to synchronize the data from MySQL database to our ES cluster in near real time, we investigated many middle wares, and finally chose the _Canal_ as our solution. _Canal_ is a data synchronization middle ware, which is one of Alibaba's open source projects. The way it works is that it disguises itself as the slave database and ingests data from a real master database. By parsing the binary logs, it re-plays the events happened in the master database, and pushes the events in the form of messages to its downstream.  
 
 In this article, I will firstly introduce the background, then the general structure of _Canal_, and in the end I will talk about its high availability (HA) design. This article is entirely technical, anything related to commercial information has been excluded.  
