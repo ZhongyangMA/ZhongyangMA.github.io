@@ -4,7 +4,8 @@ layout: default
 
 <div class="home">
   <a class="rss-link" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS Feed</a>
-  <h1 class="page-heading">Articles ({% paginator.total_posts %})</h1>
+  <h1 class="page-heading">Articles</h1>
+  {% paginator.total_posts %}
 
   <ul class="post-list">
     {% for post in paginator.posts %}
