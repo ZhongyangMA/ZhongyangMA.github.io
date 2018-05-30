@@ -8,7 +8,7 @@ permalink: /archivers/Strings-In-Java
 
 _(2154 words, 8 minutes)_
 
-Strings, which are widely used in Java programming, are a sequence of characters. "Java", “aaa”, “123” and “A” are some examples of strings, which are all enclosed within the double quotes. In the Java programming language, strings are objects. The Java platform provides three classes: **String**, **StringBuffer** and **StringBuilder** to create and manipulate strings. In this reading note, I will talk about some important aspects of Java strings and the problems we often encounter. 
+Strings, which are widely used in Java programming, are a sequence of characters. "Java", “aaa”, “123” and “A” are some examples of strings, which are all enclosed within the double quotes. In the Java programming language, strings are objects. The Java platform provides three classes: String, StringBuffer and StringBuilder to create and manipulate strings. In this reading note, I will talk about some important aspects of Java strings and the problems we often encounter. 
 
 <!--more-->
 
@@ -26,14 +26,14 @@ In case of **String** class, you can create the objects without **new** operator
 
 Here is a table showing the differences between these three classes:
 
-|                   classes                   |    java.lang.String    | java.lang.StringBuffer | java.lang.StringBuilder |
-| :-----------------------------------------: | :--------------------: | :--------------------: | :---------------------: |
-|                    final                    |          yes           |          yes           |           yes           |
-|                  immutable                  |          yes           |           no           |           no            |
-|                 thread safe                 |          yes           |          yes           |           no            |
-|        **toString()** is overridden         |          yes           |          yes           |           yes           |
+|                 classes                  |    java.lang.String    | java.lang.StringBuffer | java.lang.StringBuilder |
+| :--------------------------------------: | :--------------------: | :--------------------: | :---------------------: |
+|                  final                   |          yes           |          yes           |           yes           |
+|                immutable                 |          yes           |           no           |           no            |
+|               thread safe                |          yes           |          yes           |           no            |
+|       **toString()** is overridden       |          yes           |          yes           |           yes           |
 | **equal()** & **hashCode()** are overridden |          yes           |           no           |           no            |
-|                 constructor                 | **new** & **literals** |        **new**         |         **new**         |
+|               constructor                | **new** & **literals** |        **new**         |         **new**         |
 
 # Memory Usage Of String
 
