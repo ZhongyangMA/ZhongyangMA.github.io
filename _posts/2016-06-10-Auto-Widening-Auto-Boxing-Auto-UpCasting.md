@@ -20,7 +20,7 @@ The table below shows the sizes of each primitive types in Java:
 | :-------------: | :--: | :---: | :--: | :--: | :---: | :----: |
 |   size (byte)   |  1   |   2   |  4   |  8   |   4   |   8    |
 
-Please note that although the size of **float** (4 bytes) is less than that of **long** (8 bytes), the number range of **float** is still larger than **long** due to their different data structures. Thus from long to float, the auto-widening is possible.
+Please note that although the size of **float** (4 bytes) is little than that of **long** (8 bytes), the number range of **float** is still larger than **long** due to their different data structures. Thus from long to float, the auto-widening is possible.
 
 # Code Examples
 
@@ -112,7 +112,7 @@ The mechanism can be summarized as below:
 1. If you are passing primitive data type as an argument to the method call, compiler first checks for a method definition which takes **same data type** as an argument.
 2. If such method does not exist, then it checks for the method definition which takes big sized primitive data type than passed data type. i.e It tries to perform **auto-widening conversion** of passed data type.
 3. If auto-widening conversion is not possible, then it checks for method definition which takes corresponding wrapper class type as an argument. i.e It tries to perform **auto-boxing conversion**.
-4. If such method does not exist, then it checks for the method which takes super class type (Number or Object type) as an argument.
+4. If such method does not exist, then it checks for the method which takes super class type (Number or Object type) as an argument. That means the **auto-upcasting** is happening.
 5. If such method also does not exist, then compiler gives compile time error.
 
 
