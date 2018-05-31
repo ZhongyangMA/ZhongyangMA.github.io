@@ -64,7 +64,7 @@ public class IntegerCacheDemo {
 }
 ```
 
-The first print statement will print true, which means both variables are referring to the same instance. But the second print statement prints false, because `new Integer(100)` created a new fresh instance in separate memory location. So if you want to make use of this cache, always use primitive assignment to reference variable or use `valueOf()` method.
+The first print statement will print true, which means both variables are referring to the same instance. But the second print statement prints false, because `new Integer(100)` created a new fresh instance in separate memory location. So if you want to make use of this cache, always use primitive assignment (auto-boxing) to reference variable or use `valueOf()` method.
 
 ```java
 Integer a1 = 100;
@@ -72,7 +72,7 @@ Integer a2 = 100;
 System.out.println(a1 == a2);  // output: true
 Integer a3 = 300;
 Integer a4 = 300;
-System.out.println(a1 == a2);  // output: false
+System.out.println(a3 == a4);  // output: false
 a1 = null;  // will not make any object available for GC at all
 a3 = null;  // will make the newly created Integer object available for GC
 ```
