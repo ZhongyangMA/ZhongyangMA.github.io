@@ -16,7 +16,13 @@ Xxxxxx
 
 # Modifying Cache Size
 
-Xxxxxx
+If you want to store a bigger number of instances, you can use runtime parameter as below:
+
+```xml
+-Djava.lang.Integer.IntegerCache.high=2000
+```
+
+Above statement will cause the cache to store instances from -127 to 1000. Remember, there is no such property like `-Djava.lang.Integer.IntegerCache.low` as for now. May be in future, it might be added as well.
 
 # Other Wrapper Classes
 
@@ -48,7 +54,7 @@ The table below shows the cache value range of all wrapper classes:
 
 [2] Java语法基础包装类的缓存: [https://blog.csdn.net/u012552052/article/details/45370537](https://blog.csdn.net/u012552052/article/details/45370537)
 
-[3] xx
+
 
 
 
