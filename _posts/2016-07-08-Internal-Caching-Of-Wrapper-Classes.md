@@ -12,7 +12,74 @@ I first realized this mechanism at the time when I read an interview question ab
 
 # Integer Cache Demonstration
 
-Xxxxxx
+Similar with **String** class, all wrapper classes are immutable, once their instances are created, they cannot be modified. The **equal()** method is also overridden in wrapper classes, thus it compares two objects based on their values rather than physical addresses.
+
+In **Integer** class there is an inner class i.e. **IntegerCache**. When you assign a new **int** to Integer type like below:
+
+```java
+Integer i = 10;      //OR
+Integer i = Integer.valueOf(10);
+```
+
+An already created Integer instance is returned and reference is stored in `i`. Please note that if you use `new Integer(10);` then a new instance of Integer class will be created and caching will not come into picture. It's only available when you use `Integer.valueOf()` OR directly primitive assignment (auto-boxing, which ultimately uses `valueOf()` function).
+
+Lets see how this `IntegerCache` look like in code:
+
+```java
+private static class IntegerCache {
+    private IntegerCache(){}
+    static final Integer cache[] = new Integer[-(-128) + 127 + 1];
+    static {
+        for(int i = 0; i < cache.length; i++)
+            cache[i] = new Integer(i - 128);
+    }
+}
+```
+
+And this is how `valueOf()` method looks like:
+
+```java
+public static Integer valueOf(int i) {
+    final int offset = 128;
+    if (i >= -128 && i <= 127) {
+        return IntegerCache.cache[i + offset];
+    }
+    return new Integer(i);
+}
+```
+
+As you see, IntegerCache is static inner class and will only be initialized when used first time. So on first time, due to cache creation, time might be little longer and after that it will not take more time. But, the actual benefit is memory reuse.
+
+Let's see an example:
+
+```java
+public class IntegerCacheDemo { 
+    public static void main(String[] args) { 
+        Integer a1 = 100;
+        Integer a2 = 100;
+        Integer a3 = new Integer(100);
+        System.out.println(a1 == a2);  // output: true
+        System.out.println(a1 == a3);  // output: false
+    }
+}
+```
+
+The first print statement will print true, which means both variables are referring to the same instance. But the second print statement prints false, because `new Integer(100)` created a new fresh instance in separate memory location. So if you want to make use of this cache, always use primitive assignment to reference variable or use `valueOf()` method.
+
+```java
+Integer a1 = 100;
+Integer a2 = 100;
+System.out.println(a1 == a2);  // output: true
+Integer a3 = 300;
+Integer a4 = 300;
+System.out.println(a1 == a2);  // output: false
+a1 = null;  // will not make any object available for GC at all
+a3 = null;  // will make the newly created Integer object available for GC
+```
+
+`a1 == a2` is true because they are pointing to the same Integer instance in the cache. `a3 == a4` is false, because their values go beyond the upper limit 127, so new instances are created.
+
+Assigning `null` to a1 will not make any object available for GC at all, because the object which a1 was pointing to is an Integer cache instance; Whereas assigning `null` to a3 will make the newly created Integer object available for GC.
 
 # Modifying Cache Size
 
