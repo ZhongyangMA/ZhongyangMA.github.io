@@ -23,7 +23,7 @@ Integer i = Integer.valueOf(10);
 
 An already created Integer instance is returned and reference is stored in `i`. Please note that if you use `new Integer(10);` then a new instance of Integer class will be created and caching will not come into picture. It's only available when you use `Integer.valueOf()` OR directly primitive assignment (auto-boxing, which ultimately uses `valueOf()` function).
 
-Lets see how this `IntegerCache` look like in code:
+Let's see how this `IntegerCache` looks like in code:
 
 ```java
 private static class IntegerCache {
