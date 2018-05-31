@@ -14,6 +14,27 @@ I first realized this mechanism at the time when I read an interview question ab
 
 Xxxxxx
 
+# Modifying Cache Size
+
+Xxxxxx
+
+# Other Wrapper Classes
+
+Xxxxxx
+
+| wrapper class | primitive type | value range of cached instances        |
+| ------------- | -------------- | -------------------------------------- |
+| Boolean       | boolean        | true, false (all value)                |
+| Byte          | byte           | -128~127 (all value)                   |
+| Short         | short          | -128~127                               |
+| Character     | char           | 0~127                                  |
+| Integer       | int            | -128~127 (upper limit can be modified) |
+| Long          | long           | -128~127                               |
+| Float         | float          | none                                   |
+| Double        | double         | none                                   |
+
+
+
 Xxxxxx
 
 # References
