@@ -20,7 +20,14 @@ Xxxxxx
 
 # Other Wrapper Classes
 
-Xxxxxx
+Besides Integer class, other wrapper classes also provide this caching facility. Let's see them in short:
+
+1. java.lang.Boolean store two inbuilt instances TRUE and FALSE, and return their reference if new keyword is not used.
+2. java.lang.Character has a cache for chars between unicodes 0 and 127 (ascii-7 / us-ascii).
+3. java.lang.Long has a cache for long between -128 to +127.
+4. java.lang.String has a whole new concept of string pool.
+
+The table below shows the cache value range of all wrapper classes:
 
 | wrapper class | primitive type | value range of cached instances        |
 | ------------- | -------------- | -------------------------------------- |
@@ -34,8 +41,6 @@ Xxxxxx
 | Double        | double         | none                                   |
 
 
-
-Xxxxxx
 
 # References
 
