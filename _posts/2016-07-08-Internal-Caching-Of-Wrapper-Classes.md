@@ -19,7 +19,7 @@ Xxxxxx
 If you want to store a bigger number of instances, you can use runtime parameter as below:
 
 ```xml
--Djava.lang.Integer.IntegerCache.high=2000
+-Djava.lang.Integer.IntegerCache.high=1000
 ```
 
 Above statement will cause the cache to store instances from -127 to 1000. Remember, there is no such property like `-Djava.lang.Integer.IntegerCache.low` as for now. May be in future, it might be added as well.
