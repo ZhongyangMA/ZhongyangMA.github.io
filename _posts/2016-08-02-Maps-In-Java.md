@@ -10,7 +10,37 @@ Xxxx xxxx
 
 <!--more-->
 
-# Title1
+# Hierarchy of Maps
+
+Xxxx
+
+![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png)
+
+Xxxx
+
+# How HashMap Works Internally
+
+Xxxx
+
+![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hashmap.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hashmap.png)
+
+Xxxx
+
+# HashMap vs. Hashtable
+
+Xxxx
+
+# ConcurrentHashMap
+
+Xxxx
+
+# TreeMap
+
+Xxxx
+
+# LinkedHashMap
+
+Xxxx
 
 Xxxx
 
