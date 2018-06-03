@@ -12,11 +12,11 @@ Map is a data structure and it is mainly used for fast data lookups or searching
 
 # Hierarchy of Maps
 
-Xxxx
+The Map interface doesn't inherit from Collection interface, it starts its own hierarchy for maintaining the key-value associations. **HashMap**, **LinkedHashMap**, **ConcurrentHashMap** and **TreeMap** are four popular implementations of Map interface. 
+
+The picture below shows the class hierarchy structures of Map interface:
 
 ![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png)
-
-Xxxx
 
 # How HashMap Works Internally
 
