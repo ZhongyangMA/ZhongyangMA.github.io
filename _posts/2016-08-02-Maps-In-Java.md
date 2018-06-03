@@ -18,6 +18,11 @@ The picture below shows the class hierarchy structures of Map interface:
 
 ![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png)
 
+Note:
+
+1. **(C)** means class (blue), whereas **(I)** means interface (orange).
+2. The solid line means "extends", whereas the dashed line means "implements".
+
 # How HashMap Works Internally
 
 The **java.util.HashMap** is a popular implementation of **Map** interface which holds the data as key-value pairs. **HashMap** extends **AbstractMap** class and implements **Cloneable** and **Serializable** interfaces.
