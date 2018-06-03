@@ -198,11 +198,11 @@ TreeMap contains only unique elements, it cannot have null key but can have mult
 
 # LinkedHashMap
 
-Xxxx
+LinkedHashMap is same as HashMap instead maintains **insertion order**.
 
-Xxxx
+![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/dll.jpg](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/dll.jpg)
 
-Xxxx
+It maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (*insertion-order*).
 
 # References
 
@@ -216,7 +216,7 @@ Xxxx
 
 [5] 探索ConcurrentHashMap高并发性的实现机制: [https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html](https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html)
 
-[6] Xxxxxx: []()
+[6] Difference between HashMap, LinkedHashMap and TreeMap: [https://stackoverflow.com/questions/2889777/difference-between-hashmap-linkedhashmap-and-treemap](https://stackoverflow.com/questions/2889777/difference-between-hashmap-linkedhashmap-and-treemap)
 
  
 
