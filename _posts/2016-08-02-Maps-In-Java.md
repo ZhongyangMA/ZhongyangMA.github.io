@@ -165,7 +165,15 @@ Xxxx
 
 [2] What is Load factor and Rehashing in HashMap: [http://javabypatel.blogspot.com/2015/10/what-is-load-factor-and-rehashing-in-hashmap.html](http://javabypatel.blogspot.com/2015/10/what-is-load-factor-and-rehashing-in-hashmap.html)
 
-[3] xxxxx
+[3] Rehashing Process in HashMap or Hashtable: [https://stackoverflow.com/questions/10655239/rehashing-process-in-hashmap-or-hashtable](https://stackoverflow.com/questions/10655239/rehashing-process-in-hashmap-or-hashtable)
+
+[4] Xxxxxx: []()
+
+[5] Xxxxxx: []()
+
+[6] Xxxxxx: []()
+
+ 
 
 
 
