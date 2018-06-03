@@ -133,7 +133,11 @@ The steps are:
 
 ## Capacity, Load Factor and Rehashing
 
-Xxxx
+**Capacity** is just the number of buckets in the *table[]* array, it is set to 16 initially. The capacity of the *HashMap* is doubled each time it reaches the threshold. i.e. the capacity is increased to 32, 64, 128 when the threshold is reached. **Load Factor** is the measure which decides when to increase the capacity of the *HashMap*. The default load factor is 0.75.
+
+When the number of elements in the map goes beyond **Capacity * Load Factor**, the elements in the original *table[]* array will be placed into a new *table[]* array, which has the double capacity of the original one. When this happens, the new index at which the value has to be put changes. **Rehashing** is a process where new *HashMap* object with new capacity is created and all old elements (key-value pairs) are placed into new object after recalculating their hash code.
+
+While rehashing, the linked list for each bucket gets reversed in order. This happens because HashMap doesn't append the new element at the tail instead it appends the new element at the head. So when rehashing occurs, it reads each element and inserts it in the new bucket at the head and then keeps on adding next elements from the old map at the head of the new map resulting in reversal of linked list. If there are multiple threads handling the same hash map it could result in infinite loop. This is called **Race Condition**.
 
 # HashMap vs. Hashtable
 
@@ -159,7 +163,7 @@ Xxxx
 
 [1] How HashMap Works Internally In Java: [http://javaconceptoftheday.com/how-hashmap-works-internally-in-java](http://javaconceptoftheday.com/how-hashmap-works-internally-in-java)
 
-[2] xxxxx
+[2] What is Load factor and Rehashing in HashMap: [http://javabypatel.blogspot.com/2015/10/what-is-load-factor-and-rehashing-in-hashmap.html](http://javabypatel.blogspot.com/2015/10/what-is-load-factor-and-rehashing-in-hashmap.html)
 
 [3] xxxxx
 
