@@ -25,11 +25,61 @@ Note:
 
 # How HashMap Works Internally
 
-The **java.util.HashMap** is a popular implementation of **Map** interface which holds the data as key-value pairs. **HashMap** extends **AbstractMap** class and implements **Cloneable** and **Serializable** interfaces.
+If your application demands fast insertion and retrieval, then **HashMap** is the ultimate choice. HashMap is the most used data structure in java because it gives almost constant time performance of O(1) for put and get operations irrespective of how big is the data. As you already know, HashMap stores the data in the form of key-value pairs. In this section, we will see how HashMap works internally in java and how it stores the elements to give O(1) performance for put and get operations.
+
+## Internal Structure
+
+HashMap stores the data in the form of key-value pairs. Each key-value pair is stored in an object of Entry<K, V> class. Entry<K, V> class is the static inner class of HashMap which is defined like below.
+
+```java
+static class Entry<K,V> implements Map.Entry<K,V> {
+    final K key;
+    V value;
+    Entry<K,V> next;
+    int hash;
+    //Some methods are defined here
+}
+```
+
+As you can see, this inner class has four fields: key, value, next and hash.
+
+- **key** : It stores the key of an element and it is final.
+- **value** : It holds the value of an element.
+- **next** : It holds the pointer to next key-value pair. **This attribute makes the key-value pairs stored as a linked list.**
+- **hash** : It holds the hashcode of the key.
+
+These Entry objects are stored in an array called **table[]**. This array is initially of size 16. It is defined like below:
+
+```java
+/**
+ * The table, resized as necessary. Length MUST Always be a power of two.
+ */
+transient Entry<K,V>[] table;
+```
+
+The picture below best summarizes the whole HashMap structure:
 
 ![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hashmap.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hashmap.png)
 
+Internally HashMap uses an array of Entry<K, V> class called table\[\] to store the key-value pairs. 
+
+But how HashMap allocates slot in table\[\] array to each of its key-value pair is very interesting. It doesn’t inserts the objects as you put them into an array i.e. first element at index 0, second element at index 1 and so on. Instead it uses the **hash code** of the key to decide the index for a particular key-value pair. It is called **Hashing**.
+
+## What Is Hashing?
+
+The whole HashMap data structure is based on the principle of **Hashing**. Hashing is nothing but the function or algorithm or method which when applied on any object/variable returns an unique integer value representing that object/variable. This unique integer value is called **hash code**. Hash function or simply hash said to be the best if it returns the same hash code each time it is called on the same object. Two objects can have same hash code.
+
+*HashMap* has its own hash function to calculate the hash code of the key. Whenever you insert new key-value pair using *put()* method, *HashMap* blindly doesn’t allocate slot in the *table[]* array. Instead it calls **hash()** function on the key. 
+
+After calculating the hash code of the key, it calls **indexFor()** method by passing the hash code of the key and length of the *table[]* array. This method returns the index in the *table[]* array for that particular key-value pair.
+
+## How *put()* method works?
+
 Xxxx
+
+## How *get()* method works?
+
+Xxxx xxx
 
 # HashMap vs. Hashtable
 
