@@ -143,7 +143,7 @@ While rehashing, the linked list for each bucket gets reversed in order. This ha
 
 HashMap and Hashtable have some similarities in common:
 
-1. oth store the data in the form of *key-value* pairs.
+1. Both store the data in the form of *key-value* pairs.
 2. Both use *Hashing* technique to store the key-value pairs.
 3. Both implement *Map* interface.
 4. Both doesn’t maintain any order for elements.
@@ -160,7 +160,7 @@ But there are also many differences between them. The main differences can be su
 | returns                 | HashMap returns only iterators to traverse.                  | HashTable returns both Iterator as well as Enumeration for traversal. |
 | performance             | HashMap is fast.                                             | HashTable is slow.                                           |
 | legacy class            | HashMap is not a legacy class.                               | HashTable is a legacy class.                                 |
-| when To Use             | HashMap is preferred in single threaded applications. If you want to use HashMap in multi threaded application, wrap it using Collections.synchronizedMap() method. | Although HashTable is there to use in multi threaded applications, nowadays it is not at all preferred. Because, **ConcurrentHashMap** is better option than HashTable. |
+| when To Use             | HashMap is preferred in single threaded applications. If you want to use HashMap in multi threaded application, wrap it using Collections.synchronizedMap() method. | Although HashTable is there to use in multi threaded applications, nowadays it is not at all preferred. Because, **ConcurrentHashMap** is a better option than HashTable. |
 
 # ConcurrentHashMap
 
