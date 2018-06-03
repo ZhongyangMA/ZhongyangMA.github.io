@@ -186,7 +186,7 @@ Xxxx
 
 [3] Rehashing Process in HashMap or Hashtable: [https://stackoverflow.com/questions/10655239/rehashing-process-in-hashmap-or-hashtable](https://stackoverflow.com/questions/10655239/rehashing-process-in-hashmap-or-hashtable)
 
-[4] Xxxxxx: []()
+[4] How ConcurrentHashMap Works Internally In Java: [https://dzone.com/articles/how-concurrenthashmap-works-internally-in-java](https://dzone.com/articles/how-concurrenthashmap-works-internally-in-java)
 
 [5] Xxxxxx: []()
 
