@@ -164,7 +164,11 @@ But there are also many differences between them. The main differences can be su
 
 # ConcurrentHashMap
 
-Xxxx
+Collections.synchornizedMap(HashMap) will return a collection which is almost equivalent to Hashtable, where every modification operation on Map is locked on Map object. While in case of ConcurrentHashMap, thread-safety is achieved by dividing whole Map into different partitions (segments) based upon concurrency level and only locking particular partition instead of locking the whole Map.
+
+The picture below best describes how the concurrency and thread-safety are achieved by segment lock.
+
+![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/chm.jpg](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/chm.jpg)
 
 # TreeMap
 
@@ -188,7 +192,7 @@ Xxxx
 
 [4] How ConcurrentHashMap Works Internally In Java: [https://dzone.com/articles/how-concurrenthashmap-works-internally-in-java](https://dzone.com/articles/how-concurrenthashmap-works-internally-in-java)
 
-[5] Xxxxxx: []()
+[5] 探索ConcurrentHashMap高并发性的实现机制: [https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html](https://www.ibm.com/developerworks/cn/java/java-lo-concurrenthashmap/index.html)
 
 [6] Xxxxxx: []()
 
