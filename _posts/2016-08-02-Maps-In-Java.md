@@ -141,7 +141,26 @@ While rehashing, the linked list for each bucket gets reversed in order. This ha
 
 # HashMap vs. Hashtable
 
-Xxxx
+HashMap and Hashtable have some similarities in common:
+
+1. oth store the data in the form of *key-value* pairs.
+2. Both use *Hashing* technique to store the key-value pairs.
+3. Both implement *Map* interface.
+4. Both doesn’t maintain any order for elements.
+5. Both give constant time performance for insertion and retrieval operations. 
+
+But there are also many differences between them. The main differences can be summarized as below:
+
+| differences             | HashMap                                                      | Hashtable                                                    |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| thread safe             | HashMap is not synchronized and therefore it is not thread safe. | HashTable is internally synchronized and therefore it is thread safe. |
+| null key                | HashMap allows maximum one null key and any number of null values. | HashTable doesn’t allow null keys and null values.           |
+| fail-fast vs. fail-safe | Iterators returned by the HashMap are fail-fast in nature.   | Numeration returned by the HashTable are fail-safe in nature. |
+| extends                 | HashMap extends AbstractMap class.                           | HashTable extends Dictionary class.                          |
+| returns                 | HashMap returns only iterators to traverse.                  | HashTable returns both Iterator as well as Enumeration for traversal. |
+| performance             | HashMap is fast.                                             | HashTable is slow.                                           |
+| legacy class            | HashMap is not a legacy class.                               | HashTable is a legacy class.                                 |
+| when To Use             | HashMap is preferred in single threaded applications. If you want to use HashMap in multi threaded application, wrap it using Collections.synchronizedMap() method. | Although HashTable is there to use in multi threaded applications, nowadays it is not at all preferred. Because, **ConcurrentHashMap** is better option than HashTable. |
 
 # ConcurrentHashMap
 
