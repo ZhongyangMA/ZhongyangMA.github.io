@@ -172,7 +172,29 @@ The picture below best describes how the concurrency and thread-safety are achie
 
 # TreeMap
 
-Xxxx
+The TreeMap class implements the NavigableMap interface and extends AbstractMap class by using a **Red-Black Tree**. A TreeMap provides an efficient means of storing key-value pairs in sorted order, and allows rapid retrieval. Unlike a hash map, a tree map guarantees that its elements will be sorted in an ascending key order.
+
+Here's the example of how to use it:
+
+```java
+TreeMap treeMap = new TreeMap();
+treeMap.put("Z", 1.1);
+treeMap.put("D", 1.2);
+treeMap.put("A", 1.3);
+treeMap.put("F", 1.4);
+for (Map.Entry entry : treeMap.entrySet()) {
+    System.out.println(entry.getKey() + " " + entry.getValue());
+}
+// output will be:
+// A 1.3
+// D 1.2
+// F 1.4
+// Z 1.1
+```
+
+As we can see, the elements in a TreeMap are sorted by the *key* in an ascending order.
+
+TreeMap contains only unique elements, it cannot have null key but can have multiple null values.
 
 # LinkedHashMap
 
