@@ -75,11 +75,65 @@ After calculating the hash code of the key, it calls **indexFor()** method by 
 
 ## How *put()* method works?
 
-Xxxx
+Below is the code implementation of *put()* method in the *HashMap* class.
+
+```java
+public V put(K key, V value) {
+    if (key == null)
+        return putForNullKey(value);
+    int hash = hash(key);
+    int i = indexFor(hash, table.length);
+    for (Entry<K,V> e = table[i]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || key.equals(k))) {
+            V oldValue = e.value;
+            e.value = value;
+            e.recordAccess(this);
+            return oldValue;
+        }
+    }
+    modCount++;
+    addEntry(hash, key, value, i);
+    return null;
+}
+```
+
+Let’s see how this code works step by step:
+
+1. First checks whether the key is null or not. If the key is null, it calls *putForNullKey()*method. *table[0]* is always reserved for null key. Because, hash code of null is 0.
+2. If the key is not null, then it calculates the hash code of the key by calling *hash()*method.
+3. Calls *indexFor()* method by passing the hash code calculated in step 2 and length of the *table[]* array. This method returns index in *table[]* array for the specified key-value pair.
+4. After getting the index, it checks all keys present in the linked list at that index ( or bucket). If the key is already present in the linked list, it replaces the old value with new value.
+5. If the key is not present in the linked list, it appends the specified key-value pair at the end of the linked list.
 
 ## How *get()* method works?
 
-Xxxx xxx
+Let’s see how get() method has implemented.
+
+```java
+public V get(Object key) {
+    if (key == null)
+        return getForNullKey();
+    int hash = hash(key.hashCode());
+    for (Entry<K , V> e = table[indexFor(hash, table.length)]; e != null; e = e.next) {
+        Object k;
+        if (e.hash == hash && ((k = e.key) == key || key.equals(k)))
+            return e.value;
+    }
+    return null;
+}
+```
+
+The steps are:
+
+1. First checks whether specified key is null or not. If the key is null, it calls *getForNullKey()* method.
+2. If the key is not null, hash code of the specified key is calculated.
+3. *indexFor()* method is used to find out the index of the specified key in the *table[]* array.
+4. After getting index, it will iterate though linked list at that position and checks for the key using equals() method. If the key is found, it returns the value associated with it. otherwise returns null.
+
+## Capacity, Load Factor and Rehashing
+
+Xxxx
 
 # HashMap vs. Hashtable
 
@@ -103,7 +157,7 @@ Xxxx
 
 # References
 
-[1] xxxxx
+[1] How HashMap Works Internally In Java: [http://javaconceptoftheday.com/how-hashmap-works-internally-in-java](http://javaconceptoftheday.com/how-hashmap-works-internally-in-java)
 
 [2] xxxxx
 
