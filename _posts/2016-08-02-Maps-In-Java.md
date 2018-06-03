@@ -100,7 +100,7 @@ public V put(K key, V value) {
 
 Let’s see how this code works step by step:
 
-1. First checks whether the key is null or not. If the key is null, it calls *putForNullKey()*method. *table[0]* is always reserved for null key. Because, hash code of null is 0.
+1. First checks whether the key is null or not. If the key is null, *putForNullKey()* method is called. *table[0]* is always reserved for null key. Because, hash code of null is 0.
 2. If the key is not null, then it calculates the hash code of the key by calling *hash()*method.
 3. Calls *indexFor()* method by passing the hash code calculated in step 2 and length of the *table[]* array. This method returns index in *table[]* array for the specified key-value pair.
 4. After getting the index, it checks all keys present in the linked list at that index ( or bucket). If the key is already present in the linked list, it replaces the old value with new value.
