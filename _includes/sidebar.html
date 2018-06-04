@@ -18,7 +18,7 @@
 <div class="col-box">
   <div class="col-box-title">Newest Posts</div>
   <ul class="post-list">
-    {% for post in site.posts limit:5 %}
+    {% for post in site.posts limit:10 %}
       <li style="margin-bottom:10px"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
