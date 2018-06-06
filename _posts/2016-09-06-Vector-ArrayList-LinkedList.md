@@ -6,11 +6,31 @@ categories: Java
 permalink: /archivers/Vector-ArrayList-LinkedList
 ---
 
-Xxxx
+An ordered or sequential collection of objects can be represented by the List interface, which has a set of methods to store and manipulate the ordered collection of objects. ArrayList, Vector and LinkedList are some examples of List implementations. Lists allow us to insert or remove an element at any specific index. In this reading note, I will make a brief introduction to and comparison between Vector, ArrayList and LinkedList.
 
 <!--more-->
 
-# Title
+# Collection - List
+
+## Class Hierarchy
+
+Xxxxx1
+
+## List Interface
+
+Xxxxx3
+
+# ArrayList
+
+11,4
+
+# Vector
+
+14,15,16
+
+# LinkedList
+
+17,20
 
 Xxxxx
 
