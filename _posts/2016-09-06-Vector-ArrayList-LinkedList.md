@@ -135,7 +135,13 @@ Differences Between ArrayList And LinkedList:
 
 [3] ArrayList 和 Vector 以及 synchronizedList: [http://www.cnblogs.com/yanghuahui/p/3365976.html](http://www.cnblogs.com/yanghuahui/p/3365976.html)
 
-[4] ArrayList vs. LinkedList vs. Vector: [http://www.cnblogs.com/chenpi/p/5505375.html](http://www.cnblogs.com/chenpi/p/5505375.html)
+[4] ArrayList vs LinkedList vs Vector: [http://www.cnblogs.com/chenpi/p/5505375.html](http://www.cnblogs.com/chenpi/p/5505375.html)
+
+[5] ArrayList vs. LinkedList vs. Vector: [https://dzone.com/articles/arraylist-vs-linkedlist-vs](https://dzone.com/articles/arraylist-vs-linkedlist-vs)
+
+[6] Difference between ArrayList, Vector and LinkedList in Java: [https://javabeat.net/difference-arraylist-vector-linkedlist-java](https://javabeat.net/difference-arraylist-vector-linkedlist-java)
+
+
 
 
 
