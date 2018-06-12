@@ -41,7 +41,20 @@ Here are some properties of lists:
 
 # ArrayList
 
-11,4
+ArrayList can be defined as re-sizable array. ArrayList is same like normal array but it can grow and shrink dynamically to hold any number of elements. ArrayList is a sequential collection of objects which increases or decreases in size as we add or delete the elements.
+
+In ArrayList, elements are positioned according to **Zero-based index**. That means, elements are inserted from index 0. **Default initial capacity** of an ArrayList is **10**. This capacity increases by **50%** automatically each time when the number of elements exceeds the old capacity (by copying the elements to a new Array). You can also specify initial capacity of an ArrayList while creating it.
+
+ArrayList class implements **List interface** and extends **AbstractList**. It also implements 3 marker interfaces: **RandomAccess**, **Cloneable** and **Serializable**.
+
+Some properties of ArrayList:
+
+1. ArrayList can have any number of null elements.
+2. ArrayList can have duplicate elements.
+3. As ArrayList implements RandomAccess, you can get, set, insert and remove elements of the ArrayList from any arbitrary position.
+4. When you insert an element in the middle of the ArrayList by **add** method, the elements at the right side of that position are shifted one position right, whereas using **set** method will replace the value at that index. When you **delete** an element, they will be shifted one position left. This feature of the ArrayList causes some performance issues as shifting of elements is time consuming if ArrayList has lots of elements.
+5. ArrayList is **not synchronized**. That means, multiple threads can use same ArrayList simultaneously.
+6. If you know the element, you can retrieve the position of that element.
 
 # Vector
 
