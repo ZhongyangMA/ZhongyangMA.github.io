@@ -68,9 +68,9 @@ Xxxxx
 
 # References
 
-[1] xxxxxx: []()
+[1] Collection Framework List Interface: [http://javaconceptoftheday.com/collection-framework-list-interface](http://javaconceptoftheday.com/collection-framework-list-interface)
 
-[2] xxxxxx: []()
+[2] ArrayList Java 实现: [http://www.cnblogs.com/heaven.kaixin/articles/2074745.html](http://www.cnblogs.com/heaven.kaixin/articles/2074745.html)
 
 [3] xxxxxx: []()
 
