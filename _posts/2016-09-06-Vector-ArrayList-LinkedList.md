@@ -93,7 +93,7 @@ Collections.synchronizedList(list);
 
 **Enumeration vs. Iterator**: Vector class has a method which return Enumeration over the elements of Vector object. Although, Enumerations are faster than the Iterator, but it is not backed by the original collection. That means, any changes made to original collection does not reflect in Enumeration object. They ignore the modifications done during iteration. This may cause issues.
 
-**Vector class is poorly designed**: Vector class combines two features: “Re-sizable Array” and “Synchronization“. This makes poor design. Because, if you need just “Re-sizable Array” and you use Vector class for that, you will get “synchronized Resizable Array” not just re-sizable array. This may reduce the performance of your application. Therefore, instead of using Vector class, always use ArrayList class. You will have re-sizable array and whenever you want to make it synchronized, use Collections.SynchronizedList().
+**Vector class is poorly designed**: Vector class combines two features: "Re-sizable Array" and "Synchronization". This makes poor design. Because, if you need just "Re-sizable Array" and you use Vector class for that, you will get "synchronized Resizable Array" not just re-sizable array. This may reduce the performance of your application. Therefore, instead of using Vector class, always use ArrayList class. You will have re-sizable array and whenever you want to make it synchronized, use Collections.SynchronizedList().
 
 # LinkedList
 
