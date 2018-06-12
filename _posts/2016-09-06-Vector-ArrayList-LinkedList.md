@@ -58,7 +58,42 @@ Some properties of ArrayList:
 
 # Vector
 
-14,15,16
+## Vector Class
+
+The Vector Class is also dynamically grow-able and shrink-able collection of objects like an ArrayList class. But, the main difference between ArrayList and Vector is that **Vector class is synchronized**. That means, only one thread can enter into vector object at any moment of time.
+
+Vector class has same features as ArrayList. Vector class also extends AbstractList class and implements List interface. It also implements 3 marker interfaces: RandomAccess, Cloneable and Serializable.
+
+## Vector vs. ArrayList
+
+**Thread Safety**: is the main difference between ArrayList and Vector class. ArrayList class is not thread-safe whereas Vector class is thread-safe. Vector class is a synchronized class. Only one thread can enter into Vector object at any moment of time during execution. Where as ArrayList class is not synchronized. Multiple threads can access ArrayList object simultaneously.
+
+**Performance**: ArrayList has better performance compared to Vector. It is because, Vector class is synchronized. It makes the threads to wait for object lock to enter into vector object. Where as ArrayList class is not synchronized. Threads need not to wait for object lock to access ArrayList object. This makes ArrayList faster than the Vector class.
+
+**Capacity Increment**: Whenever the size of the ArrayList exceeds it’s capacity, the capacity is increased by **half (50%)** of the current capacity. Where as in case of Vector, the capacity is increased by Capacity Increment passed while creating the Vector object. If Capacity increment is not passed, capacity will be **doubled** automatically when the size exceeds it’s capacity.
+
+**Size**: You can manually change the current size of the vector. Vector class has a method called setSize(). Using this method, you can change the current size of the vector. If the new size is greater than the current size, new slots will be filled with null elements and if the new size is smaller than the current size, extra elements will be discarded. But in case of ArrayList, you can’t change the current size manually. It doesn’t have methods which alter it’s size. The size of the ArrayList will be changed only when you add or delete it’s elements.
+
+**Traversing The Elements**: ArrayList elements can be traversed using Iterator, ListIterator and using either normal or advanced for loop. But, vector elements can be traversed using Enumeration also along with these methods. Vector class has a method called elements() which returns Enumeration object containing all elements of the vector. Where as ArrayList does not have such methods.
+
+**Legacy Code**: Vector class is considered as Legacy code. Because, it exist in Java before the introduction of Collection Framework. Earlier it was not a part of Collections. Later it has been included in Collections. But, the older methods of vector class have been retained as it is.
+
+## Why Not To Use Vector Class In Your Code?
+
+Vector class is often considered as obsolete or “Due for Deprecation” by many experienced Java developers. They always recommend and advise not to use Vector class in your code. They prefer using ArrayList over Vector class. Some of the reasons are listed below.
+
+**Thread Safety can be achieved without Vector**: Vector class has only one advantage over ArrayList i.e. it is thread safe. But, you can achieve thread safe ArrayList by using synchronizedList() method of Collections class.
+
+```java
+ArrayList<Integer> list = new ArrayList<Integer>();
+Collections.synchronizedList(list);
+```
+
+**Thread Safeness of Vector class is time consuming**: All methods of Vector class are synchronized. This makes each and every operation on Vector object thread safe. But, it is time consuming. Because, you need to acquire object lock for each operation you want to perform on vector object.
+
+**Enumeration vs. Iterator**: Vector class has a method which return Enumeration over the elements of Vector object. Although, Enumerations are faster than the Iterator, but it is not backed by the original collection. That means, any changes made to original collection does not reflect in Enumeration object. They ignore the modifications done during iteration. This may cause issues.
+
+**Vector class is poorly designed**: Vector class combines two features: “Re-sizable Array” and “Synchronization“. This makes poor design. Because, if you need just “Re-sizable Array” and you use Vector class for that, you will get “synchronized Resizable Array” not just re-sizable array. This may reduce the performance of your application. Therefore, instead of using Vector class, always use ArrayList class. You will have re-sizable array and whenever you want to make it synchronized, use Collections.SynchronizedList().
 
 # LinkedList
 
@@ -72,7 +107,7 @@ Xxxxx
 
 [2] ArrayList Java 实现: [http://www.cnblogs.com/heaven.kaixin/articles/2074745.html](http://www.cnblogs.com/heaven.kaixin/articles/2074745.html)
 
-[3] xxxxxx: []()
+[3] ArrayList 和 Vector 以及 synchronizedList: [http://www.cnblogs.com/yanghuahui/p/3365976.html](http://www.cnblogs.com/yanghuahui/p/3365976.html)
 
 [4] xxxxxx: []()
 
