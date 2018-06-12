@@ -10,11 +10,21 @@ An ordered or sequential collection of objects can be represented by the List in
 
 <!--more-->
 
-# Collection - List
+# Collection
 
 ## Class Hierarchy
 
-Xxxxx1
+All classes and interfaces related to Collection Framework are placed in **java.util** package. **java.util.Collection** class is at the top of class hierarchy of Collection Framework. The figure below shows the hierarchy of collection framework.
+
+![collection-hierarchy](https://github.com/ZhongyangMA/images/raw/master/list-interface/collection-hierarchy.png)
+
+The entire collection framework is divided into four interfaces:
+1. **List:** It handles sequential list of objects. **ArrayList**, **Vector** and **LinkedList** classes implement this interface.
+2. **Queue:** It handles special list of objects in which elements are removed only from the head. **LinkedList** and **PriorityQueue** classes implement this interface.
+3. **Set:** It handles list of objects which must contain unique element. This interface is implemented by **HashSet** and **LinkedHashSet** classes and extended by **SortedSet** interface which in turn, is implemented by **TreeSet**.
+4. **Map:** This is the one interface in Collection Framework which is not inherited from Collection interface. It handles group of objects as Key-Value pairs. It is implemented by **HashMap** and **HashTable** classes and extended by **SortedMap** interface which in turn is implemented by **TreeMap**.
+
+Three of above interfaces (List, Queue and Set) inherit from Collection interface. Although, Map is included in collection framework it does not inherit from Collection interface.
 
 ## List Interface
 
