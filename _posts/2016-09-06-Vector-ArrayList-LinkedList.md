@@ -99,7 +99,7 @@ Collections.synchronizedList(list);
 
 ## LinkedList Class
 
-The **LinkedList** class in Java is an implementation of **doubly linked list** which can be used both as a **List** as well as **Queue**. The LinkedList in java can have any type of elements including null and duplicates. Elements can be inserted and can be removed from both the ends and can be retrieved from any arbitrary position.
+The **LinkedList** class in Java is an implementation of **doubly linked list** which can be used both as a **List** as well as **Queue**. The LinkedList in java can have any type of elements including null and duplicates. Elements can be inserted and can be removed from both the ends and can be retrieved from any arbitrary position. 
 
 The LinkedList class extends **AbstractSequentialList** and implements **List** and **Deque** interfaces. It also implements 2 marker interfaces: **Cloneable** and **Serializable**.
 
@@ -121,10 +121,10 @@ Differences Between ArrayList And LinkedList:
 
 |                        | ArrayList                                | LinkedList                               |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| Structure              | index-based array                        | doubly linked list                       |
-| Insertion And Removal  | Very slow. Because after each insertion and removal, elements need to be shifted. O(n) | Faster than the ArrayList. Because there is no need to shift the elements after every insertion and removal. Only references of previous and next elements are to be changed. O(1) |
-| Retrieval or Searching | Fast. Because all elements in ArrayList are index based. O(1) | Very slow. Because to retrieve an element, you have to traverse from beginning or end (Whichever is closer to that element) to reach that element. O(n) |
-| Memory Occupation      | ArrayList requires less memory compared to LinkedList. Because ArrayList holds only actual data and it’s index. | LinkedList requires more memory compared to ArrayList. Because, each node in LinkedList holds data and reference to next and previous elements. |
+| Structure              | Index-based Array                        | Doubly linked list                       |
+| Insertion And Removal  | Very slow. Because after each insertion and removal, elements need to be shifted. **O(n)** | Fast. Because there is no need to shift the elements after every insertion and removal. Only references of previous and next elements are to be changed. **O(1)** |
+| Retrieval or Searching | Fast. Because all elements in ArrayList are index based. **O(1)** | Very slow. Because to retrieve an element, you have to traverse from beginning or end to reach that element. **O(n)** |
+| Memory Occupation      | ArrayList requires less memory compared to LinkedList. Because ArrayList holds only actual data and it’s index. | LinkedList requires more memory because each node in LinkedList holds data and reference to next and previous elements. |
 | When To Use            | If your application does more retrieval than the insertions and deletions, then use ArrayList. | If your application does more insertions and deletions than the retrieval, then use LinkedList. |
 
 # References
