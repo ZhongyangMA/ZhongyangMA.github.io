@@ -28,7 +28,16 @@ Three of above interfaces (List, Queue and Set) inherit from Collection interfac
 
 ## List Interface
 
-Xxxxx3
+List Interface represents an ordered or sequential collection of objects. This interface has some methods which can be used to store and manipulate the ordered collection of objects. The classes which implement the List interface are called as Lists. ArrayList, Vector and LinkedList are some examples of lists. You have the control over where to insert an element and from where to remove an element in the list.
+
+Here are some properties of lists:
+
+1. Elements of the lists are ordered using Zero based index.
+2. You can access the elements of lists using an integer index.
+3. Elements can be inserted at a specific position using integer index. Any pre-existing elements at or beyond that position are shifted right.
+4. Elements can be removed from a specific position. The elements beyond that position are shifted left.
+5. A list may contain duplicate elements.
+6. A list may contain multiple null elements.
 
 # ArrayList
 
