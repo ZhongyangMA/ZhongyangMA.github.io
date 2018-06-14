@@ -10,7 +10,41 @@ Xxxxx
 
 <!--more-->
 
-# Title
+# Keyword _synchronized_
+
+## Introduction
+
+Xxxxxx
+
+## Principle
+
+Xxxxxx
+
+# ReentrantLock
+
+## Interface and Methods
+
+Xxxxxx
+
+## Examples
+
+Xxxxxx
+
+# What is Re-entrant Lock
+
+Xxxxxx
+
+# What is Fair Lock
+
+Xxxxxx
+
+# ReentrantLock vs. synchronized
+
+## Differences
+
+Xxxxxx
+
+## Performance
 
 Xxxxxx
 
