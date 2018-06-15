@@ -30,11 +30,11 @@ Xxxxxx
 
 Xxxxxx
 
-# What is Re-entrant Lock
+# Reentrancy
 
 Xxxxxx
 
-# What is Fair Lock
+# Fairness
 
 Xxxxxx
 
