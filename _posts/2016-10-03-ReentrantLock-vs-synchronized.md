@@ -219,9 +219,10 @@ Xxxxxx
 
 [4] Synchronization in Java: [http://javaconceptoftheday.com/synchronization-in-java](http://javaconceptoftheday.com/synchronization-in-java)
 
-[5] xxxxxxx: []()
+[5] Java Concurrency In Practice: Brian Goetz, Tim Peierls, Joshua Bloch, Joseph Bowbeer, David Holmes, Doug Lea. 
 
-[6] xxxxxxx: []()
+
+
 
 
 
