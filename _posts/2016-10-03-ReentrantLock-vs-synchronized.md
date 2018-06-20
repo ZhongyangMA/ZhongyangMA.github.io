@@ -120,7 +120,7 @@ Here are some important points:
 The synchronization in Java is built around an entity called **lock** or **monitor**. Here is the brief description about lock or monitor:
 
 - Whenever an object is created to any class, an object lock is created and is stored inside the object.
-- One object will have only one object lock associated with it.
+- One object will have only one **object lock** associated with it.
 - Any thread wants to enter into synchronized methods or blocks of any object, they must acquire object lock associated with that object and release the lock after they are done with the execution.
 - The other threads which wants to enter into synchronized methods of that object have to wait until the currently executing thread releases the object lock.
 - To enter into static synchronized methods or blocks, threads have to acquire **class lock** associated with that class as static members are stored inside the class memory.
