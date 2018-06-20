@@ -183,15 +183,21 @@ Invoking `thread.interrupt()` will make this thread immediately give up waiting 
 
 # Fairness
 
-Xxxxxx
+Threads acquire a fair lock in the order in which they request it, whereas a nonfair lock permits barging: threads requesting a lock can jump ahead of the queue of waiting threads if the lock happens to be available when it is requested.
+
+In principle, there are different policies possible, but the most efficient is to make the lock "unfair" and allow "barging". The intrinsic lock is "unfair", and the "unfair" behavior is also the default behavior of ReentrantLock.
+
+When instantiating ReentrantLock, it is possible to specify its policy as "fair". In other words, when the lock is released, waiters will acquire it in strict first-come-first-served order.
+
+```java
+Lock lock = new ReentrantLock();  // default: unfair lock
+Lock lock = new ReentrantLock(false);  // specify unfair
+Lock lock = new ReentrantLock(true);  // specify fair
+```
+
+In some real-time applications it may be worth paying the throughput penalty to try and ensure some kind of maximum delay on lock acquisition by any one thread. But **usually lock fairness is unnecessary and the penalty is not worth paying**.
 
 # ReentrantLock vs. synchronized
-
-## Differences
-
-Xxxxxx
-
-## Performance
 
 Xxxxxx
 
