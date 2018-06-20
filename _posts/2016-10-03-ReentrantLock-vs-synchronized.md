@@ -199,7 +199,11 @@ In some real-time applications it may be worth paying the throughput penalty to 
 
 # ReentrantLock vs. synchronized
 
-Xxxxxx
+ReentrantLock provides the same locking and memory semantics as intrinsic locking, as well as additional features such as timed lock waits, interruptible lock waits, fairness. The performance of ReentrantLock appears to dominate that of intrinsic locking, winning slightly on Java 6 and dramatically on Java 5. So why not deprecate *synchronized* and encourage all new concurrent code to use *ReentrantLock*? Some authors have in fact  suggested this, treating *synchronized* as a "legacy" construct. But this is taking a good thing way too far.
+
+Intrinsic locks still have significant advantages over explicit locks. The notation is familiar and compact, and many existing programs already use intrinsic locking. ReentrantLock is definitely a more dangerous tool than synchronization: if you forget to wrap the `unlock()` call in a finally block, your code will probably appear to run properly, but you've created a time bomb that may well hurt innocent bystanders. Save ReentrantLock for situations in which you need something ReentrantLock provides that intrinsic locking doesn't.
+
+ReentrantLock is an advanced tool for situations where intrinsic locking is not practical. Use it if you need its advanced features: timed, polled, or interruptible lock acquisition, fair queuing, or non-block-structured locking. Otherwise, prefer *synchronized*.
 
 # Read-write Locks
 
