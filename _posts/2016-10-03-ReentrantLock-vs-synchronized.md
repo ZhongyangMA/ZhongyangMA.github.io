@@ -207,7 +207,40 @@ ReentrantLock is an advanced tool for situations where intrinsic locking is not 
 
 # Read-write Locks
 
-Xxxxxx
+Mutual exclusion is a conservative locking strategy that prevents writer/writer and writer/reader overlap, but also prevents reader/reader overlap. In many cases, data structures are "read-mostly" they are mutable and are sometimes modified, but most accesses involve only reading. In these cases, it would be nice to relax the locking requirements to allow multiple readers to access the data structure at once. As long as each thread is guaranteed an up-to-date view of the data and no other thread modifies the data while the readers are viewing it, there will be no problems. This is what read-write locks allow: a resource can be accessed by multiple readers or a single writer at a time, but not both.
+
+The code below shows how to wrap a Map with a read-write lock:
+
+```java
+public class ReadWriteMap<K, V> {
+    private final Map<K, V> map;
+    private final ReadWriteLock lock = new ReentrantReadWriteLock();
+    private final Lock r = lock.readLock();
+    private final Lock w = lock.writeLock();
+  
+    public ReadWriteMap(Map<K, V> map) {
+        this.map = map;
+    }
+  
+    public V put(K key, V value) {
+        w.lock();
+        try {
+            return map.put(key, value);
+        } finally {
+            w.unlock();
+        }
+    }
+  
+    public V get(K key) {
+        r.lock();
+        try {
+            return map.get(key);
+        } finally {
+            r.unlock();
+        }
+    }
+}
+```
 
 # References
 
