@@ -127,19 +127,59 @@ The synchronization in Java is built around an entity called **lock** or **moni
 
 # ReentrantLock
 
- Using synchronized methods and statements provides access to an implicit lock for an object. However in certain scenarios we might need access explicitly to the lock object for flexibility. 
+Using synchronized methods and statements provides access to an implicit lock for an object. However in certain scenarios we might need access explicitly to the lock object for flexibility.
 
 ## Interface and Methods
 
-Xxxxxx
+Java supports **Lock** interface in the package *java.util.concurrent.locks*. **ReentrantLock** implements the Lock interface and provides the re-entrant mutual exclusive lock. Some of the key APIs of ReentrantLock are listed below:
+
+- *ReentrantLock()* - Creates ReentrantLock instance.
+- *void lock()* - Acquires the lock.
+- *void unlock()* - Releases the lock.
+- *boolean tryLock()* - Acquires the lock only if the lock is not held by another thread.
+- *boolean isLocked()* - Checks if lock is held by another thread.
 
 ## Examples
 
-Xxxxxx
+The code below shows the canonical form for using a Lock. The Lock must be released in a `finally` block. Otherwise the lock would never be released if the guarded code were to throw an exception. Failing to use `finally` to release a Lock is a ticking time bomb. 
 
-# Reentrancy
+```java
+Lock lock = new ReentrantLock();
+lock.lock();  // thread will be blocked here until it gets the lock.
+try {
+    // do something
+} finally {
+    lock.unlock();
+}
+```
 
-Xxxxxx
+The timed and polled lock-acquisition modes provided by `TryLock` allow more sophisticated error recovery than unconditional acquisition. With intrinsic locks, a deadlock is fatal - the only way to recover is to restart your application. Timed and polled locking offer another option: probabilistic deadlock avoidance. The timed lock acquisition allows exclusive locking to be used within time-limited activities. In the example below, by using tryLock() method to make sure the thread waits only for definite time and if it’s not getting the lock on object, it’s just exiting.
+
+```java
+Lock lock = new ReentrantLock();
+try {
+    if(lock.tryLock(10, TimeUnit.SECONDS)) {  // return (true/false) immediately or within a limited time
+        // do something
+    }
+} catch (InterruptedException e) {
+    e.printStackTrace();
+} finally {
+    lock.unlock();
+}
+```
+
+Just as timed lock acquisition allows exclusive locking to be used within time-limited activities, interruptible lock acquisition allows locking to be used within cancellable activities. The `lockInterruptibly` method allows a thread to try to acquire a lock while remaining responsive to interruption.
+
+```java
+lock.lockInterruptibly();
+try {
+    // do something
+} finally {
+    lock.unlock();
+}
+```
+
+Invoking `thread.interrupt()` will make this thread immediately give up waiting for the lock, and release all the locks it has already acquired.
 
 # Fairness
 
