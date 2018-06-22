@@ -278,9 +278,12 @@ In simple terms, a thread will be in WAITING state if it is waiting for notifica
 
 # Some Other Points
 
-xxxx
+Here are some other points about Java thread, which might be frequently asked in an interview.
 
-
+1. If you start a thread using t.start() that is already started, you will get java.lang.IllegalThreadStateException at run time. There will be no compilation errors.
+2. Exception is thread wise not execution wise. i.e. exception effects the thread in which it occurs. Other threads will execute normally. Exception occurs in thread t1, only this thread will be terminated abruptly. Thread t2 will continue to execute it’s task.
+3. As we all know that start() method internally calls run() method. **What happens if you call run() method directly?** When you call run() method of a thread directly, calling thread will execute the task defined in the run() method. For example, if the main thread is calling run() method of thread t, main thread will execute run() method but not thread t.
+4. Setting the priority to a thread is not effective as we thought. Setting Priority of a thread is just an advice to OS not an instruction. It is up to OS to consider this advice.
 
 
 # References
