@@ -226,9 +226,24 @@ Interrupted thread will not be eligible to go for sleep. i.e. If you call interr
 
 # Thread Life Cycle
 
-xxxxx
+There are six thread states. They are NEW, RUNNABLE, BLOCKED, WAITING, TIMED_WAITING and TERMINATED. At any point of time, thread will be in any one of these states.
 
+```java
+Thread t = new Thread();
+System.out.println(t.getState());     //Output : NEW
+t.start();
+System.out.println(t.getState());     //Output : RUNNABLE
+// When t is waiting for object lock to enter into synchronized method or block
+System.out.println(t.getState());     //Output : BLOCKED
+// When wait() or join() method is called
+System.out.println(t.getState());     //Output : WAITING
+// When sleep(), wait() or join() with timeOut is called
+System.out.println(t.getState());     //Output : TIMED_WAITING
+// Once t finishes its execution
+System.out.println(t.getState());     //Output : TERMINATED
+```
 
+xxx
 
 
 
