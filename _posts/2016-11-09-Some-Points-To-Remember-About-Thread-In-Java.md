@@ -133,7 +133,65 @@ Deadlock is a dangerous condition, if it happens, it will bring the whole appli
 
 # Interthread Communication
 
-Xxxxxx
+Threads can communicate with each other using **wait()**, **notify()** and **notifyAll()** methods. These methods are final methods of java.lang.Object class. That means every class in Java will have these methods.
+
+**Important Note:** Any thread which calls these methods must have lock of that object. Thus these three methods must be called **within synchronized method or block**.
+
+Below is an example for using wait() and notify() methods:
+
+```java
+class Shared {
+    synchronized void method1() {
+        try {
+            wait();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    synchronized void method2() {
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        notify();  // wakes up one thread randomly which is waiting for lock of this object
+    }
+}
+//...
+public class ThreadsInJava {
+    public static void main(String[] args) {
+        final Shared s = new Shared();
+        Thread t1 = new Thread() {
+            @Override
+            public void run() {
+                s.method1();
+            }
+        };
+        Thread t2 = new Thread() {
+            @Override
+            public void run() {
+                s.method2();
+            }
+        };
+        t1.start();
+        t2.start();
+    }
+}
+```
+
+In this example, Thread t1 and t2 are sharing the same object `s`, then: 
+
+1. If t1 acquires the object lock first and enters method1(), Thread t2 has to wait for thread t1 to release the object lock. 
+2. Thread t1 calls wait() method within method1(). As soon as it calls wait() method, It releases the lock of `s` object and goes for wait. 
+3. Thread t2 acquires this lock and enters method2(). After entering method2(), thread t2 sleeps for 5 seconds and calls notify() method on this object. It wakes up thread t1 which is waiting for this object lock. 
+4. As soon as thread t2 releases the object lock after finishing it’s execution of method2(), thread t1 acquires this lock and executes remaining statements of method1(). After t2 calls notify() and before t2 actually releases the lock, t1 is in the BLOCKED status.
+
+In this manner, both threads t1 and t2 communicate with each other and share the lock. When a thread calls **notifyAll()** method on an object, it notifies all the threads which are waiting for this object lock. But, only one thread will acquire this object lock depending upon priority.
+
+
+
+
+
 
 
 # References
