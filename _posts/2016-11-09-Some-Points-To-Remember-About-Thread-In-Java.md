@@ -258,7 +258,17 @@ Here is a list of differences between them:
 
 # Extends Thread vs. Implements Runnable
 
+Differences Between Extends Thread And Implements Runnable In Java:
+
+1. **Multiple Inheritance Limitation**: Java doesn’t support multiple inheritance. A class in java can extend only one class. If you extend Thread class, then your class will not be able to extend any other class. This will limit your class to thread behavior. If you implement Runnable interface, then you will have an option for your class to extend any other class and inherit behaviors from other class also.
+2. **Overhead Of Additional Methods**: If you extend Thread class, all methods of Thread class will be inheriting to your class which you may not need. This will cause additional overhead. You can remove this overhead by implementing Runnable interface.
+3. **Logical Separation Of Task From The Runner**: If you implement Runnable interface, it will separate actual task from the runner. Runnable interface represents only the task and you can pass this task to any type of runner, either a thread or any executors. “Implements Runnable” makes your code loosely coupled and easily maintainable.
+4. **Specialization Vs Generalization**: “Extends Thread” gives more specialized code. Because, it defines the thread specific task. Where as “Implements Runnable” gives more generalized version of the task applicable to many threads.
+
+# BLOCKED vs. WAITING States
+
 xxxx
+
 
 
 
