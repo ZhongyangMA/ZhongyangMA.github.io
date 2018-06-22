@@ -267,6 +267,17 @@ Differences Between Extends Thread And Implements Runnable In Java:
 
 # BLOCKED vs. WAITING States
 
+A thread enters into WAITING state when it calls *wait()* or *join()* method on an object. Before entering into WAITING state, thread releases the lock of the object it holds. It will remain in WAITING state until any other thread calls either *notify()* or *notifyAll()* on the same object.
+
+Once the other thread calls *notify()* or *notifyAll()* on the same object, one or all the threads which are WAITING for lock of that object will be notified. All the notified threads will not get the object lock immediately. They will get the object lock on a priority basis once the current thread releases the lock. Until that they will be in BLOCKED state.
+
+In simple terms, a thread will be in WAITING state if it is waiting for notification from other threads. A thread will be in BLOCKED state if it is waiting for other thread to release the lock it wants.
+
+- **WAITING**: The thread will be in this state when it calls *wait()* or *join()* method. The thread will remain in WAITING state until any other thread calls *notify()* or *notifyAll()*.
+- **BLOCKED**: The thread will be in this state when it is notified by other thread but has not got the object lock yet.
+
+# Some Other Points
+
 xxxx
 
 
