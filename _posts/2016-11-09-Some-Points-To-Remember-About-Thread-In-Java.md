@@ -88,12 +88,52 @@ Thread t1 = new Thread() {
 
 # Deadlock
 
-xxxx
+Deadlock in Java is a condition which occurs when two or more threads get blocked waiting for each other for an infinite period of time to release the resources(Locks) they hold. Deadlock is the common problem in multi-threaded programming which can completely stops the execution of an application. So, extra care need to be taken while writing the multi-threaded programs so that deadlock never occurs.
 
+Here is an example shows how the deadlock occurs:
 
+```java
+public class LeftRightDeadLock {
+    private final Object left = new Object();
+    private final Object right = new Object();
+    
+    public void leftRight() {
+        synchronized (left) {
+            synchronized (right) {
+                // do something
+            }
+        }
+    }
+    
+    public void rightLeft() {
+        synchronized (right) {
+            synchronized (left) {
+                // do something
+            }
+        }
+    }
+}
+```
 
+Cyclic locking dependency causes the deadlock.
 
+Deadlock is a dangerous condition, if it happens, it will bring the whole application to complete halt. So, extra care need to be taken to avoid the deadlock. Followings are some tips that can be used to avoid the deadlock.
 
+- Try to **avoid nested synchronized blocks**. Nested synchronized blocks makes a thread to acquire another lock while it is already holding one lock. This may create the deadlock if another thread wants the same lock which is currently held by this thread.
+
+- If you needed nested synchronized blocks at any cost, then make sure that threads **acquire the needed locks in some predefined order**. For example, If there are three threads t1, t2 and t3 running concurrently and they needed locks A, B and C in the following manner:
+
+  > Thread t1: Lock A, Lock B
+  > Thread t2: Lock A, Lock C
+  > Thread t3: Lock A, Lock B, Lock C
+
+  If you define such lock ordering, then thread t2 never acquire lock C and t3 never acquire lock B and lock C until they got lock A. They will wait for lock A until it is released by t1. After lock A is released by t1, any one of these threads will acquire lock A on the priority basis and finishes their task. Other thread which is waiting for lock A, will never try to acquire remaining locks. By defining such lock ordering, you can avoid the deadlock.
+
+- Another deadlock preventive tip is to **specify the time for a thread to acquire the lock**. If it fails to acquire the specified lock in the given time, then it should give up trying for a lock and retry after some time. Such method of specifying time to acquire the lock is called lock timeout. (**ReentrantLock -> tryLock()** )
+
+# Interthread Communication
+
+Xxxxxx
 
 
 # References
@@ -103,6 +143,8 @@ xxxx
 [2] xxxxxxx: []()
 
 [3] xxxxxxx: []()
+
+
 
 
 
