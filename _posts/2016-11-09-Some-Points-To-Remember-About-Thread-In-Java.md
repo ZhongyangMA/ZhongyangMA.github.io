@@ -243,12 +243,22 @@ System.out.println(t.getState());     //Output : TIMED_WAITING
 System.out.println(t.getState());     //Output : TERMINATED
 ```
 
-xxx
+# wait() vs. sleep()
 
+wait() and sleep() methods in Java, are used to pause the execution of a particular thread in a multi-threaded environment. Whenever a thread calls wait() method, it releases the lock or monitor it holds and whenever a thread calls sleep() method, it doesn’t release the lock or monitor it holds. This is the main difference between sleep() and wait() methods.
 
+Here is a list of differences between them:
 
+- Whenever a thread calls wait() method, it goes into **WAITING** state after releasing the lock it holds. Whenever a thread calls sleep() method, it goes into **TIMED_WAITING** state without releasing the lock it holds.
+- A thread which is in **WAITING** state (state after calling wait() method) can be woken up by other threads by calling **notify()** or **notifyAll()** methods on the same lock. But, a thread which is in **TIMED_WAITING** state (state after calling sleep() method) can not be woken up. If any threads interrupt sleeping thread, InterruptedException will be raised.
+- wait() method along with notify() and notifyAll() are used for **inter thread communication** whereas sleep() method is used to **pause the execution of current thread** for specific period of time.
+- wait() method is an instance method of **java.lang.Object** class. That means, this method is available in all objects you create in Java. Whereas sleep() method is a static method of **java.lang.Thread** class. That means, it is available only in threads. wait() method is called on **objects**. Whenever it is called by a thread on a particular object, thread releases the lock of that object and waits until other threads call either notify() or notifyAll() methods on the same object. Where as sleep() method is called on **threads**.
+- Whenever sleep() method is called, only **current thread** is going for sleep. For example, if **main thread** calls sleep() method on a **thread t**, i.e. **t.sleep()**, main thread itself is going to sleep not thread t.
+- To call wait() method, calling thread must hold the lock of the object on which it is calling wait() method. That means, wait() method must be called **within the synchronized block**. Whereas to call sleep() method, thread need not to hold the object lock. That means, sleep() method can be called **outside the synchronized block** also.
 
+# Extends Thread vs. Implements Runnable
 
+xxxx
 
 
 
