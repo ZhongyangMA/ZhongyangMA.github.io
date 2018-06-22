@@ -188,6 +188,49 @@ In this example, Thread t1 and t2 are sharing the same object `s`, then:
 
 In this manner, both threads t1 and t2 communicate with each other and share the lock. When a thread calls **notifyAll()** method on an object, it notifies all the threads which are waiting for this object lock. But, only one thread will acquire this object lock depending upon priority.
 
+# Thread Interruption
+
+Thread interruption in Java is a mechanism in which a thread which is either sleeping or waiting can be made to stop sleeping or waiting. Thread interruption is programmatically implemented using the non-static public *interrupt()* method of java.lang.Thread class.
+
+The whole thread interruption mechanism depends on an internal flag called **interrupt status**. The initial value of this flag for any thread is false. When you call interrupt() method on a thread, interrupt status of that thread will be set to true. InterruptedException is thrown when a thread is interrupted while it is sleeping or waiting. When a thread throws InterruptedException, this status will be set to false again. Many methods of Thread class like sleep(), wait(), join() throw InterruptedException.
+
+Here is an example for interrupting a sleeping thread using interrupt() method:
+
+```java
+public class ThreadInJava {
+    public static void main(String[] args) {
+        Thread t = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(10000);  // Thread is sleeping for 10 seconds
+                } catch (InterruptedException e) {
+                    System.out.println("Thread is interrupted");
+                }
+            }
+        };
+        t.start();
+        try {
+            Thread.sleep(3000);  // Main thread is sleeping for 3 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        t.interrupt();  // main thread is interrupting thread t
+    }
+}
+```
+
+In the above example, main thread is creating and starting thread t. Thread t is going to sleep for 10 seconds as soon as it started. main thread, after starting thread t, is also going to sleep for 3 seconds. After sleeping for 3 seconds, main thread calls interrupt() method on thread t. It interrupts the sleeping of thread t. It causes the InterruptedException.
+
+Interrupted thread will not be eligible to go for sleep. i.e. If you call interrupt() method on a thread which is not yet slept but running, such thread will not throw InterruptedException as soon as it is interrupted. Instead it will raise InterruptedException while going to sleep.
+
+# Thread Life Cycle
+
+xxxxx
+
+
+
+
 
 
 
