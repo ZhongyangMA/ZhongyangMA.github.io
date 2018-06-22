@@ -285,17 +285,15 @@ Here are some other points about Java thread, which might be frequently asked in
 3. As we all know that start() method internally calls run() method. **What happens if you call run() method directly?** When you call run() method of a thread directly, calling thread will execute the task defined in the run() method. For example, if the main thread is calling run() method of thread t, main thread will execute run() method but not thread t.
 4. Setting the priority to a thread is not effective as we thought. Setting Priority of a thread is just an advice to OS not an instruction. It is up to OS to consider this advice.
 
-
 # References
 
-[1] xxxxxxx: []()
+[1] Java Concurrency In Practice: Brian Goetz, Tim Peierls, Joshua Bloch, Joseph Bowbeer, David Holmes, Doug Lea.
 
-[2] xxxxxxx: []()
+[2] Creating Threads In Java: [http://javaconceptoftheday.com/creating-threads-in-java](http://javaconceptoftheday.com/creating-threads-in-java)
 
-[3] xxxxxxx: []()
+[3] Java Tutorial - Processes and Threads: [https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html](https://docs.oracle.com/javase/tutorial/essential/concurrency/procthread.html)
 
-
-
+[4] Java Concurrency Interview Questions: [http://www.baeldung.com/java-concurrency-interview-questions](http://www.baeldung.com/java-concurrency-interview-questions)
 
 
 
