@@ -6,13 +6,102 @@ categories: Java
 permalink: /archivers/Java-Thread-Pool-Executor
 ---
 
-Xxxxxxx
+In Java, threads are mapped to system-level threads which are operating system’s resources. If you create threads uncontrollably, you may run out of these resources quickly. The Thread Pool pattern helps to save resources in a multi-threaded application, and also to contain the parallelism in certain predefined limits. When you use a thread pool, you write your concurrent code in the form of parallel tasks and submit them for execution to an instance of a thread pool. This instance controls several re-used threads for executing these tasks.
 
 <!--more-->
 
-# Title
+The pattern allows you to control the number of threads the application is creating, their lifecycle, as well as to schedule tasks’ execution and keep incoming tasks in a queue.
 
-xxxxxxx
+![https://github.com/ZhongyangMA/images/raw/master/java-thread-pool/workqueue.png](https://github.com/ZhongyangMA/images/raw/master/java-thread-pool/workqueue.png)
+
+# Executors, Executor and ExecutorService
+
+The **Executors** helper class contains several methods for creation of pre-configured thread pool instances for you.
+
+The **Executor** and **ExecutorService** interfaces are used to work with different thread pool implementations in Java. Usually, you should keep your code decoupled from the actual implementation of the thread pool and use these interfaces throughout your application.
+
+The **Executor** interface has a single *execute()* method to submit Runnable instances for execution.
+
+```java
+Executor executor = Executors.newSingleThreadExecutor();
+executor.execute(() -> System.out.println("Hello World"));
+```
+
+This example shows how you can use the *Executors* API to acquire an *Executor* instance backed by a single thread pool and an unbounded queue for executing tasks sequentially. The task is submitted as a lambda (a Java 8 feature) which is inferred to be *Runnable*.
+
+The **ExecutorService** interface contains a large number of methods for controlling the progress of the tasks and managing the termination of the service. Using this interface, you can submit the tasks for execution and also control their execution using the returned *Future* instance.
+
+```java
+ExecutorService executorService = Executors.newFixedThreadPool(10);
+Future<String> future = executorService.submit(() -> "Hello World");
+// some operations
+String result = future.get();
+```
+
+In this example, we create an *ExecutorService*, submit a task and then use the returned *Future‘s get* method to wait until the submitted task is finished and the value is returned. 
+
+The *submit* method is overloaded to take either *Runnable* or *Callable* both of which are functional interfaces and can be passed as lambdas (starting with Java 8). 
+
+*Runnable*‘s single method does not throw an exception and does not return value. *Callable* interface may be more convenient, as it allows to throw an exception and return a value. Finally, to let the compiler infer the *Callable* type, simply return a value from the lambda.
+
+# ThreadPoolExecutor
+
+The *ThreadPoolExecutor* is an extensible thread pool implementation with lots of parameters and hooks for fine-tuning. The main configuration parameters that we’ll discuss here are:  **corePoolSize**,  **maximumPoolSize**,  and  **keepAliveTime**.
+
+The pool consists of a fixed number of core threads that are kept inside all the time, and some excessive threads that may be spawned and then terminated when they are not needed anymore.
+
+The **corePoolSize** parameter is the amount of core threads which will be instantiated and kept in the pool. If all core threads are busy and more tasks are submitted, then the pool is allowed to grow up to a **maximumPoolSize**. The **keepAliveTime** parameter is the interval of time for which the excessive threads (i.e. threads that are instantiated in excess of the *corePoolSize*) are allowed to exist in the idle state.
+
+Examples:
+
+1. **newFixedThreadPool():** creates a *ThreadPoolExecutor* with equal *corePoolSize* and *maximumPoolSize* parameter values and a zero *keepAliveTime*. This means that the number of threads in this thread pool is always the same. If the amount of simultaneously running tasks is less or equal to two at all times, then they get executed right away. Otherwise **some of these tasks may be put into a queue to wait for their turn**.
+
+   ```java
+   ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(2);
+   executor.submit(() -> {
+       Thread.sleep(1000);
+       return null;
+   });
+   ```
+
+2. **newCachedThreadPool():** does not receive a number of threads at all. The *corePoolSize* is actually set to 0, and the *maximumPoolSize* is set to *Integer.MAX_VALUE* for this instance. The *keepAliveTime* is 60 seconds for this one. These parameter values mean that **the cached thread pool may grow without bounds to accommodate any amount of submitted tasks**. But when the threads are not needed anymore, they will be disposed of after 60 seconds of inactivity. A typical use case is when you have a lot of short-living tasks in your application.
+
+   The **queue size** in the example below will always be **zero** because internally   a *SynchronousQueue* instance is used. In a *SynchronousQueue*, pairs of  *insert*  and  *remove*  operations always occur simultaneously, so the queue never actually contains anything.
+
+   ```java
+   ThreadPoolExecutor executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+   executor.submit(() -> {
+       Thread.sleep(1000);
+       return null;
+   });
+   ```
+
+3. **newSingleThreadExecutor():** creates another typical form of *ThreadPoolExecutor* containing a single thread. **The single thread executor is ideal for creating an event  loop.**  The *corePoolSize* and *maximumPoolSize* parameters are equal to 1, and the *keepAliveTime* is zero.
+
+   ```java
+   AtomicInteger counter = new AtomicInteger(); 
+   ExecutorService executor = Executors.newSingleThreadExecutor();
+   executor.submit(() -> {
+       counter.set(1);
+   });
+   executor.submit(() -> {
+       counter.compareAndSet(1, 2);
+   });
+   ```
+
+   Tasks in the above example will be executed sequentially, so the flag value will be 2 after task’s completion.
+
+   Additionally, this *ThreadPoolExecutor* is decorated with an immutable wrapper, so it cannot be reconfigured after creation. Note that also this is the reason we cannot cast it to a *ThreadPoolExecutor*.
+
+# ScheduledThreadPoolExecutor
+
+xxx
+
+
+
+
+
+
 
 # References
 
