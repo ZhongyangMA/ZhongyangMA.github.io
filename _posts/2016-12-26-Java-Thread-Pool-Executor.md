@@ -95,11 +95,35 @@ Examples:
 
 # ScheduledThreadPoolExecutor
 
-xxx
+The *ScheduledThreadPoolExecutor* extends the *ThreadPoolExecutor* class and also implements the *ScheduledExecutorService* interface with several additional methods:
 
+- **schedule()** method allows to execute a task once after a specified delay;
+- **scheduleAtFixedRate()** method allows to execute a task after a specified initial delay and then execute it repeatedly with a certain period; the *period* argument is the time measured between the **starting times** of the tasks, so the execution rate is fixed;
+- **scheduleWithFixedDelay()** method is similar to *scheduleAtFixedRate* in that it repeatedly executes the given task, but the specified delay is measured between **the end of the previous task and the start of the next**; 
 
+The **Executors.newScheduledThreadPool()** method is typically used to create a **ScheduledThreadPoolExecutor** with a given *corePoolSize*, unbounded *maximumPoolSize* and zero *keepAliveTime*.
 
+Here’s how to schedule a task for execution in 500 milliseconds:
 
+```java
+ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
+executor.schedule(() -> {
+    System.out.println("Hello World");
+}, 500, TimeUnit.MILLISECONDS);
+```
+
+The following code shows how to execute a task after 500 milliseconds delay and then repeat it every 100 milliseconds.
+
+```java
+ScheduledExecutorService executor = Executors.newScheduledThreadPool(5);
+ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
+    System.out.println("Hello World");
+}, 500, 100, TimeUnit.MILLISECONDS);
+```
+
+# ForkJoinPool
+
+xxxxx
 
 
 
