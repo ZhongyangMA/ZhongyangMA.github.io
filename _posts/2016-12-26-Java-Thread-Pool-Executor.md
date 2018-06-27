@@ -20,7 +20,7 @@ xxxxxxx
 
 [2] Class ThreadPoolExecutor: [https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ThreadPoolExecutor.html)
 
-[3] xxxxxxx: []()
+[3] Introduction to Thread Pools in Java: [http://www.baeldung.com/thread-pool-java-and-guava](http://www.baeldung.com/thread-pool-java-and-guava)
 
 
 
