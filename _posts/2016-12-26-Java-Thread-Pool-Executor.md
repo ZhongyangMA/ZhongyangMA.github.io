@@ -123,7 +123,11 @@ ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
 
 # ForkJoinPool
 
-xxxxx
+**ForkJoinPool** is the central part of the *fork/join* framework introduced in Java 7. It solves a common problem of **spawning multiple tasks in recursive algorithms**. Using a simple *ThreadPoolExecutor*, you will run out of threads quickly, as every task or subtask requires its own thread to run.
+
+In a *fork/join* framework, any task can spawn (*fork*) a number of subtasks and wait for their completion using the *join* method. The benefit of the *fork/join* framework is that it **does not create a new thread for each task or subtask**, implementing the **Work Stealing** algorithm instead. **Simply put – free threads try to “steal” work from deques of busy threads.**
+
+
 
 
 
