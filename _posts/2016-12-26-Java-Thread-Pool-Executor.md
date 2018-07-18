@@ -127,9 +127,43 @@ ScheduledFuture<?> future = executor.scheduleAtFixedRate(() -> {
 
 In a *fork/join* framework, any task can spawn (*fork*) a number of subtasks and wait for their completion using the *join* method. The benefit of the *fork/join* framework is that it **does not create a new thread for each task or subtask**, implementing the **Work Stealing** algorithm instead. **Simply put – free threads try to “steal” work from deques of busy threads.**
 
+Creating a RecursiveTask: 
 
+```java
+class Fibonacci extends RecursiveTask<Integer> {
+    final int n;
+    Fibonacci(int n) {
+        this.n = n;
+    }
+    private int compute(int small) {
+        final int[] results = { 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89 };
+        return results[small];
+    }
+    public Integer compute() {
+        if (n <= 10) {
+            return compute(n);
+        }
+        Fibonacci f1 = new Fibonacci(n - 1);
+        Fibonacci f2 = new Fibonacci(n - 2);
+        f1.fork();
+        f2.fork();
+        return f1.join() + f2.join();  // blocked until each subtask is finished
+    }
+}
+```
 
+Then submit this task to ForkJoinPool:
 
+```java
+@Test
+public void testFibonacci() throws InterruptedException, ExecutionException {
+    ForkJoinTask<Integer> fjt = new Fibonacci(45);
+    ForkJoinPool fjpool = new ForkJoinPool();
+    Future<Integer> result = fjpool.submit(fjt);
+    // do something
+    System.out.println(result.get());
+}
+```
 
 # References
 
