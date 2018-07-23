@@ -14,19 +14,19 @@ One of the key components of Spring Framework is the Aspect oriented programming
 
 Before we start working with AOP, let's become familiar with the AOP concepts and terminology. These terms are not specific to Spring, rather they are related to AOP.
 
-**Aspect**: xxxxxxxxx
+**Aspect:** xxxxxxxxx
 
-**Join point**: xxxxxxxxx
+**Join point:** xxxxxxxxx
 
-**Advice**: xxxxxxxxx
+**Advice:** xxxxxxxxx
 
-**Pointcut**: xxxxxxxxx
+**Pointcut:** xxxxxxxxx
 
-**Introduction**: xxxxxxxxx
+**Introduction:** xxxxxxxxx
 
-**Target object**: xxxxxxxxx
+**Target object:** xxxxxxxxx
 
-**Weaving**: xxxxxxxxx
+**Weaving:** xxxxxxxxx
 
 
 
