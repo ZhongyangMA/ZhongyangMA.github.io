@@ -54,7 +54,7 @@ The *getPropagationBehavior()* method returns the propagation behavior. Followin
 - **TransactionDefinition.PROPAGATION_NESTED:** Executes within a nested transaction if a current transaction exists.
 - **TransactionDefinition.PROPAGATION_NEVER:** Does not support a current transaction; throws an exception if a current transaction exists.
 - **TransactionDefinition.PROPAGATION_NOT_SUPPORTED:** Does not support a current transaction; rather always execute nontransactionally.
-- **TransactionDefinition.PROPAGATION_REQUIRED:** Supports a current transaction; creates a new one if none exists.
+- **TransactionDefinition.PROPAGATION_REQUIRED:** Supports a current transaction; creates a new one if none exists.(**default**)
 - **TransactionDefinition.PROPAGATION_REQUIRES_NEW:** Creates a new transaction, suspending the current transaction if one exists.
 - **TransactionDefinition.PROPAGATION_SUPPORTS:** Supports a current transaction; executes non-transactionally if none exists.
 - **TransactionDefinition.TIMEOUT_DEFAULT:** Uses the default timeout of the underlying transaction system, or none if timeouts are not supported.
@@ -80,11 +80,11 @@ Following are the possible values for isolation level:
 | ISOLATION_REPEATABLE_READ  | prevented  | prevented           | -            |
 | ISOLATION_SERIALIZABLE     | prevented  | prevented           | prevented    |
 
-**Dirty read:** xxx.
+**Dirty read:** occurs when one transaction reads data that has been written but not yet committed by another transaction. If the changes are later rolled back, the data obtained by the first transaction will be invalid.
 
-**Non-repeatable read:** xxx.
+**Non-repeatable read:** happens when a transaction performs the same query two or more times and each time the data is different. This is usually due to another concurrent transaction updating the data between the queries.
 
-**Phantom read:** xxx.
+**Phantom read:** similar to nonrepeatable reads. These occur when a transaction reads several rows, and then a concurrent transaction inserts rows. Upon subsequent queries, the first transaction finds additional rows that were not there before.
 
 # The *@Transactional* Annotation
 
