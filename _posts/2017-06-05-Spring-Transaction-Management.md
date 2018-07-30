@@ -86,7 +86,7 @@ Following are the possible values for isolation level:
 
 **Phantom read:** xxx.
 
-# The *@Transactional* annotation
+# The *@Transactional* Annotation
 
 xxxxx
 
