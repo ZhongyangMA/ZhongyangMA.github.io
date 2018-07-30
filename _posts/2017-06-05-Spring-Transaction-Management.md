@@ -88,9 +88,65 @@ Following are the possible values for isolation level:
 
 # The *@Transactional* Annotation
 
-xxxxx
+In addition to the XML-based declarative approach to transaction configuration, you can use an annotation-based approach. Declaring transaction semantics directly in the Java source code puts the declarations much closer to the affected code.
 
+You can place the *@Transactional* annotation before an interface definition, a method on an interface, a class definition, or a **public** method on a class. If you do annotate protected, private or package-visible methods with the *@Transactional* annotation, no error is raised, but the annotated method does not exhibit the configured transactional settings.
 
+However, the mere presence of the *@Transactional* annotation is not enough to activate the transactional behavior. The *@Transactional* annotation is simply metadata that can be consumed by some runtime infrastructure that is *@Transactional*-aware and that can use the metadata to configure the appropriate beans with transactional behavior.
+
+```xml
+<tx:annotation-driven/>
+    <bean id="transactionManager1" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        ...
+        <qualifier value="order"/>
+    </bean>
+    <bean id="transactionManager2" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        ...
+        <qualifier value="account"/>
+    </bean>
+```
+
+```java
+public class TransactionalService {
+    @Transactional("order")
+    public void setSomething(String name) { ... }
+    
+    @Transactional("account")
+    public void doSomething() { ... }
+}
+```
+
+This is the definition of @transactional annotation:
+
+```java
+@Target({ElementType.METHOD, ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Inherited
+@Documented
+public @interface Transactional {
+    @AliasFor("transactionManager")
+    String value() default "";
+
+    @AliasFor("value")
+    String transactionManager() default "";
+
+    Propagation propagation() default Propagation.REQUIRED;
+
+    Isolation isolation() default Isolation.DEFAULT;
+
+    int timeout() default -1;
+
+    boolean readOnly() default false;
+
+    Class<? extends Throwable>[] rollbackFor() default {};
+
+    String[] rollbackForClassName() default {};
+
+    Class<? extends Throwable>[] noRollbackFor() default {};
+
+    String[] noRollbackForClassName() default {};
+}
+```
 
 
 # References
