@@ -6,7 +6,7 @@ categories: microservice architecture
 permalink: /archivers/Distributed-Transactions
 ---
 
-xxxxxxx
+Local transactions are specific to a single transactional resource like a JDBC connection, whereas global transactions can span multiple transactional resources like transaction in a distributed system. A distributed or a global transaction is executed across multiple systems, and its execution requires coordination between the global transaction management system and all the local data managers of all the involved systems.
 
 <!--more-->
 
