@@ -10,9 +10,37 @@ xxxxxxx
 
 <!--more-->
 
-# Title
+# 一致性理论
+
+## CAP理论
 
 xxxxx
+
+## BASE理论
+
+xxxxx
+
+# 一致性模型
+
+强一致性
+
+弱一致性
+
+最终一致性
+
+# 典型方案
+
+## 两/三阶段提交
+
+xxxx
+
+## TCC: Try-Confirm-Cancel 补偿模式+最终一致性
+
+xxxx
+
+## 消息事务+最终一直性
+
+xxxx
 
 # References
 
