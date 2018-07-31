@@ -148,6 +148,50 @@ public @interface Transactional {
 }
 ```
 
+# Enable Transaction In Spring Boot
+
+Applying transaction management in Spring Boot is simple and easy. You just need to turn on the transaction management by **@EnableTransactionManagement** annotation, and add **@Transactional** to methods.
+
+Spring Boot will automatically inject the instances of *DataSourceTransactionManager* or *JpaTransactionManager* for *spring-boot-starter-jdbc* or *spring-boot-starter-data-jpa*, respectively. Both *DataSourceTransactionManager* and *JpaTransactionManager* have implemented the *PlatformTransactionManager* interface.
+
+But sometimes we need to specify the transaction manager by ourselves if there exists several transaction managers in one application. Here is the example:
+
+```java
+@EnableTransactionManagement // which is equivalent to <tx:annotation-driven /> in xml
+public class ProfiledemoApplication implements TransactionManagementConfigurer {
+    @Resource(name="txManager2")
+    private PlatformTransactionManager txManager2;
+    // txManager1
+    @Bean(name = "txManager1")
+    public PlatformTransactionManager txManager1(DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
+    }
+    // txManager2
+    @Bean(name = "txManager2")
+    public PlatformTransactionManager txManager2(EntityManagerFactory factory) {
+        return new JpaTransactionManager(factory);
+    }
+    // 实现接口 TransactionManagementConfigurer 方法，其返回值代表在拥有多个事务管理器的情况下默认使用的事务管理器
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        return txManager2;
+    }
+}
+```
+
+Then use the attribute *value* to specify the manager:
+
+```java
+@Service
+public class XxxServiceImpl implements XxxService {
+    // 使用value具体指定使用哪个事务管理器
+    @Override
+    @Transactional(value="txManager1")
+    public void send() {
+        // do something
+    }
+}
+```
 
 # References
 
@@ -158,6 +202,8 @@ public @interface Transactional {
 [3] Spring Framework Transaction Management: [https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html](https://docs.spring.io/spring-framework/docs/4.2.x/spring-framework-reference/html/transaction.html)
 
 [4] Spring - Transaction Management: [https://www.tutorialspoint.com/spring/spring_transaction_management.htm](https://www.tutorialspoint.com/spring/spring_transaction_management.htm)
+
+[5] Spring Boot 事务的使用: [https://blog.csdn.net/catoop/article/details/50595702](https://blog.csdn.net/catoop/article/details/50595702)
 
 
 
