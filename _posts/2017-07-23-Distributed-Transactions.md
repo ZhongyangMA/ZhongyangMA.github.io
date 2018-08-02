@@ -50,7 +50,7 @@ xxxx
 
 [3] 谈谈分布式系统的CAP理论: [https://zhuanlan.zhihu.com/p/33999708](https://zhuanlan.zhihu.com/p/33999708)
 
-[4] xxxxx: []()
+[4] 微服务下的数据一致性的几种实现方式之概述: [https://www.jianshu.com/p/b264a196b177](https://www.jianshu.com/p/b264a196b177)
 
 [5] xxxxx: []()
 
