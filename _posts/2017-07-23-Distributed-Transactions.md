@@ -48,7 +48,17 @@ xxxx
 
 [2] 常用的分布式事务解决方案介绍有多少种: [https://www.zhihu.com/question/64921387/answer/225784480](https://www.zhihu.com/question/64921387/answer/225784480)
 
-[3] xxxxx: []()
+[3] 谈谈分布式系统的CAP理论: [https://zhuanlan.zhihu.com/p/33999708](https://zhuanlan.zhihu.com/p/33999708)
+
+[4] xxxxx: []()
+
+[5] xxxxx: []()
+
+[6] xxxxx: []()
+
+
+
+
 
 
 
