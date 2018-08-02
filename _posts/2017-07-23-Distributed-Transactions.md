@@ -10,23 +10,38 @@ Local transactions are specific to a single transactional resource like a JDBC c
 
 <!--more-->
 
-# 一致性理论
+# Consistency Theorem
 
-## CAP理论
+## CAP
 
-xxxxx
+The CAP theorem states that it is impossible for a distributed computing system to simultaneously provide all three of the following guarantees:
+- **Consistency:** all nodes see the same data at the same time.
+- **Availability:** a guarantee that every request receives a response about whether it was successful or failed.
+- **Partition Tolerance:** the system continues to operate despite arbitrary message loss or failure of part of the system.
 
-## BASE理论
+You can't have three out of the three, and essentially have to settle for two out of the three. In particular, the CAP theorem implies that in the presence of a network partition, one has to choose between consistency and availability.
 
-xxxxx
+When choosing consistency over availability, the system will return an error or a time-out if particular information cannot be guaranteed to be up to date due to network partitioning. 
 
-# 一致性模型
+When choosing availability over consistency, the system will always process the query and try to return the most recent available version of the information, even if it cannot guarantee it is up to date due to network partitioning.
 
-强一致性
+## BASE
 
-弱一致性
+BASE = **B**asically **A**vailable + **S**oft State + **E**ventual Consistency. 
 
-最终一致性
+It is a data system design philosophy that prizes availability over consistency of operations. BASE was developed as an alternative for producing more scalable and affordable data architectures, providing more options to expanding enterprises/IT clients and simply acquiring more hardware to expand data operations.
+
+BASE may be explained in contrast to another design philosophy - Atomicity, Consistency, Isolation, Durability (ACID). The ACID model promotes consistency over availability, whereas BASE promotes availability over consistency.
+
+Consistency is not a big requirement and is not looked as a MUST for the success of business goals. BASE is actually a result of applying CAP in a certain manner as desired by the requirements of a distributed system.
+
+# Consistency Models
+
+**Strong Consistency:** xxx
+
+**Weak Consistency:** xxxx
+
+**Eventual Consistency:** xxxx 
 
 # 典型方案
 
