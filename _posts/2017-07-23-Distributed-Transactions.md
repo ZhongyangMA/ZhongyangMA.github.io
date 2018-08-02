@@ -52,7 +52,7 @@ xxxx
 
 [4] 微服务下的数据一致性的几种实现方式之概述: [https://www.jianshu.com/p/b264a196b177](https://www.jianshu.com/p/b264a196b177)
 
-[5] xxxxx: []()
+[5] 用消息队列和消息应用状态表来消除分布式事务: [https://my.oschina.net/picasso/blog/35306](https://my.oschina.net/picasso/blog/35306)
 
 [6] xxxxx: []()
 
