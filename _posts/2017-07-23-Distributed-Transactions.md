@@ -41,7 +41,7 @@ Consistency is not a big requirement and is not looked as a MUST for the success
 
 **Weak Consistency:** is the opposite of strong consistency. It doesn't assure that the updated data will be visible from all the nodes simultaneously.
 
-**Eventual Consistency:** is one kind of weak consistency. It doesn't assure that the updated data will be read  from all the nodes right away, but the data from all the nodes will be consistency eventually in a limited time. Eventual consistency offers *low latency* but inconsistent data in a short period of time.
+**Eventual Consistency:** is one kind of weak consistency. It doesn't assure that the updated data will be read  from all the nodes right away, but the data from all the nodes will be eventually consistent at last in a limited time. Eventual consistency offers *low latency* but inconsistent data in a short period of time.
 
 # Typical Solutions
 
