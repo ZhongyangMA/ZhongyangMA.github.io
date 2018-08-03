@@ -37,13 +37,13 @@ Consistency is not a big requirement and is not looked as a MUST for the success
 
 # Consistency Models
 
-**Strong Consistency:** xxx
+**Strong Consistency:** is a requirement that upon update operations all nodes agree on the new value before making the new value visible to clients. Strong Consistency offers up-to-date data but at the cost of *high latency*.
 
-**Weak Consistency:** xxxx
+**Weak Consistency:** is the opposite of strong consistency. It doesn't assure that the updated data will be visible from all the nodes simultaneously.
 
-**Eventual Consistency:** xxxx 
+**Eventual Consistency:** is one kind of weak consistency. It doesn't assure that the updated data will be read  from all the nodes right away, but the data from all the nodes will be consistency eventually in a limited time. Eventual consistency offers *low latency* but inconsistent data in a short period of time.
 
-# 典型方案
+# Typical Solutions
 
 ## 两/三阶段提交
 
