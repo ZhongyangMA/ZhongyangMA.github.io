@@ -68,9 +68,11 @@ Try-Confirm/Cancel: compensation mode + eventual consistency.
 
 ## Reliable Message-based Transaction
 
-xxxxAsynchronous 
+This solution implements the eventual consistency asynchronously between microservices by using a Message Queue. 
 
-xxxx
+Within the local transaction of master service, the system will update local database and send a message to MQ.  
+
+The slave service will listen the MQ and get the message out, and by comparing it with an applying status table to make sure whether this message had been consumed. If the message has not been consumed, within a local transaction of slave service, system will dequeue the message, update local database and update the applying status table.
 
 Reliable Message-based Transaction: asynchronous notifying + eventual consistency.
 
@@ -86,7 +88,13 @@ Reliable Message-based Transaction: asynchronous notifying + eventual consistenc
 
 [5] 用消息队列和消息应用状态表来消除分布式事务: [https://my.oschina.net/picasso/blog/35306](https://my.oschina.net/picasso/blog/35306)
 
-[6] xxxxx: []()
+
+
+
+
+
+
+
 
 
 
