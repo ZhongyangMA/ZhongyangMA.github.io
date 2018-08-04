@@ -45,13 +45,22 @@ Consistency is not a big requirement and is not looked as a MUST for the success
 
 # Typical Solutions
 
-## 两/三阶段提交
+## 2-PC & 3-PC Protocols
 
-xxxx
+The **2 Phase Commit** protocol referred to as XA (eXtended Architecture) arose. This protocol provides ACID-like properties for global transaction processing. It is a type of atomic commitment protocol in a distributed algorithm to coordinate all processes that participate in a distributed atomic transaction on if to commit or abort (rollback) the transaction. It consists of two phases:
 
-## TCC: Try-Confirm-Cancel 补偿模式+最终一致性
+1. **Voting phase:** A transaction coordinator requests all participating processes in DDBMS to vote a commit (yes) or an abort (no).
+2. **Commit phase:** Based on the voting by all participating processes, the coordinator decides to commit only if all participating processes vote “yes” or abort if one or more of the participating processes votes “no”.
 
-xxxx
+On the other hand, the **3-Phase Commit** protocol is a distributed algorithm that allows all participants in a distributed system to agree to commit a transaction or at least one process to abort the transaction by adding another phase **Pre-Commit** between Voting phase and Commit phase.
+
+In 2PC protocol, if the coordinator fails permanently or dead, some participants in a distributed system will never resolve their transactions because after sending an agreement message to coordinator, they will block until a Commit or Rollback message sent from the coordinator. The 2PC technique is a blocking protocol. The 3PC protocol eliminates the 2PC protocol’s system blocking problem with the third phase **Pre-Commit**. If the coordinator fails before sending a preCommit message, other processes will unanimously (一致地) agree that the operation was aborted. The coordinator will not send out doCommit message until all processes have acknowledged.
+
+The 2PC or 3PC is a synchronized algorithm for distributed transactions, it offers strong consistency but very high latency. 
+
+## The TCC Protocol
+
+xxxxTry-Confirm-Cancel 补偿模式+最终一致性,
 
 ## 消息事务+最终一直性
 
