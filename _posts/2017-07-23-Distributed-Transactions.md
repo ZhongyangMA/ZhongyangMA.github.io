@@ -60,9 +60,7 @@ The 2PC or 3PC is a synchronized algorithm for distributed transactions, it offe
 
 ## The TCC Protocol
 
-The Try-Confirm/Cancel pattern focuses on transactions for microservices. A transaction is a set of related interactions (or operations) that may need to be cancelled after they where executed. 
-
-When a client initiates a state transition the service will return a handle by which the client can confirm or cancel the state change. If the service does not hear anything after some service specific timeout, it will cancel automatically. Once the workflow has completed successfully the set of returned handles is used to confirm the state transitions. If the service fails, the set of handles that has been collected until the failure is used to cancel the state transitions. The timeout after which the service will automatically cancel the pending state transitions should be specified by the service.
+The Try-Confirm/Cancel pattern focuses on transactions for microservices. When a client initiates a state transition (**try**), the service will return a handle by which the client can **confirm** or **cancel** the state change. If the service does not hear anything after some service specific timeout, it will cancel automatically. Once the workflow has completed successfully the set of returned handles is used to confirm the state transitions.
 
 Every participant should provide three APIs: Try, Confirm and Cancel. The Cancel API provides the reversed operation which is a compensation to its Confirm operation.
 
