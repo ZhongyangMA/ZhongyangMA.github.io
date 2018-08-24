@@ -9,6 +9,6 @@ I'm Zhongyang Ma, and this blog is concerned about web-related technologies. Mos
 
  - Email: [mzy@mail.ustc.edu.cn](mailto:mzy@mail.ustc.edu.cn)
  - GitHub: [https://github.com/ZhongyangMA](https://github.com/ZhongyangMA)
- - LinkedIn: [https://www.linkedin.com/in/zhongyang-ma/?locale=en_US](https://www.linkedin.com/in/zhongyang-ma/?locale=en_US)
+ - LinkedIn: [https://www.linkedin.com/in/zhongyangma/?locale=en_US](https://www.linkedin.com/in/zhongyangma/?locale=en_US)
  
  
