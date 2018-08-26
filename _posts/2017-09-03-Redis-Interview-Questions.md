@@ -2,7 +2,7 @@
 layout: post
 title: "Redis Interview Questions"
 date: 2017-09-03 14:50:33
-categories: MIDDLEWARE JAVA
+categories: Middleware Java
 permalink: /archivers/Redis-Interview-Questions
 ---
 
