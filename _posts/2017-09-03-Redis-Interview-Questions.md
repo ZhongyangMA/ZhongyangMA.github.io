@@ -70,7 +70,11 @@ Once you turn on the AOF, every time Redis receives a command that changes the d
 | advantage    | compact single file                     | more durable                                                 |
 | disadvantage | may lose data written in latest minutes | the log file is bigger.  may be slower than RDB depending on the exact fsync policy. |
 
-# FF
+# Single Threaded
+
+Redis is single threaded, it serializes the concurrent requests to a queue by NIO (epoll) techniques. Thus it avoids the switches between multiple threads, as a result, it gains a better performance.
+
+# Replication
 
 xxxxx
 
