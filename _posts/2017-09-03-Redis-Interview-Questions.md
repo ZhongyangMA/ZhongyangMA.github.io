@@ -35,9 +35,23 @@ Below are the main differences between Redis and Memcached:
 
 # The Eviction Strategy
 
-xxxxxx
+What happens if Redis runs out of memory? 
 
- 
+You can use the "maxmemory" option in the config file to put a limit to the memory Redis can use. If this limit is reached Redis will start to reply with an error to write commands (but will continue to accept read-only commands), or you can configure it to evict keys when the max memory limit is reached.
+
+The following lists the details of Redis' eviction policies:
+
+- **allkeys-lru**: the service evicts the least recently used keys out of all keys.
+- **allkeys-random**: the service randomly evicts keys out of all keys.
+- **volatile-lru**: the service evicts the least recently used keys out of all keys with an "expire" field set.
+- **volatile-random**: the service randomly evicts keys with an "expire" field set.
+- **volatile-ttl**: the service evicts the shortest time to live keys (out of all keys with an "expire" field set).
+- **no-eviction**: the service will not evict any keys and no writes will be possible until more memory is freed.
+
+# Durability
+
+xxxxx
+
 
 # References
 
