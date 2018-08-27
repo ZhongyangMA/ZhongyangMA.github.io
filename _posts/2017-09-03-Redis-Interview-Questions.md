@@ -22,7 +22,22 @@ Following are the main features of Redis:
 
 # Redis vs. Memcached
 
+Below are the main differences between Redis and Memcached:
+
+| diffs           | Redis                                                        | Memcached                                                    |
+| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| durability      | Redis not only does caching information in memory but also save data to disks for higher availability | Memcached only does caching information in memory            |
+| eviction        | Redis supports several eviction strategies                   | In Memcached when they overflow memory, the one you have not used recently (LRU- least recently used) will get deleted |
+| CAS             | Redis does not support CAS ( Check and Set). It is useful for maintaining cache consistency | Memcached supports CAS (Check and Set)                       |
+| data structures | Redis has got stronger data structures; it can handle strings, binary safe strings, list of binary safe strings, sorted lists, etc. | In Memcached, you have to serialize the objects or arrays in order to save them and to read them back you have to un-serialize them. |
+| key length      | Redis had a maximum of 2GB key length                        | Memcached had a maximum of 250 bytes length                  |
+| single thread   | Redis is single threaded                                     | Memcached is multi-threaded                                  |
+
+# The Eviction Strategy
+
 xxxxxx
+
+ 
 
 # References
 
