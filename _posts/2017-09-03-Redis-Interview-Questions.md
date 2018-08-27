@@ -86,9 +86,9 @@ xxxxx
 
 [3] Redis Persistence: [https://redis.io/topics/persistence](https://redis.io/topics/persistence)
 
-[4] xxxxx: []()
+[4] 关于redis的主从、哨兵、集群: [https://blog.csdn.net/c295477887/article/details/52487621](https://blog.csdn.net/c295477887/article/details/52487621)
 
-[5] xxxxx: []()
+[5] Redis Replication: [https://redis.io/topics/replication](https://redis.io/topics/replication)
 
 
 
