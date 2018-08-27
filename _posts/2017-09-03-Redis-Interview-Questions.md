@@ -74,9 +74,17 @@ Once you turn on the AOF, every time Redis receives a command that changes the d
 
 Redis is single threaded, it serializes the concurrent requests to a queue by NIO (epoll) techniques. Thus it avoids the switches between multiple threads, as a result, it gains a better performance.
 
-# Replication
+# Redis Replication
 
-xxxxx
+Once we configured "slave of master", the slave will automatically reconnect to the master every time the link breaks, and will attempt to be an exact copy of it regardless of what happens to the master.
+
+This system works using three main mechanisms:
+
+1. When a master and a slave instances are well-connected, the master keeps the slave updated by sending a stream of commands to the slave, in order to replicate the effects on the dataset happening in the master side due to: client writes, keys expired or evicted, any other action changing the master dataset.
+2. When the link between the master and the slave breaks, for network issues or because a timeout is sensed in the master or the slave, the slave reconnects and attempts to proceed with a **partial resynchronization**: it means that it will try to just obtain the part of the stream of commands it missed during the disconnection.
+3. When a partial resynchronization is not possible, the slave will ask for a **full resynchronization**. This will involve a more complex process in which the master needs to create a snapshot of all its data, send it to the slave, and then continue sending the stream of commands as the dataset changes.
+
+**Sentinel**: Redis Sentinel can be used to manage replicated servers. Clients connect to a Sentinel and request a master or slave to communicate with, the sentinels handle health checks of the masters/slaves, and will automatically promote a slave if a master is unreachable. You need to have at least 3 sentinels running so that they can agree on reachability of nodes, and to ensure the sentinels aren’t a single point of failure.
 
 # References
 
