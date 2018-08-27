@@ -48,18 +48,39 @@ The following lists the details of Redis' eviction policies:
 - **volatile-ttl**: the service evicts the shortest time to live keys (out of all keys with an "expire" field set).
 - **no-eviction**: the service will not evict any keys and no writes will be possible until more memory is freed.
 
-# Durability
+# Redis Persistence
+
+Redis provides a different range of persistence options:
+
+- The RDB persistence performs point-in-time **snapshots** of your dataset at specified intervals.
+- The AOF persistence logs every write operation received by the server, that will be played again at server startup, reconstructing the original dataset.
+
+**Snapshotting**: By default Redis saves snapshots of the dataset on disk, in a binary file called dump.rdb. You can configure Redis to have it save the dataset every N seconds if there are at least M changes in the dataset, or you can manually call the SAVE or BGSAVE commands. It works like this:
+
+- Redis forks a child process.
+- The child starts to write the dataset to a temporary RDB file.
+- When the child is done writing the new RDB file, it replaces the old one.
+
+**Append-only file**: Snapshotting is not very durable. If your computer running Redis stops, your power line fails, or you accidentally kill -9 your instance, the latest data written on Redis will get lost. The append-only file is an alternative, fully-durable strategy for Redis.
+
+Once you turn on the AOF, every time Redis receives a command that changes the dataset (e.g. SET) it will append it to the AOF. When you restart Redis it will re-play the AOF to rebuild the state.
+
+|              | RDB                                     | AOF                                                          |
+| ------------ | --------------------------------------- | ------------------------------------------------------------ |
+| advantage    | compact single file                     | more durable                                                 |
+| disadvantage | may lose data written in latest minutes | the log file is bigger.  may be slower than RDB depending on the exact fsync policy. |
+
+# FF
 
 xxxxx
-
 
 # References
 
 [1] Top 10 Redis interview questions: [https://career.guru99.com/top-10-redis-interview-questions](https://career.guru99.com/top-10-redis-interview-questions)
 
-[2] xxxxx: []()
+[2] Redis持久化详解: [https://segmentfault.com/a/1190000012908434](https://segmentfault.com/a/1190000012908434)
 
-[3] xxxxx: []()
+[3] Redis Persistence: [https://redis.io/topics/persistence](https://redis.io/topics/persistence)
 
 [4] xxxxx: []()
 
