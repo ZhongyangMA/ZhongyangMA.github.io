@@ -6,7 +6,7 @@ categories: Middleware Java
 permalink: /archivers/Redis-Interview-Questions
 ---
 
-xxxxxxx
+Redis is an open-source, advanced key-value data store. It is also referred as a data structure server which keys not only contains strings, but also hashes, sets, lists, and sorted sets. Redis mostly used for cache solutions and session management. In this article, I record down some of the important points about Redis for the further review. 
 
 <!--more-->
 
