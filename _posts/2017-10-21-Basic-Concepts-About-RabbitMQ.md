@@ -20,11 +20,11 @@ xxxxx
 
 # References
 
-[1] xxxxx: []()
+[1] AMQP 0-9-1 Model Explained: [https://www.rabbitmq.com/tutorials/amqp-concepts.html](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
 
-[2] xxxxx: []()
+[2] AMQP协议简介: [https://blog.csdn.net/mx472756841/article/details/50815895](https://blog.csdn.net/mx472756841/article/details/50815895)
 
-[3] xxxxx: []()
+[3] RabbitMQ与AMQP协议详解: [https://www.cnblogs.com/frankyou/p/5283539.html](https://www.cnblogs.com/frankyou/p/5283539.html)
 
 [4] xxxxx: []()
 
