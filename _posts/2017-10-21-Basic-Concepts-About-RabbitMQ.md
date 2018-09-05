@@ -12,11 +12,19 @@ RabbitMQ is a message broker: it accepts and forwards messages. You can think ab
 
 # Title1
 
-xxxxx
+xxxxx (draft)
 
 # Title2
 
 xxxxx
+
+# Code Example
+
+I created a repository to store the example code presented above, please visit:
+
+**[https://github.com/ZhongyangMA/rabbitmq-client-examples](https://github.com/ZhongyangMA/rabbitmq-client-examples)**
+
+
 
 # References
 
