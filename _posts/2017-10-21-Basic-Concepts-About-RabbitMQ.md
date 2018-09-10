@@ -66,15 +66,109 @@ Topic exchanges have a very broad set of use cases. Whenever a problem involves 
 
 ## Headers Exchange
 
-xxxxx (draft)
+A headers exchange is designed for routing on multiple attributes that are more easily expressed as message headers than a routing key. When the "x-match" argument is set to "any", just one matching header value is sufficient. Alternatively, setting "x-match" to "all" mandates that all the values must match.
+
+```java
+// sender
+Map<String, Object> heardersMap = new HashMap<>();
+heardersMap.put("api", "login");
+heardersMap.put("version", 1.0);
+heardersMap.put("random", UUID.randomUUID().toString());
+AMQP.BasicProperties.Builder properties = new AMQP.BasicProperties().builder().headers(heardersMap);
+String message = "Hello RabbitMQ!";
+String EXCHANGE_NAME = "exchange.hearders";
+channel.basicPublish(EXCHANGE_NAME, "", properties.build(), message.getBytes("UTF-8"));
+
+// receiver
+String EXCHANGE_NAME = "exchange.hearders";
+channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.HEADERS);
+String queueName = channel.queueDeclare().getQueue();
+Map<String, Object> arguments = new HashMap<>();
+arguments.put("x-match", "any");
+arguments.put("api", "login");
+arguments.put("version", 1.0);
+arguments.put("dataType", "json");
+channel.queueBind(queueName, EXCHANGE_NAME, "", arguments);
+```
+
+Headers Exchange can be used as direct exchanges where the routing key does not have to be a string, it could be an integer or a hash (dictionary) for example.
 
 # Queues
 
-xxxxx
+Queues store messages that are consumed by applications. Before a queue can be used it has to be declared. Declaring a queue will cause it to be created if it does not already exist. The declaration will have no effect if the queue does already exist and its attributes are the same as those in the declaration. When the existing queue attributes are not the same as those in the declaration a channel-level exception with code 406 (PRECONDITION_FAILED) will be raised.
 
-# Title2
+## Queue Names
 
-xxxxx
+Applications may pick queue names or ask the broker to generate a name for them. Queue names may be up to 255 bytes of UTF-8 characters. An AMQP 0-9-1 broker can generate a unique queue name on behalf of an app.
+
+> String queueName = channel.queueDeclare().getQueue();
+
+Queue names starting with "amq." are reserved for internal use by the broker. Attempts to declare a queue with a name that violates this rule will result in a channel-level exception with reply code 403 (ACCESS_REFUSED).
+
+## Queue Durability
+
+Durable queues are persisted to disk and thus survive broker restarts. Queues that are not durable are called transient. Not all scenarios and use cases mandate queues to be durable.
+
+Durability of a queue does not make *messages* that are routed to that queue durable. If broker is taken down and then brought back up, durable queue will be re-declared during broker startup, however, only *persistent* messages will be recovered.
+
+```java
+/**
+  * Two things are required to make sure that messages aren't lost:
+  * we need to mark both the queue and messages as durable.
+  */
+boolean durable = true;  // 1.make the queue durable.
+channel.queueDeclare(TASK_QUEUE_NAME, durable, false, false, null);
+String message = getMessage(argv);
+channel.basicPublish("", TASK_QUEUE_NAME,
+    MessageProperties.PERSISTENT_TEXT_PLAIN,  // 2.mark messages as persistent
+    message.getBytes("UTF-8")
+);
+```
+
+## Round Robin Dispatching
+
+In AMQP 0-9-1, messages are load balanced between **consumers** but not between **queues**. For example:
+
+- If a direct exchange is bound by two queues with the same routing key, this direct exchange will behave like a fanout.
+- If two consumers subscribe the same queue, the queue will distribute tasks between multiple workers in a round robin manner.
+
+# Message Acknowledgements
+
+## Message Acknowledgement
+
+Consumers may occasionally fail to process individual messages or will sometimes just crash. There is also the possibility of network issues causing problems. This raises a question: when should the AMQP broker remove messages from queues? The AMQP 0-9-1 specification proposes two choices:
+
+1. **Automatic Acknowledgement**: AMQP broker remove messages from queues after broker sends a message to an application.
+2. **Explicit (or manual) Acknowledgement**: AMQP broker remove messages from queues after the application sends back an acknowledgement.
+
+To turn on the manual acknowledgement:
+
+```java
+boolean autoAck = false;  // manual ack (autoAck == false by default)
+channel.basicConsume(QUEUE_NAME, autoAck, consumer);
+//...
+try {
+    doWork(message);
+} finally {
+    // If a consumer dies without sending an ack, RabbitMQ will re-deliver the message
+    channel.basicAck(envelope.getDeliveryTag(), false);
+}
+```
+
+If a consumer dies without sending an acknowledgement the AMQP broker will redeliver it to another consumer or, if none are available at the time, the broker will wait until at least one consumer is registered for the same queue before attempting redelivery.
+
+## Fair Dispatch
+
+Imagine that in a situation with two workers, when all odd messages are heavy and even messages are light, one worker will be constantly busy and the other one will do hardly any work. Well, RabbitMQ just dispatches a message when the message enters the queue. It doesn't look at the number of unacknowledged messages for a consumer. It just blindly dispatches every n-th message to the n-th consumer.
+
+In order to defeat that we can use the basicQos method with the prefetchCount = 1 setting. 
+
+```java
+int prefetchCount = 1;
+channel.basicQos(prefetchCount);
+```
+
+This tells RabbitMQ not to give more than one message to a worker at a time. Or, in other words, don't dispatch a new message to a worker until it has processed and acknowledged the previous one. Instead, it will dispatch it to the next worker that is not still busy.
 
 # Code Example
 
@@ -92,9 +186,7 @@ I created a repository to store the example code presented above, please visit:
 
 [3] RabbitMQ与AMQP协议详解: [https://www.cnblogs.com/frankyou/p/5283539.html](https://www.cnblogs.com/frankyou/p/5283539.html)
 
-[4] xxxxx: []()
 
-[5] xxxxx: []()
 
 
 
