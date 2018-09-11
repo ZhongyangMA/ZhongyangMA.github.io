@@ -134,7 +134,7 @@ In AMQP 0-9-1, messages are load balanced between **consumers** but not between 
 
 # Message Acknowledgements
 
-## Message Acknowledgement
+## Acknowledgement
 
 Consumers may occasionally fail to process individual messages or will sometimes just crash. There is also the possibility of network issues causing problems. This raises a question: when should the AMQP broker remove messages from queues? The AMQP 0-9-1 specification proposes two choices:
 
