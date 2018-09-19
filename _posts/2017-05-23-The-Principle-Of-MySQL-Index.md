@@ -6,7 +6,7 @@ categories: MySQL
 permalink: /archivers/The-Principle-Of-MySQL-Index
 ---
 
-Oxxxxxxxxxx
+Recent days, I read a very excellent overview article, which gives us a deep insight about the algorithm and data structure behind MySQL index. Thanks to the author for introducing us about the index mechanism of database system. In this post, I recorded down the key information of the author's article for further review.
 
 <!--more-->
 
