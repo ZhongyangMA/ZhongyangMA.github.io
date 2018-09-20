@@ -39,9 +39,17 @@ Due to the nature of B-Tree, searching data is very intuitive: we start binary s
 
 ## Why Using B-Trees
 
-xxxxxx
+The binary search tree or red black tree can also be used as the data structure of the index file, but why we don't use them in a real database system?
 
-xxxxxx
+The time is very long when find data from a disk. To reduce the times (frequency) of disk I/O, system will read a nearby data in advance (pre-read), the size of the pre-read data usually equals to integral multiples of **page** (4k), which is the basic unit of data that is exchanged between RAM and disk.
+
+For B-Tree, finding a key will at most search **h** (the height of the tree) nodes. And the size of every node equals to one **page**, therefore loading one node just need one I/O time.
+
+**one node -> one page -> one I/O**.
+
+In real database system, the **d** of the B-Tree is very large, that means the **h** will be very small, for example **3**, thus finding a data will at most cost **3** I/O times.
+
+That is the reason why we don't use red black tree as the data structure of the index file. The height of red black tree is large, that means much more times of I/O to disk. The child and parent nodes may not be placed in one physical **page**, so it can't take the advantage of the power of **pre-read**.
 
 # Implementation Of MySQL
 
