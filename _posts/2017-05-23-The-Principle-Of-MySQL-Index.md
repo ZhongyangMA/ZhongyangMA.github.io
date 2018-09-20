@@ -55,11 +55,28 @@ That is the reason why we don't use red black tree as the data structure of the 
 
 ## MyISAM
 
-xxxxx 
+B+Tree:
+
+- **key** of leaf node: stores the column data
+- **data** of leaf node: stores the **physical address** 
+
+non-clustered (非聚集索引), index files are separated from the data file.
 
 ## InnoDB
 
-xxxxx
+B+Tree:
+
+- **key** of leaf node: stores the primary key of the table
+- **data** of leaf node: stores the whole rest of the columns of data
+
+It is clustered (聚集索引), the index file for primary key is the data file itself. 
+
+The **data** of leaf node in other non-primary key index file, stores the **primary keys** in main index file, rather than **physical addresses**. Therefore, searching data from non-primary key column will firstly search the index file for this column, then the primary key index file.
+
+Please note that:
+
+- 不建议使用过长的字段作为主键，因为所有辅助索引都引用主索引，过长的主索引会令辅助索引变得过大
+- 不建议使用非单调的字段做主键，它会使B+Tree频繁分裂调整，降低效率，推荐使用自增字段
 
 # Index Optimization
 
