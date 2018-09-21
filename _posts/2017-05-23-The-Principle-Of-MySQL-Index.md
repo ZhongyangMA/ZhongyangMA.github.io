@@ -12,9 +12,9 @@ Recent days, I read a very excellent overview article, which gives us a deep ins
 
 # Data Structure Of Index
 
-## B-Trees
-
 Index is a kind of data structure, which helps us search specific data efficiently.
+
+## B-Trees
 
 **B-Tree**: 
 
