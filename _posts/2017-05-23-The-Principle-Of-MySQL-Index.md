@@ -89,6 +89,7 @@ Please note that:
 索引的选择性（Selectivity），指不重复的索引值（也叫基数，Cardinality）与表记录数（#T）的比值：
 
 > Index Selectivity = Cardinality / #T
+>
 > SELECT count(DISTINCT(title))/count(\*) AS Selectivity FROM employees.titles;
 
 选择性的取值范围为(0, 1]，选择性越高的索引价值越大，这是由B+Tree的性质决定的。选择性低的字段不建议建立索引。
@@ -96,6 +97,7 @@ Please note that:
 **前缀索引**：取某字段的前几个字符建立索引，兼顾**索引大小**和**选择性**。
 
 > ALTER TABLE employees.employees
+>
 > ADD INDEX `first_name_last_name4` (first_name, last_name(4));
 
 ## Optimization Of InnoDB's Primary Key
