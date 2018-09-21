@@ -49,7 +49,7 @@ For B-Tree, finding a key will at most search **h** (the height of the tree) nod
 
 In real database system, the **d** of the B-Tree is very large, that means the **h** will be very small, for example **3**, thus finding a data will at most cost **3** I/O times.
 
-That is the reason why we don't use red black tree as the data structure of the index file. The height of red black tree is large, that means much more times of I/O to disk. The child and parent nodes may not be placed in one physical **page**, so it can't take the advantage of the power of **pre-read**.
+That is the reason why we don't use red black tree as the data structure of the index file. The height of red black tree is large, that means it needs much more times of disk I/O. The child and parent nodes may not be placed in one physical **page**, so it can't take the advantage of the power of **pre-read**.
 
 # Implementation Of MySQL
 
