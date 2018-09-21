@@ -80,7 +80,29 @@ Please note that:
 
 # Index Optimization
 
-xxxxx
+## Composite Index & Leftmost Prefixing
+
+联合索引 & 最左前缀原理
+
+## Index Selectivity & Prefix Index
+
+索引的选择性（Selectivity），指不重复的索引值（也叫基数，Cardinality）与表记录数（#T）的比值：
+
+> Index Selectivity = Cardinality / #T
+> SELECT count(DISTINCT(title))/count(\*) AS Selectivity FROM employees.titles;
+
+选择性的取值范围为(0, 1]，选择性越高的索引价值越大，这是由B+Tree的性质决定的。选择性低的字段不建议建立索引。
+
+**前缀索引**：取某字段的前几个字符建立索引，兼顾**索引大小**和**选择性**。
+
+> ALTER TABLE employees.employees
+> ADD INDEX `first_name_last_name4` (first_name, last_name(4));
+
+## Optimization Of InnoDB's Primary Key
+
+在使用InnoDB存储引擎时，如果没有特别的需要，请永远使用一个与业务无关的自增字段作为主键。使用自增主键，每次插入新的记录时，记录就会顺序添加到当前索引节点的后续位置，当一页写满，就会自动开辟一个新的页。这样就会形成一个紧凑的索引结构，近似顺序填满。由于每次插入时也不需要移动已有数据，因此效率很高，也不会增加很多开销在维护索引上。
+
+如果使用非自增主键（如果身份证号或学号等），由于每次插入主键的值近似于随机，因此每次新纪录都要被插到现有索引页得中间某个位置，时MySQL不得不为了将新记录插到合适位置而移动数据，甚至目标页面可能已经被回写到磁盘上而从缓存中清掉，此时又要从磁盘上读回来，这增加了很多开销，同时频繁的移动、分页操作造成了大量的碎片，得到了不够紧凑的索引结构。
 
 # References
 
