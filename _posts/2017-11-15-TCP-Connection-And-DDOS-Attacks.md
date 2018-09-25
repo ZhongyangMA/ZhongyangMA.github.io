@@ -6,7 +6,7 @@ categories: Networks
 permalink: /archivers/TCP-Connection-And-DDOS-Attacks
 ---
 
-xxxxxxxxxxxxxxx
+TCP is connection-oriented, which means that before any data can be transmitted, a reliable connection must be obtained and acknowledged. A DDoS attack is an attempt to make an online service unavailable by overwhelming it with traffic from multiple sources. SYN Flood Attack, one of the most popular DDoS, exploits part of the normal TCP three-way handshake to consume resources on the targeted server and render it unresponsive.
 
 <!--more-->
 
