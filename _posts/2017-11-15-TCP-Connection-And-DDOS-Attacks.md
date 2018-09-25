@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TCP Connection And DDOS Attacks"
+title: "TCP Connection And DDoS Attack"
 date: 2017-11-15 17:08:12
 categories: Networks
 permalink: /archivers/TCP-Connection-And-DDOS-Attacks
