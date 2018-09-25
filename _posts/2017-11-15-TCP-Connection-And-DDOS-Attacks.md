@@ -57,9 +57,9 @@ xxxxx
 
 [3] TCP SYN Flood Attack: [https://www.incapsula.com/ddos/attack-glossary/syn-flood.html](https://www.incapsula.com/ddos/attack-glossary/syn-flood.html)
 
-[4] xxxxx: []()
+[4] What is a DDoS Attack: [http://www.digitalattackmap.com/understanding-ddos](http://www.digitalattackmap.com/understanding-ddos)
 
-[5] xxxxx: []()
+[5] Denial-of-Service Attack: [https://en.wikipedia.org/wiki/Denial-of-service_attack](https://en.wikipedia.org/wiki/Denial-of-service_attack)
 
 
 
