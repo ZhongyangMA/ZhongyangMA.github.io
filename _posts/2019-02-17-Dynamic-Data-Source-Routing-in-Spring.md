@@ -6,7 +6,7 @@ categories: Java Spring
 permalink: /archivers/Dynamic-Data-Source-Routing-in-Spring
 ---
 
-xxxxxxxxxxxxxxxxxx
+[Draft] xxxxxxxxxxxxxxxxxx
 
 <!--more-->
 
