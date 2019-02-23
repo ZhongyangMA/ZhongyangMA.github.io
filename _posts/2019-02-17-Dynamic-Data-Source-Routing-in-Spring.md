@@ -24,9 +24,11 @@ xxxxxxxxxxxx
 
 [3] Spring实现动态数据源切换: [http://www.cnblogs.com/davidwang456/p/4318303.html](http://www.cnblogs.com/davidwang456/p/4318303.html)
 
-[4] Xxxxxx: []()
+[4] A Guide to Spring AbstractRoutingDatasource: [https://www.baeldung.com/spring-abstract-routing-data-source](https://www.baeldung.com/spring-abstract-routing-data-source)
 
-[5] Xxxxxx: []()
+[5] 使用AbstractRoutingDataSource实现多数据源切换: [https://www.jianshu.com/p/a042ff2ee2ae](https://www.jianshu.com/p/a042ff2ee2ae)
 
-[6] Xxxxxx: []()
+
+
+
 
