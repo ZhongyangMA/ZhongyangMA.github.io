@@ -6,7 +6,7 @@ categories: Java Spring
 permalink: /archivers/Dynamic-Data-Source-Routing-in-Spring
 ---
 
-Recently we designed a system that needs to switch the data sources based on the region infos in each request. We accomplished that idea by adopting the AbstractRoutingDataSource, which is a very useful feature in spring framework if you want to choose a particular database when user belongs to certain locale and switch to another locale if user belongs to another locale. In this post, I will show an example that using a thread-bound context to implement the dynamic data source routing.
+Recently we designed a system that needs to switch the data sources based on the region infos in each request. We accomplished that idea by adopting the AbstractRoutingDataSource, which is a very useful feature in spring framework if you want to choose a particular database when user belongs to certain locale and switch to another locale if user belongs to another locale. In this post, I will show an example that using AbstractRoutingDataSource with a thread-bounded context to implement the dynamic data source routing.
 
 <!--more-->
 
