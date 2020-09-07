@@ -4,6 +4,7 @@ title: "ReentrantLock vs. synchronized"
 date: 2016-10-03 11:51:13
 categories: Java
 permalink: /archivers/ReentrantLock-vs-synchronized
+highlight: true
 ---
 
 Lock provides a tool to control access to a shared resource in a multi-threaded environment. A lock provides access to only one thread at a time to the shared resource. Before Java 5.0, the only mechanisms for coordinating access to shared data were *synchronized* and *volatile*. Java 5.0 adds another option: *ReentrantLock*. ReentrantLock is a mutual exclusion lock similar to implicit lock provided by synchronized methods and statements but with additional flexibility. It is not a replacement for intrinsic locking, but rather an alternative with advanced features.
