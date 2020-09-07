@@ -4,6 +4,7 @@ title: "Some Points To Remember About Thread In Java"
 date: 2016-11-09 10:20:41
 categories: Java
 permalink: /archivers/Some-Points-To-Remember-About-Thread-In-Java
+highlight: true
 ---
 
 Thread is a smallest executable unit of a process. Thread has it’s own path of execution in a process. Multitasking is an operation in which multiple tasks are performed simultaneously. Multitasking is used to utilize CPU’s idle time. In thread-based multitasking or multithreading, multiple threads in a process are executed simultaneously. In this reading note, I just record down some basic points to remember about thread in Java.
