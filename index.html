@@ -9,7 +9,10 @@ layout: default
     {% for post in paginator.posts %}
       <li>
         <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+            {{ post.title }}
+            {% if post.highlight %}<img src="/img/hot.gif">{% endif %}
+          </a>
         </h2>
         
         <div class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</div>
