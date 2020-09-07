@@ -4,6 +4,7 @@ title:  "An Overview of Reactive Programming"
 date:   2018-04-11 19:10:10
 categories: Java Reactive
 permalink: /archivers/An-Overview-of-Reactive-Programming
+highlight: true
 ---
 
 If you are following the Java community, you may notice that the reactive programming is not something new, it's been around for a while. But in these years, it seems to be getting more and more popular. Recently, Java community released many new version tools on this theme, which can be confusing sometimes.  
