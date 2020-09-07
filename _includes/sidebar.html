@@ -16,10 +16,12 @@
 </div>
 
 <div class="col-box">
-  <div class="col-box-title">Newest Posts</div>
+  <div class="col-box-title">Highlights</div>
   <ul class="post-list">
-    {% for post in site.posts limit:10 %}
-      <li style="margin-bottom:10px"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+    {% for post in site.posts %}
+      {% if post.highlight %}
+        <li style="margin-bottom:10px"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>
