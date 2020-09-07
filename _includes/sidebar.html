@@ -20,7 +20,12 @@
   <ul class="post-list">
     {% for post in site.posts %}
       {% if post.highlight %}
-        <li style="margin-bottom:10px"><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
+        <li style="margin-bottom:10px">
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+            {{ post.title }}
+            <img src="/img/hot.gif" sizes="23x7">
+          </a>
+        </li>
       {% endif %}
     {% endfor %}
   </ul>
