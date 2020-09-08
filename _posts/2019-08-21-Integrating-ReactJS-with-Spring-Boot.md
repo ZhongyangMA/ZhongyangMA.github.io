@@ -6,17 +6,17 @@ categories: React Spring
 permalink: /archivers/Integrating-ReactJS-with-Spring-Boot
 ---
 
-Xxxxx xxxx xxxxx.
+Xxxxx Introduction Xxxxx xxxxx.
 
 <!--more-->
 
-# Xxx Xxxx1
+# Serving Static Web Contents with Spring Boot
 
 Xxxxx
 
-# Xxx Xxxx2
+# Officially Supported Way to Create React App
 
-Xxxxx
+Create React App is an officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
 
 # Xxx Xxxx3
 
@@ -34,7 +34,7 @@ Xxxxx
 
 [3] Tutorial - Intro to React: [https://reactjs.org/tutorial/tutorial.html](https://reactjs.org/tutorial/tutorial.html)
 
-[4] Xxxx Xxxx: []()
+[4] Create React App Docs: [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
 
 [5] Xxxx Xxxx: []()
 
