@@ -18,13 +18,15 @@ Xxxxx
 
 Create React App is an officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
 
-# Xxx Xxxx3
+# Deploy with Spring Boot
 
 Xxxxx
 
-# Xxx Xxxx4
+# Deploy Separately & CORS Problem
 
-Xxxxx
+It's a common problem when you are deploying your frontend app that the backend api is hosted on a different origin.
+
+Xxxxx.
 
 # References
 
