@@ -69,7 +69,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // map "/static/**" to "classpath:/mystatic/"
-         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/mystatic/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/mystatic/");
     }
 }
 ```
