@@ -160,7 +160,55 @@ Open your web browser, and goto: **localhost:3000/**, an official react demo pag
 
 # Integrating React with Spring Boot
 
-Xxxxx
+Please note that the development build above is not optimized, to create a production build, run:
+
+```
+npm run build
+```
+
+Before we run this command, we need to change the homepage location to the current directory. Open ***package.json***, and add "homepage": "." field to the end of it:
+
+```json
+{
+  "name": "react-tutorial-codes",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "."    // add this field to change homepage location
+}
+```
+
+Then by running "npm run build", a new folder "build" is generated in this project. Within it, the "index.html" is the entry of this react project. 
+
+To deploy this react project to a Spring Boot server, copy all things from "build" to Spring Boot's "main/resources/public" folder. Then start Spring Boot project, and visit **localhost:8080/**, the same official react demo page will appear.
 
 # Deploy Separately & CORS Problem
 
