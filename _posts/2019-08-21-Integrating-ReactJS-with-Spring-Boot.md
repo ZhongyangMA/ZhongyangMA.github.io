@@ -59,7 +59,7 @@ public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
 The **staticPathPattern** was defined in **WebMvcProperties**, its default value is "/\*\*"; And the  **staticLocations** was defined in **ResourceProperties**, its default value are: "classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", which assigned by variable **CLASSPATH_RESOURCE_LOCATIONS**.
 
-## Customize Mapping Configuration
+## Customize the Mappings
 
 We can also customize the mapping by implementing **WebMvcConfigurer**.
 
@@ -69,7 +69,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         // map "/static/**" to "classpath:/mystatic/"
-             registry.addResourceHandler("/static/**").addResourceLocations("classpath:/mystatic/");
+         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/mystatic/");
     }
 }
 ```
