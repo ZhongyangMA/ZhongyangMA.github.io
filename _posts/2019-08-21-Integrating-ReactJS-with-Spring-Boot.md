@@ -12,7 +12,99 @@ Xxxxx Introduction Xxxxx xxxxx.
 
 # Serving Static Web Contents with Spring Boot
 
-Xxxxx
+Serving static web contents (such as image, css & js) is necessary when developing a web application. Spring Boot provides excellent supports for it. Its basic configurations can satisfy most of needs in developing, and the developers can also make some custom configurations based on it.
+
+## The Default Static Resource Mapping
+
+By default, Spring Boot maps all visits of "/\*\*", to these directories:
+
+```
+classpath:/static
+classpath:/public
+classpath:/resources
+classpath:/META-INF/resources
+```
+
+Let's perform a little experiment. Create three directories *static*, *public* and *resources* under *main/resources*, then put *a.png*, *b.png* and *c.png* into *static*, *public* and *resources* respectively. Run the project, and visit:
+
+```
+http://localhost:8080/a.png
+http://localhost:8080/b.png
+http://localhost:8080/c.png
+```
+
+All images can be visited, which means Spring Boot looks for static resources in these directories by default.
+
+By tracing the code we found that the default mapping was defined in **WebMvcAutoConfiguration**:
+
+```java
+public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    if (!this.resourceProperties.isAddMappings()) {
+        logger.debug("Default resource handling disabled");
+    } else {
+        Duration cachePeriod = this.resourceProperties.getCache().getPeriod();
+        CacheControl cacheControl = this.resourceProperties.getCache().getCachecontrol().toHttpCacheControl();
+        if (!registry.hasMappingForPattern("/webjars/**")) {
+            this.customizeResourceHandlerRegistration(registry.addResourceHandler(new String[]{"/webjars/**"}).addResourceLocations(new String[]{"classpath:/META-INF/resources/webjars/"}).setCachePeriod(this.getSeconds(cachePeriod)).setCacheControl(cacheControl));
+        }
+        // here is the default mapping defination
+        String staticPathPattern = this.mvcProperties.getStaticPathPattern();
+        if (!registry.hasMappingForPattern(staticPathPattern)) {
+            this.customizeResourceHandlerRegistration(registry.addResourceHandler(new String[]{staticPathPattern}).addResourceLocations(getResourceLocations(this.resourceProperties.getStaticLocations())).setCachePeriod(this.getSeconds(cachePeriod)).setCacheControl(cacheControl));
+        }
+
+    }
+}
+```
+
+The **staticPathPattern** was defined in **WebMvcProperties**, its default value is "/\*\*"; And the  **staticLocations** was defined in **ResourceProperties**, its default value are: "classpath:/META-INF/resources/", "classpath:/resources/", "classpath:/static/", "classpath:/public/", which assigned by variable **CLASSPATH_RESOURCE_LOCATIONS**.
+
+## Customize Mapping Configuration
+
+We can also customize the mapping by implementing **WebMvcConfigurer**.
+
+```java
+@Configuration
+public class MyWebMvcConfig implements WebMvcConfigurer {
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        // map "/static/**" to "classpath:/mystatic/"
+             registry.addResourceHandler("/static/**").addResourceLocations("classpath:/mystatic/");
+    }
+}
+```
+
+Create new directory *mystatic* under *main/resources*, and put *d.png* in it. Run the project and visit:
+
+```
+http://localhost:8080/static/d.png
+```
+
+The image *d.png* can be visited in this url.
+
+We can also config the mappings in ***application.properties***:
+
+```
+# config the static resource path prefix, override default
+spring.mvc.static-path-pattern=/mystatic/**
+# config the static resource directories, override default
+spring.resources.static-locations[0]=classpath:/mystatic
+spring.resources.static-locations[1]=classpath:/public
+```
+
+Restart the project, the path below can be visited:
+
+```
+http://localhost:8080/mystatic/a.png
+```
+
+And this path can't be visited:
+
+```
+http://localhost:8080/a.png  // default prefix has been overrided
+```
+
+Resources under *mystatic* and *public* can be visited; But when visiting *resources* and *static*, a "404 not found" message will be returned, because this configuration overrides the default mappings.
 
 # Officially Supported Way to Create React App
 
