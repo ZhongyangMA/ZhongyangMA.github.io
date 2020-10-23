@@ -212,7 +212,7 @@ To deploy this react project to a Spring Boot server, copy all things from "buil
 
 # Deploy Separately & CORS Problem
 
-It's a common problem when you are deploying your frontend app that the backend api is hosted on a different origin.
+CORS, Cross-Origin Resource Sharing, is a common problem when you are deploying your frontend app that the backend api is hosted on a different origin.
 
 Xxxxx.
 
