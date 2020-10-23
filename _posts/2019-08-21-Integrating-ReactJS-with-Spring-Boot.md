@@ -202,7 +202,7 @@ Before we run this command, we need to change the homepage location to the curre
       "last 1 safari version"
     ]
   },
-  "homepage": "."    // add this field to change homepage location
+  "homepage": "."
 }
 ```
 
