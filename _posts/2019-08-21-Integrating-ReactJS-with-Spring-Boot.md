@@ -108,7 +108,55 @@ Resources under *mystatic* and *public* can be visited; But when visiting *resou
 
 # Officially Supported Way to Create React App
 
-Create React App is an officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
+First of all, we need to setup the developing environment for our laptop. What we need to install is the **npm** (Node Package Manager). Run the command below:
+
+```
+brew install node    # for macOS
+```
+
+After installation, run:
+
+```
+node -v
+npm -v
+```
+
+If we get the versions of **node** and **npm**, the installation was successful.
+
+Second, we need to install **create-react-app** globally via **npm**:
+
+```
+npm install -g create-react-app
+```
+
+The **create-react-app** is an officially supported way to create single-page React applications. It offers a modern build setup with no configuration.
+
+Now, let's start building a react project called "react-tutorial-codes":
+
+```
+create-react-app react-tutorial-codes
+```
+
+After a few minutes, a new directory "react-tutorial-codes" was generated, the structure in it is:
+
+```
+node_modules        # folder, tools and dependencies
+public              # folder, index.html and root elements
+src                 # folder, javascript files
+.gitignore
+package.json        # information about project and outer dependencies
+package-lock.json
+README.md
+```
+
+Enter this directory and run this demo project:
+
+```
+cd react-tutorial-codes
+npm start
+```
+
+Open your web browser, and goto: **localhost:3000/**, a react demo page will be presented.
 
 # Integrating React with Spring Boot
 
