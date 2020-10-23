@@ -101,7 +101,7 @@ http://localhost:8080/mystatic/a.png
 And this path can't be visited:
 
 ```
-http://localhost:8080/a.png  // default prefix has been overrided
+http://localhost:8080/a.png  // default prefix has been overridden
 ```
 
 Resources under *mystatic* and *public* can be visited; But when visiting *resources* and *static*, a "404 not found" message will be returned, because this configuration overrides the default mappings.
