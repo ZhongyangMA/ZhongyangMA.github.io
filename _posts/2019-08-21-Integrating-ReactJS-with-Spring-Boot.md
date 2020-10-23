@@ -156,7 +156,7 @@ cd react-tutorial-codes
 npm start
 ```
 
-Open your web browser, and goto: **localhost:3000/**, an official demo react page will be presented.
+Open your web browser, and goto: **localhost:3000/**, an official react demo page will be presented.
 
 # Integrating React with Spring Boot
 
