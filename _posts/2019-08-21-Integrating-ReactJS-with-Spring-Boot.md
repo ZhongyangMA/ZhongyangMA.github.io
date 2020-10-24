@@ -255,6 +255,8 @@ public class ApiController {
 }
 ```
 
+The **@CrossOrigin** annotation can be added before methods and classes, you can specify a list of allowed origins, or use "\*" symbol to allow all the cross-origin requests.
+
 # References
 
 [1] Spring Boot 静态资源访问和配置全解析: [https://blog.csdn.net/u010358168/article/details/81205116](https://blog.csdn.net/u010358168/article/details/81205116)
