@@ -236,9 +236,24 @@ Visit **localhost:8088** in your web browser, the same official react demo page 
 
 But if you click the button "Call Backend API" now, you will get error message "Access to XMLHttpRequest at 'http://localhost:8080/api/users' from origin 'http://localhost:8088' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource".
 
-**CORS**, Cross-Origin Resource Sharing, is a common problem when you are deploying your frontend app that the backend api is hosted on a different origin (different protocol, ip or port).
+**CORS**, Cross-Origin Resource Sharing, is a common problem when you are deploying your frontend app that the backend api is hosted on a different origin (different *protocol*, *ip* or *port*). It is a browser mechanism which enables controlled access to resources located outside of a given domain.
 
-Xxxxx.
+To add "Access-Control-Allow-Origin" header on the requested resource, we can simply put **@CrossOrigin** annotation before the Restful API in Spring Boot.
+
+```java
+@RestController
+@RequestMapping(value = "/api")
+public class ApiController {
+    // origins, whitelist of allowed origins, "*" means allow all
+    // maxAge, age of cookie in second
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(method = RequestMethod.GET, value = "/users")
+    public List<User> getUsers() {
+        // code omitted
+        return list;
+    }
+}
+```
 
 # References
 
@@ -250,13 +265,5 @@ Xxxxx.
 
 [4] Create React App Docs: [https://create-react-app.dev/docs/getting-started](https://create-react-app.dev/docs/getting-started)
 
-[5] Xxxx Xxxx: []()
-
-[6] Xxxx Xxxx: []()
-
-[7] Xxxx Xxxx: []()
-
-[8] Xxxx Xxxx: []()
-
-[9] Xxxx Xxxx: []()
+[5] Cross-origin resource sharing: [https://portswigger.net/web-security/cors](https://portswigger.net/web-security/cors)
 
