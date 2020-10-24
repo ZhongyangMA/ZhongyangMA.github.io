@@ -267,3 +267,5 @@ public class ApiController {
 
 [5] Cross-origin resource sharing: [https://portswigger.net/web-security/cors](https://portswigger.net/web-security/cors)
 
+[6] CORS with Spring: [https://www.baeldung.com/spring-cors](https://www.baeldung.com/spring-cors)
+
