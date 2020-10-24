@@ -212,15 +212,31 @@ To deploy this react project to a Spring Boot server, copy all things from "buil
 
 **react-tutorial-codes**: [https://github.com/ZhongyangMA/react-tutorial-codes](https://github.com/ZhongyangMA/react-tutorial-codes) This sample code requests backend API via "axios". Run "npm run build", then copy all contents from "build" folder to "main/resources/public" folder in the Spring Boot project below.
 
-**react-deployment-samples**: [https://github.com/ZhongyangMA/react-deployment-samples](https://github.com/ZhongyangMA/react-deployment-samples) This is a Spring Boot project which provides several backend APIs for the React frontend. Start the project and visit **localhost:8080/** to get frontend contents to your browser, then click the "Call Backend API" button to request backend API **localhost:8080/api/users**.
+**react-deployment-samples**: [https://github.com/ZhongyangMA/react-deployment-samples](https://github.com/ZhongyangMA/react-deployment-samples) This is a Spring Boot project which provides several backend APIs for the React frontend. Start the project and visit **localhost:8080/** to get frontend contents to your browser, then click the "Call Backend API" button in this demo page to request backend API **localhost:8080/api/users**.
 
 # Deploy Separately & CORS Problem
 
 The React project can be deployed separately from backend servers. It can be hosted on a nginx server for instance.
 
-Xxxx xxxx.
+Run commands below to install and setup nginx server:
 
-CORS, Cross-Origin Resource Sharing, is a common problem when you are deploying your frontend app that the backend api is hosted on a different origin.
+```
+brew install nginx      # for macOS
+cd /usr/local/etc/nginx
+vi nginx.conf           # set ip and port, for instance localhost:8088
+```
+
+Then copy all contents from React "build" folder to nginx's "/usr/local/var/www" folder, and start nginx server:
+
+```
+nginx
+```
+
+Visit **localhost:8088** in your web browser, the same official react demo page will appear again.
+
+But if you click the button "Call Backend API" now, you will get error message "Access to XMLHttpRequest at 'http://localhost:8080/api/users' from origin 'http://localhost:8088' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource".
+
+**CORS**, Cross-Origin Resource Sharing, is a common problem when you are deploying your frontend app that the backend api is hosted on a different origin (different protocol, ip or port).
 
 Xxxxx.
 
