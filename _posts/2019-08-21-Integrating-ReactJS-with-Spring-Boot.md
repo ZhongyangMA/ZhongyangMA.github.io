@@ -166,7 +166,7 @@ Please note that the development build above is not optimized, to create a produ
 npm run build
 ```
 
-Before we run this command, we need to change the homepage location to the current directory. Open ***package.json***, and add "homepage": "." field to the end of it:
+Before we run this command, we need to change the homepage location to the current directory. Open ***package.json***, and add `"homepage": "."` field to the end of it:
 
 ```json
 {
@@ -206,11 +206,11 @@ Before we run this command, we need to change the homepage location to the curre
 }
 ```
 
-Then by running "npm run build", a new folder "build" is generated in this project. Within it, the "index.html" is the entry of this react project. 
+Then by running `npm run build`, a new folder "build" is generated in this project. Within it, the "index.html" is the entry of this react project. 
 
 To deploy this react project to a Spring Boot server, copy all things from "build" to Spring Boot's "main/resources/public" folder. Then start Spring Boot project, and visit **localhost:8080/**, the same official react demo page will appear.
 
-**react-tutorial-codes**: [https://github.com/ZhongyangMA/react-tutorial-codes](https://github.com/ZhongyangMA/react-tutorial-codes) This sample code requests backend API via "axios". Run "npm run build", then copy all contents from "build" folder to "main/resources/public" folder in the Spring Boot project below.
+**react-tutorial-codes**: [https://github.com/ZhongyangMA/react-tutorial-codes](https://github.com/ZhongyangMA/react-tutorial-codes) This sample code requests backend API via "axios". Run `npm run build`, then copy all contents from "build" folder to "main/resources/public" folder in the Spring Boot project below.
 
 **react-deployment-samples**: [https://github.com/ZhongyangMA/react-deployment-samples](https://github.com/ZhongyangMA/react-deployment-samples) This is a Spring Boot project which provides several backend APIs for the React frontend. Start the project and visit **localhost:8080/** to get frontend contents to your browser, then click the "Call Backend API" button in this demo page to request backend API **localhost:8080/api/users**.
 
