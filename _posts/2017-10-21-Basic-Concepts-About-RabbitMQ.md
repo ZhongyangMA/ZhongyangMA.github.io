@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Basic Concepts About RabbitMQ"
+title: "Basic Concepts and Practices About RabbitMQ"
 date: 2017-10-21 16:40:29
 categories: Java Middleware
 permalink: /archivers/Basic-Concepts-About-RabbitMQ
