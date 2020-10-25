@@ -210,6 +210,8 @@ Then by running `npm run build`, a new folder "build" is generated in this proje
 
 To deploy this react project to a Spring Boot server, copy all things from "build" to Spring Boot's "main/resources/public" folder. Then start Spring Boot project, and visit **localhost:8080/**, the same official react demo page will appear.
 
+## The Sample Codes
+
 **react-tutorial-codes**: [https://github.com/ZhongyangMA/react-tutorial-codes](https://github.com/ZhongyangMA/react-tutorial-codes) This sample code requests backend API via "axios". Run `npm run build`, then copy all contents from "build" folder to "main/resources/public" folder in the Spring Boot project below.
 
 **react-deployment-samples**: [https://github.com/ZhongyangMA/react-deployment-samples](https://github.com/ZhongyangMA/react-deployment-samples) This is a Spring Boot project which provides several backend APIs for the React frontend. Start the project and visit **localhost:8080/** to get frontend contents to your browser, then click the "Call Backend API" button in this demo page to request backend API **localhost:8080/api/users**.
