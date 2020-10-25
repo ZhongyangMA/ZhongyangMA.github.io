@@ -6,7 +6,7 @@ categories: React Spring
 permalink: /archivers/Integrating-ReactJS-with-Spring-Boot
 ---
 
-Xxxxx Introduction Xxxxx xxxxx.
+Nowadays, architectures with separate frontend & backend deployments are becoming more and more popular. Because it decouples the frontend from the backend, improves maintainability of the code and the work efficiency. In this article, by tracing the source code, I introduce how the static web contents are hosted in Spring Boot; Then I present the common ways to create a React application; In the end, I illustrate the methods of hosting frontend & backend on different origins, and discuss the problems relating to CORS policy. This is an easy-to-follow reading, suitable for full stack beginners.
 
 <!--more-->
 
