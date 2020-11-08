@@ -16,7 +16,7 @@ An ordered or sequential collection of objects can be represented by the List in
 
 All classes and interfaces related to Collection Framework are placed in **java.util** package. **java.util.Collection** class is at the top of class hierarchy of Collection Framework. The figure below shows the hierarchy of collection framework.
 
-![collection-hierarchy](https://github.com/ZhongyangMA/images/raw/master/list-interface/collection-hierarchy.png)
+![collection-hierarchy](../img/posts/list-interface/collection-hierarchy.png)
 
 The entire collection framework is divided into four interfaces:
 1. **List:** It handles sequential list of objects. **ArrayList**, **Vector** and **LinkedList** classes implement this interface.

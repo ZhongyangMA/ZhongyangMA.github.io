@@ -12,7 +12,7 @@ In Java, threads are mapped to system-level threads which are operating system�
 
 The pattern allows you to control the number of threads the application is creating, their lifecycle, as well as to schedule tasks’ execution and keep incoming tasks in a queue.
 
-![https://github.com/ZhongyangMA/images/raw/master/java-thread-pool/workqueue.png](https://github.com/ZhongyangMA/images/raw/master/java-thread-pool/workqueue.png)
+![../img/posts/java-thread-pool/workqueue.png](../img/posts/java-thread-pool/workqueue.png)
 
 # Executors, Executor and ExecutorService
 

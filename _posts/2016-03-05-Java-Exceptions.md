@@ -12,7 +12,7 @@ An Exception is an abnormal condition which occurs during run time and disrupts 
 
 # Hierarchy of Exceptions
 
-![](https://github.com/ZhongyangMA/images/raw/master/java-exceptions/hierarchy.png)
+![](../img/posts/java-exceptions/hierarchy.png)
 
 ## java.lang.Throwable
 

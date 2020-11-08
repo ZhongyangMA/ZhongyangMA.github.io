@@ -21,7 +21,7 @@ I'd like to focus the topic on `Elasticsearch`, but we just can not ignore the f
 
 The "ELK" represents three open source projects: Elasticsearch, Logstash, and Kibana.
 
-![elk.png](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/elk.png)
+![elk.png](../img/posts/elasticsearch-post/elk.png)
 
 As shown in this picture, **Logstash** is a data processing pipeline that ingests data from multiple sources simultaneously. It contains two parts: one is the shipper, which is installed at every endpoint and responsible for collecting the logs and putting them into a message queue (e.g. Redis in the picture); the other part is the indexer, which reads data from Redis, processes and transforms it, and then sends it to a "stash" like Elasticsearch. **Elasticsearch** is a storage and a search engine. **Kibana** lets users visualize data with charts and graphs in Elasticsearch.
 
@@ -214,7 +214,7 @@ To better understand how does a distributed index like ES work, l'm going to exp
 Now, we create an index on a single-node cluster, and config it with 3 primary shards and one set of replica shards.
 > number_of_shards : 3, number_of_replicas : 1
 
-![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es1.png)
+![](../img/posts/elasticsearch-post/es1.png)
 
 This is a single node cluster, so this node was automatically elected as the master node. The node has three primary shards: P0, P1, P2.
 
@@ -224,7 +224,7 @@ Now if we check the health of the cluster (GET /_cluster/health), we will find t
 
 For the purpose of availability, nobody will deploy a cluster with only one node in production environment. Now let's add a second node to the cluster. As long as the `cluster.name` in the config file of the second node is the same as that of the first node, it will automatically joins the cluster.
 
-![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es2.png)
+![](../img/posts/elasticsearch-post/es2.png)
 
 After the second node joins the cluster, the three replica shards - R0, R1, R2, are allocated, they correspond to the primary shards P0, P1, P2, respectively. At this moment, even one of the two nodes is broken, we don't need to worry about losing data. All the newly indexed documents will firstly be stored at primary shards, then they will be copied to the corresponding replica shards. Therefore, the documents could be retrieved on either primary or replica shards. If we check the health of the cluster now, it should be green, which means all the primary and replica shards are available.
 
@@ -232,7 +232,7 @@ After the second node joins the cluster, the three replica shards - R0, R1, R2, 
 
 We can decrease the workload on each node by adding more nodes. Now let's start the third node, the cluster thus becomes the three-nodes cluster. In order to rebalance the cluster, the shards will be moved between nodes automatically.
 
-![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es3.png)
+![](../img/posts/elasticsearch-post/es3.png)
 
 In this picture, P0 of Node 1 and R2 of node 2 are moved to Node 3. Thus each node only contains two shards. That means the resources (CPU, RAM, IO) are shared by less shards, so every shard will get a better performance. 
 
@@ -241,7 +241,7 @@ In this picture, P0 of Node 1 and R2 of node 2 are moved to Node 3. Thus each no
 Now we set two sets of replicas.
 > "number_of_replicas" : 2  // two sets of replicas
 
-![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es4.png)
+![](../img/posts/elasticsearch-post/es4.png)
 
 Now this index contains 9 shards in total: 3 primary shards and 6 (two sets of) replica shards. Therefore we gain triple performance improvement.
 
@@ -249,7 +249,7 @@ Now this index contains 9 shards in total: 3 primary shards and 6 (two sets of) 
 
 What if one of the three nodes breaks down? 
 
-![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es5.png)
+![](../img/posts/elasticsearch-post/es5.png)
 
 Node 1 was the master node, and it was dead. At this moment, ES will executes the procedures below:
 1. Elect master node, for example the Node 2 was elected as the master node. Now the health would be red, there exists unavailable primary shards.
@@ -271,7 +271,7 @@ Every node in ES cluster could serve the requests, based on the equation `shard 
 
 (3) `node.master: false` and `node.data: false`: this node will become neither master node nor data node. It is used as a load balancer.
 
-![](https://github.com/ZhongyangMA/images/raw/master/elasticsearch-post/es-cluster.png)
+![](../img/posts/elasticsearch-post/es-cluster.png)
 
 2.Turn off the http accessibility in data node: `http.enabled: false`, which ensures that the data nodes only perform the CRUD operations with its limited resources.
 
