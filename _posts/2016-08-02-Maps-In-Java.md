@@ -16,7 +16,7 @@ The Map interface doesn't inherit from Collection interface, it starts its own h
 
 The picture below shows the class hierarchy structures of Map interface:
 
-![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hierarchy-of-maps.png)
+![../img/posts/maps-in-java/hierarchy-of-maps.png](../img/posts/maps-in-java/hierarchy-of-maps.png)
 
 Note:
 
@@ -59,7 +59,7 @@ transient Entry<K,V>[] table;
 
 The picture below best summarizes the whole HashMap structure:
 
-![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hashmap.png](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/hashmap.png)
+![../img/posts/maps-in-java/hashmap.png](../img/posts/maps-in-java/hashmap.png)
 
 Internally HashMap uses an array of Entry<K, V> class called table\[\] to store the key-value pairs. 
 
@@ -168,7 +168,7 @@ Collections.synchornizedMap(HashMap) will return a collection which is almost eq
 
 The picture below best describes how the concurrency and thread-safety are achieved by segment lock.
 
-![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/chm.jpg](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/chm.jpg)
+![../img/posts/maps-in-java/chm.jpg](../img/posts/maps-in-java/chm.jpg)
 
 # TreeMap
 
@@ -200,7 +200,7 @@ TreeMap contains only unique elements, it cannot have null key but can have mult
 
 LinkedHashMap is same as HashMap instead maintains **insertion order**.
 
-![https://github.com/ZhongyangMA/images/raw/master/maps-in-java/dll.jpg](https://github.com/ZhongyangMA/images/raw/master/maps-in-java/dll.jpg)
+![../img/posts/maps-in-java/dll.jpg](../img/posts/maps-in-java/dll.jpg)
 
 It maintains a doubly-linked list running through all of its entries. This linked list defines the iteration ordering, which is normally the order in which keys were inserted into the map (*insertion-order*).
 

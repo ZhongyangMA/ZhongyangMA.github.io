@@ -105,7 +105,7 @@ Now run this program, you will get “Number Class Type” as output. What happ
 
 The mechanism can be summarized as below:
 
-![https://github.com/ZhongyangMA/images/raw/master/auto-widening/auto.png](https://github.com/ZhongyangMA/images/raw/master/auto-widening/auto.png)
+![../img/posts/auto-widening/auto.png](../img/posts/auto-widening/auto.png)
 
 1. If you are passing primitive data type as an argument to the method call, compiler first checks for a method definition which takes **same data type** as an argument.
 2. If such method does not exist, then it checks for the method definition which takes big sized primitive data type than passed data type. i.e It tries to perform **auto-widening conversion** of passed data type.

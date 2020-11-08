@@ -21,7 +21,7 @@ In the early days, Alibaba group has the demands of synchronizing data over geog
 
 # How Canal Works
 
-![master-slave](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/master-slave1.jpg)
+![master-slave](../img/posts/alibaba-canal/master-slave1.jpg)
 
 ## The Data Synchronizing Process of MySQL
 
@@ -42,7 +42,7 @@ Currently, _Canal_ supports all binlog formats when performing incremental subsc
 
 ## How Canal Works
 
-![master-slave2](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/master-slave2.jpg)
+![master-slave2](../img/posts/alibaba-canal/master-slave2.jpg)
 
 The data synchronization of _Canal_ takes three steps:
 
@@ -52,7 +52,7 @@ The data synchronization of _Canal_ takes three steps:
 
 # The Architecture
 
-![architecture.png](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/architecture.png)
+![architecture.png](../img/posts/alibaba-canal/architecture.png)
 
 As shown in this figure:
 
@@ -66,7 +66,7 @@ As shown in this figure:
 ## The _eventStore_ Component
 The design of a ring buffer:
 
-![ringbuffer](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/ringbuff1.png)
+![ringbuffer](../img/posts/alibaba-canal/ringbuff1.png)
 
 The _eventStore_ is a circular message queue in the memory. It defines three cursor:
 
@@ -76,7 +76,7 @@ The _eventStore_ is a circular message queue in the memory. It defines three cur
 
 _Canal_ allows to perform Get/Ack operations asynchronously. For example, you can invoke Get several times continuously, then invokes Ack or Rollback in sequence. This is called streaming API in _Canal_.
 
-![stream-api](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/buffer2.jpg)
+![stream-api](../img/posts/alibaba-canal/buffer2.jpg)
 
 # The HA Mechanism
 
@@ -85,7 +85,7 @@ The High Availability (HA) mechanism of _Canal_ relies on Zookeeper. It contains
 1. The HA of _Canal_ server: The instances are distinguished by their _destination_ names, if an instance in canal-server01 has the same _destination_ name with the instance in canal-server02, only one of them is allowed to run, in the meanwhile, the other one is in standby state.
 2. The HA of _Canal_ client: One _Instance_ in the _Canal_ Server only allows to be consumed by one _Canal_ client simultaneously.
 
-![HA.png](https://github.com/ZhongyangMA/images/raw/master/alibaba-canal/HA.png)
+![HA.png](../img/posts/alibaba-canal/HA.png)
 
 As shown in this figure, the procedure of starting up is: 
 

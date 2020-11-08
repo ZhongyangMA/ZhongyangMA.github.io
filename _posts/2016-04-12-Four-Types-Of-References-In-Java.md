@@ -12,7 +12,7 @@ There are actually 4 kinds of reference types in Java: strong references, soft r
 
 # Hierarchy of References
 
-![](https://github.com/ZhongyangMA/images/raw/master/four-reference-types/ref.png)
+![](../img/posts/four-reference-types/ref.png)
 
 As shown in this figure, there are four types of references. The SoftReference, WeakReference and PhantomReference are all subclasses of Reference, which represents the strong reference.
 
@@ -20,7 +20,7 @@ As shown in this figure, there are four types of references. The SoftReference, 
 
 These type of references we use daily while writing the code. Any object in the memory which has active strong reference is not eligible for garbage collection.
 
-![strong ref](https://github.com/ZhongyangMA/images/raw/master/four-reference-types/strong.png)
+![strong ref](../img/posts/four-reference-types/strong.png)
 
 As shown in this figure, reference variable ‘a’ is a strong reference which is pointing to class A-type object. At this point of time, this object can’t be garbage collected as it has strong reference.
 
@@ -30,7 +30,7 @@ If you make reference ‘a’ to point to null, then, object to which ‘a’ is
 
 The objects which are softly referenced will not be garbage collected (even though they are eligible for garbage collection) until JVM badly needs memory. You can create a soft reference to an existing object by using  **java.lang.ref.SoftReference** class.
 
-![](https://github.com/ZhongyangMA/images/raw/master/four-reference-types/soft.png)
+![](../img/posts/four-reference-types/soft.png)
 
 In the above example, you create two strong references: ‘**a**‘ and ‘**softA**‘. ‘a’ is pointing to A-type object and ‘softA’ is pointing to SoftReference type object. This SoftReference type object is internally referring to A-type object to which ‘a’ is also pointing. When ‘a’ is made to point to null, object to which ‘a’ is pointing earlier becomes eligible for garbage collection. But, it will be garbage collected only when JVM needs memory. Because, it is softly referenced by ‘softA’ object.
 
@@ -40,7 +40,7 @@ JVM ignores the **weak references**. That means objects which has only week re
 
 Look at the below picture for more clear understanding.
 
-![](https://github.com/ZhongyangMA/images/raw/master/four-reference-types/weak.png)
+![](../img/posts/four-reference-types/weak.png)
 
 You may think that what is the use of creating weak references if they are ignored by the JVM. The purpose of the use of weak reference is that you can retrieve back the weakly referenced object if it is not yet removed from the memory. This is done using get() method of WeakReference class. It will return reference to the object if object is not yet removed from the memory.
 
