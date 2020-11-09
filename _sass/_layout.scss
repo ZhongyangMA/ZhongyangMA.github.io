@@ -33,9 +33,9 @@ body {
 		margin: 0px 5px 4px 0px;
 		display: block;
 
-		filter:alpha(opacity=50);
-		-moz-opacity:0.5;
-		opacity:0.5;
+		filter:alpha(opacity=60);
+		-moz-opacity:0.6;
+		opacity:0.6;
 		&:hover {
 			transition: opacity 0.5s ease-in-out;
 			filter:alpha(opacity=100);
