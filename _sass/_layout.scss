@@ -44,7 +44,7 @@ body {
 		*display:inline;
 		*zoom:1;
 		&:hover {
-			transition: color 0.3s ease;
+			transition: color 0.5s ease;
 			color: #fff;
 		}
 		.subtitle {
@@ -54,6 +54,10 @@ body {
 			border-top: 1px solid #aa88cc;
 			color: #aa88cc;
 			padding: 3px;
+			&:hover {
+				transition: color 0.5s ease;
+				color: #fff;
+			}
 		}
 	}
 	.site-nav {

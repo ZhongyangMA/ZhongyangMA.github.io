@@ -1,7 +1,7 @@
 # Site settings
 title: Solarwind Observatory
 maintitle: Solarwind OBS
-subtitle: Zhongyang MA's Personal Home Page
+subtitle: Personal Home Page of Zhongyang MA
 url: "https://zhongyangma.github.io"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
 baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
 timezone: Asia/Shanghai
