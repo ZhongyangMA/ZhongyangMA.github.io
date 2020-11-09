@@ -37,6 +37,7 @@ body {
 		-moz-opacity:0.5;
 		opacity:0.5;
 		&:hover {
+			transition: opacity 0.5s ease;
 			filter:alpha(opacity=100);
 			-moz-opacity:1;
 			opacity:1;
