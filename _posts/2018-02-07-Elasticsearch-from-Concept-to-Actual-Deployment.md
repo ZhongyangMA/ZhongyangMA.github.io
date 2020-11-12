@@ -2,7 +2,7 @@
 layout: post
 title: "Elasticsearch: from Concepts to Actual Deployment"
 date: 2018-02-07 19:20:00
-categories: MIDDLEWARE
+categories: Middleware
 permalink: /archivers/Elasticsearch-from-Concept-to-Actual-Deployment
 highlight: true
 ---
